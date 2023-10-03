@@ -1,0 +1,122 @@
+/* Reset some default browser styling */
+
+/* Box sizing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl,
+li,
+blockquote,
+figure,
+hr {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles (bullet points and numbering) */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default hyperlink styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove underline on links for navigation */
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove focus outline on elements */
+button,
+input,
+select,
+textarea,
+a {
+  outline: none;
+}
+
+/* Ensure text remains vertical and not vertically centered by default */
+button,
+input,
+optgroup,
+select,
+textarea {
+  vertical-align: baseline;
+}
+
+/* Set base font size and line height */
+body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Remove default styles for form elements */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Remove border on image links */
+img {
+  border: none;
+}
+
+/* Remove table border spacing and cell spacing */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Remove default styles for form elements */
+button,
+input,
+select,
+textarea {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Remove user-agent-specific styles */
+/* You may add more styles here based on your specific needs */
+
+/* Apply a consistent box-sizing to all elements */
+html {
+  box-sizing: border-box;
+}
+
+/* Make sure HTML and BODY fill the viewport */
+html, body {
+  height: 100%;
+}
+
+/* Add some basic styling to improve readability */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
