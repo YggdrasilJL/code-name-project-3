@@ -20,8 +20,7 @@
   },
   "homepage": "https://github.com/YggdrasilJL/code-name-project-3#readme",
   "devDependencies": {
-    "concurrently": "^8.2.1",
-    "tailwindcss": "^3.3.3"
+    "concurrently": "^8.2.1"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.1"
