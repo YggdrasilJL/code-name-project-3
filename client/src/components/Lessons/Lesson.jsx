@@ -1,7 +1,7 @@
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { abcdef } from '@uiw/codemirror-theme-abcdef';
-import lessons from '../lessons';
+import lessons from '../../lessons';
 
 const Lesson = () => {
   const { code } = lessons[0];

@@ -15,6 +15,13 @@ var chosenPet = function () {
 
 console.log(chosenPet());`,
   },
+  {
+    name: 'Lesson 2',
+    url: '/lesson2',
+    code: `var constellations = ["Orion", "Scorpius", "Lyra", "Ursa Major", "Ursa Minor"];
+var planets = ["Earth", "Saturn", "Mars", "Jupiter", "Uranus", "Venus"];
+var star = "polaris";`,
+  },
 ];
 
 export default lessons;
