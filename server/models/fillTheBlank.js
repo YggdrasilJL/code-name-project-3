@@ -1,18 +1,24 @@
 const {Schema, model} = require("mongoose")
 
 const fillTheBlankSchema = new Schema({
-  problem: {
-    question: {
-      type: String,
-      required: true,
+  problems: [
+    {
+      question: {
+        type: String,
+        required: true,
+      },
+      givenAnswer: {
+        type: String,
+        required: false,
+      },
+      correctAnswer: {
+        Type: String,
+        required: true,
+      },
     },
-    givenAnswer: {
-      type: String,
-      required: false,
-    },
-  },
+  ],
 })
 
-const fillTheBlank = model("fillTheBlank", fillTheBlankSchema)
+const FillTheBlank = model("fillTheBlank", fillTheBlankSchema)
 
-module.exports = fillTheBlank
+module.exports = FillTheBlank

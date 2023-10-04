@@ -1,17 +1,20 @@
 const db = require("../config/connection")
-const cleanDB = require("./cleanDB")
-const {User, Challenge} = require("../models")
+const seedDB = require("./seedDB")
+const {User, FillTheBlank, MultChoice} = require("../models")
 
 const userData = require("./userData.json")
-const htmlChallengeData = require("./htmlChallengeData.json")
-const cssChallengeData = require("./cssChallengeData.json")
-const jsChallengeData = require("./jsChallengeData.json")
+const fillTheBlankData = require("./fillTheBlankData.json")
+const multChoiceData = require("./multChoiceData.json")
 
 db.once("open", async () => {
-  await cleanDB("Tech", "teches")
+  await seedDB("User", "users")
+  await seedDB("FillTheBlank", "fillTheBlanks")
+  await seedDB("MultChoice", "multChoices")
 
-  await Tech.insertMany(techData)
+  await User.insertMany(userData)
+  await FillTheBlank.insertMany(fillTheBlankData)
+  await MultChoice.insertMany(multChoiceData)
 
-  console.log("Technologies seeded!")
+  console.log("problems seeded!")
   process.exit(0)
 })
