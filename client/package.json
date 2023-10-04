@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.1",
+    "@uiw/codemirror-theme-abcdef": "^4.21.19",
+    "@uiw/react-codemirror": "^4.21.19",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
     "react": "^18.2.0",
