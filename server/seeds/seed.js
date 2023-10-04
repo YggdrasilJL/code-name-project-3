@@ -1,6 +1,6 @@
 const db = require("../config/connection")
 const cleanDB = require("./cleanDB")
-const {User, HTMLChallenge} = require("../models")
+const {User, Challenge} = require("../models")
 
 const userData = require("./userData.json")
 const htmlChallengeData = require("./htmlChallengeData.json")
