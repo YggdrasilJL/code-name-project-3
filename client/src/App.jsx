@@ -5,7 +5,8 @@ import Home from './components/Home';
 import Lesson1 from './components/Lessons/Lesson';
 import Lesson2 from './components/Lessons/Lesson2';
 import Register from './components/Register';
-
+import Login from './components/Login';
+import Logout from './compnents/Logout';
 const App = () => {
   return <Lesson2 />;
 };
