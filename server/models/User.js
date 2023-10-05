@@ -1,32 +1,92 @@
-const {Schema, model} = require("mongoose")
+const { Schema, model } = require('mongoose');
+const bcrypt = require('bcryptjs');
 
-const userSchema = new Schema({
-  users: [
+const userSchema = new Schema(
     {
-      username: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-      },
-      email: {
-        type: String,
-        required: true,
-        unique: true,
-      },
-      password: {
-        type: String,
-        required: true,
-        minlength: 5,
-      },
-      avatar: [avatar],
-      xp: [xp],
-      achievements: [achievements],
+       username: {
+           type: String,
+           required: true,
+           unique: true,
+       },
+       email: {
+           type: String,
+           required: true,
+           unique: true,
+           match: [/.+@.+\..+/, 'Must use a valid email address'],
+       },
+       password: {
+           type: String,
+           required: true,
+           minlength: 5,
+       },
+           avatar: [avatar],
+           xp: [xp],
+           achievements: [achievements],
+        },
     },
-  ],
-})
-//Needs a lot more to be added here.
+    {
+        toJSON: {
+            virtuals: true,
+        },
+    }
+)
 
-const User = model("User", userSchema)
+userSchema.pre('save', async function (next) {
+    if (this.isNew || this.isModified('password')) {
+        const saltRounds = 10;
+        this.password = await bcrypt.hash(this.password, saltRounds);
+    }
 
-module.exports = User
+    next();
+});
+
+userSchema.methods.isCorrectPassword = async function (password) {
+    return bcrypt.compare(password, this.password);
+};
+
+const User = model('User', userSchema);
+
+module.exports = User;
+
+
+/*
+userSchema
+    username
+    email
+    password
+    avatar?
+    xp?
+    achievements
+
+// hash the password??
+
+achievementSchema
+    name
+    image?
+/
+
+unitSchema
+    name
+    [Lessons]
+
+lessonSchema
+    name
+    
+    [Questions]
+
+questionsSchema
+    name
+    type
+    question
+    [Answers]
+
+answersSchema
+    correct_answer
+    answers
+    // encrypt correct answer?
+
+authSchema
+    token
+    user
+
+*/

@@ -1,43 +1,93 @@
-const { Profile } = require('../models');
+const { User } = require('../models');
+const { userAnswerFile } = require('../utils/fsUtils')
+const answerTester = require('../utils/answerTester')
+
 
 const resolvers = {
   Query: {
-    profiles: async () => {
-      return Profile.find();
-    },
-
-    profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
-    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    }
   },
-
   Mutation: {
-    addProfile: async (parent, { name }) => {
-      return Profile.create({ name });
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('No user with this email found!')
+      };
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect password!');
+      }
+
+      const token = signToken(user);
+      return { token, user };
     },
-    addSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        {
-          $addToSet: { skills: skill },
-        },
-        {
-          new: true,
-          runValidators: true,
+    addUser: async (parent, { userData }) => {
+      const { username, email, password } = userData;
+      const user = await User.create({
+        username: username,
+        email: email,
+        password: password
+      });
+
+      if (!user) {
+        return res.status(400).json({ message: 'Something is wrong!' });
+      };
+      const token = signToken(user)
+      return { token, user }
+    },
+    // lesson routes?
+    lessonValidate: async (parent, { lessonData }) => {
+      /*
+        using userID and lessonID for filename,
+        data should be the string output of the lesson/codeMirror
+        will probably also need a token
+
+        lessonData = {
+          userID: User._id,
+          lessonID: lesson._id,
+          lessonAnswerData: `
+          // make the console output 'Fluffy'
+
+            var shelter = {
+              dogs: ["Mackie", "Bernice", "Cookie Monster", "Spot"],
+              cats: ["Astrid", "Lulu", "Fluffy", "Mouser"]
+            };
+
+            var chosenPet = function () {
+              // code here
+            };
+
+            console.log(chosenPet());`
         }
-      );
-    },
-    removeProfile: async (parent, { profileId }) => {
-      return Profile.findOneAndDelete({ _id: profileId });
-    },
-    removeSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        { $pull: { skills: skill } },
-        { new: true }
-      );
-    },
+      */
+
+      const { userID, lessonID, lessonAnswerData } = lessonData
+      const path = await userAnswerFile(userID, lessonID, lessonAnswerData)
+
+      answerTester(path, (err) => {
+        if (err) {
+          return new GraphQLError(err, {
+            extensions: {
+              code: 'VALIDATION_FAILED'
+            }
+          });
+        } else {
+          return 200
+        }
+
+      })
+    }
+
   },
-};
+}
+
 
 module.exports = resolvers;
