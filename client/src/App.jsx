@@ -7,7 +7,7 @@ import Lesson2 from './components/Lessons/Lesson2';
 import Register from './components/Register';
 
 const App = () => {
-  return <Lesson2 />;
+  return <Lesson1 />;
 };
 
 export default App;

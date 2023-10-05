@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.4",
     "@codemirror/lang-javascript": "^6.2.1",
     "@uiw/codemirror-theme-abcdef": "^4.21.19",
     "@uiw/react-codemirror": "^4.21.19",
     "autoprefixer": "^10.4.16",
+    "graphql": "^16.8.1",
     "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
