@@ -1,18 +1,4 @@
-<<<<<<< HEAD
 import React from "react"
-import {useAuth0} from "@auth0/auth0-react"
-
-const LoginButton = () => {
-  const {loginWithRedirect} = useAuth0()
-
-  return <button onClick={() => loginWithRedirect()}>Log In</button>
-}
-
-export default LoginButton
-=======
-
-import React from 'react';
-
 function Login() {
   return (
     // Outer container 
@@ -61,7 +47,6 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 
-export default Login;
->>>>>>> 0e7ab8d60cea5755d63d9a703c92ec2828f9ba15
+export default Login

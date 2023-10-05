@@ -1,6 +1,6 @@
 // place holder for react icons , 
 import React from 'react';
-import { FaHome, FaUser, FaBook, FaSignOutAlt } from 'react-icons/fa';
+const { FaHome, FaUser, FaBook, FaSignOutAlt } = require('react-icons/fa');
 
 
 // basic template , styling after 

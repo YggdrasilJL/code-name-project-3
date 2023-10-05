@@ -19,10 +19,9 @@ const userSchema = new Schema(
            required: true,
            minlength: 5,
        },
-           avatar: [avatar],
-           xp: [xp],
-           achievements: [achievements],
-        },
+           //avatar: [avatar],
+           //xp: [xp],
+           //achievements: [achievements],
     },
     {
         toJSON: {
