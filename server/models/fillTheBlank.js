@@ -1,22 +1,19 @@
-const {Schema, model} = require("mongoose")
+const mongoose = require('mongoose')
+const { Schema, model } = mongoose
+require('mongoose-regexp')(mongoose);
+
+const answerSchema = require ('./answerSchema')
 
 const fillTheBlankSchema = new Schema({
-  problems: [
-    {
-      question: {
-        type: String,
-        required: true,
-      },
-      givenAnswer: {
-        type: String,
-        required: false,
-      },
-      correctAnswer: {
-        Type: String,
-        required: true,
-      },
-    },
-  ],
+  question: {
+    type: String,
+
+  },
+  answer: [answerSchema],
+  correctAnswer: {
+    Type: RegExp,
+
+  },
 })
 
 const FillTheBlank = model("fillTheBlank", fillTheBlankSchema)

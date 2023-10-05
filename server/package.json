@@ -17,8 +17,10 @@
     "graphql": "^15.5.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.2"
+    
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "mongoose-regexp": "^0.0.1"
   }
 }
