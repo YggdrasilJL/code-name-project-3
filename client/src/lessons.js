@@ -1,7 +1,6 @@
 const lessons = [
   {
     name: 'Lesson 1',
-    url: '/lesson1',
     code: `// make the console output 'Fluffy'
 
 var shelter = {
@@ -17,7 +16,6 @@ console.log(chosenPet());`,
   },
   {
     name: 'Lesson 2',
-    url: '/lesson2',
     code: `var constellations = ["Orion", "Scorpius", "Lyra", "Ursa Major", "Ursa Minor"];
 var planets = ["Earth", "Saturn", "Mars", "Jupiter", "Uranus", "Venus"];
 var star = "polaris";`,
