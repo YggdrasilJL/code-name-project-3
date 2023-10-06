@@ -9,12 +9,13 @@ import LoginButton from "./components/LoginButton";
 import Login from "./components/Login";
 import LogoutButton from "./components/LogoutButton";
 import Profile from "./components/Profile";
+import UserMessages from "./components/UserMessages";
 
 const App = () => {
   return (
     <main>
       <Profile/>
-      
+      <Dashboard/>
     </main>
   )
 };
