@@ -5,9 +5,17 @@ import Home from './components/Home';
 import Lesson1 from './components/Lessons/Lesson';
 import Lesson2 from './components/Lessons/Lesson2';
 import Register from './components/Register';
+import LoginButton from "./components/LoginButton";
+import LogoutButton from "./components/LogoutButton";
 
 const App = () => {
-  return <Lesson1 />;
+  return (
+    <main>
+      <h1>Auth0 Login</h1>
+      <LoginButton/>
+      <LogoutButton/>
+    </main>
+  )
 };
 
 export default App;
