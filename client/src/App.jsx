@@ -6,16 +6,15 @@ import Lesson1 from './components/Lessons/Lesson';
 import Lesson2 from './components/Lessons/Lesson2';
 import Register from './components/Register';
 import LoginButton from "./components/LoginButton";
+import Login from "./components/Login";
 import LogoutButton from "./components/LogoutButton";
-import Profile from './components/Profile'
+import Profile from "./components/Profile";
 
 const App = () => {
   return (
     <main>
-      <h1>Auth0 Login</h1>
-      <LoginButton/>
-      <LogoutButton/>
       <Profile/>
+      
     </main>
   )
 };
