@@ -7,9 +7,11 @@ import Lesson1 from './components/Lessons/Lesson1';
 import Lessons from './components/Lessons/Lessons';
 import Lesson2 from './components/Lessons/Lesson2';
 import Register from './components/Register';
+import LoginButton from "./components/LoginButton";
+import LogoutButton from "./components/LogoutButton";
+import Profile from "./components/Profile";
+import UserMessages from "./components/UserMessages";
 import Login from './components/Login';
-import LoginButton from './components/LoginButton';
-import LogoutButton from './components/LogoutButton';
 import Profile from './components/Profile';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -54,6 +56,8 @@ const routes = createBrowserRouter([
 const App = () => {
   return (
     <main>
+      <Profile/>
+      <Dashboard/>
       <RouterProvider router={routes} fallbackElement={<Home />} />
     </main>
   );
