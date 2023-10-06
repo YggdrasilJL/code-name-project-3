@@ -23,6 +23,5 @@
     "concurrently": "^8.2.1"
   },
   "dependencies": {
-    "@auth0/auth0-react": "^2.2.1"
   }
 }
