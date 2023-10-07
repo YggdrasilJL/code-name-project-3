@@ -2,6 +2,9 @@
     {
         "lessonType": "test",
         "question": "test",
-        "correctAnswer": "/test/"
+        "correctAnswer": "test"
+    },
+    {
+        
     }
 ]

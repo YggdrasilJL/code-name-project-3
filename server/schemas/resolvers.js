@@ -45,18 +45,18 @@ const resolvers = {
     },
     // lesson routes?
     lessonValidate: async (_, { answerData }) => {
-      let { userID, lessonID, body, isValidated } = answerData;
+      let { userID, lessonID, body } = answerData;
       //const user = await User.findOne({ _id: userID })
       const lesson = await Lesson.findOne({ _id: lessonID })
-      const validator = new RegExp(lesson.correctAnswer)
+      const validator = new RegExp('test*') //lesson.correctAnswer
       isValidated = validator.test(body)
-      console.log(isValidated)
+
 
       /*if (isValidated) {
         user.xp += lesson.xpValue
       }*/
 
-      return answerData
+      return { isValidated }
     },
   },
 }
