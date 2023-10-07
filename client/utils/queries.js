@@ -14,3 +14,17 @@ export const GET_ME = gql`
         }
     }
 `;
+
+export const GET_LESSON = gql`
+    query lesson($id: ID!) {
+        lesson(id: $id) {
+            _id
+            lessonType
+            question
+            correctAnswer
+            answers {
+                body
+            }
+        }
+    }
+`

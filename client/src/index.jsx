@@ -5,19 +5,19 @@ import './index.css';
 import { Auth0Provider } from '@auth0/auth0-react'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
-import auth from './Auth';
+//import auth from '..//utils/auth.js';
 
 const client = new ApolloClient({
-  uri: "http://localhost:3000/graphql",
+  uri: "http://localhost:3001/graphql",
   cache: new InMemoryCache(),
-  request: operation => {
-    operation.setContext(context => ({
-      headers: {
-        ...context.headers,
-        authorization: auth.getIdToken(),
-      },
-    }));
-  },
+  //request: operation => {
+    //operation.setContext(context => ({
+      //headers: {
+       // ...context.headers,
+        //authorization: auth.getIdToken(),
+      //},
+    //}));
+  //},
 });
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
@@ -30,11 +30,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       clientId={clientID}
       authorizationParams={{
         redirect_uri: window.location.origin,
-        audience: "https://dev-2kax28qvyzlsa7s0.us.auth0.com/api/v2/",
-        scope: "read:current_user update:current_user_metadata"
+        //audience: "https://dev-2kax28qvyzlsa7s0.us.auth0.com/api/v2/",
+        //scope: "read:current_user update:current_user_metadata"
       }}
     >
-      <ApolloProvider>
+      <ApolloProvider client={client}>
         <App />
       </ApolloProvider>
 

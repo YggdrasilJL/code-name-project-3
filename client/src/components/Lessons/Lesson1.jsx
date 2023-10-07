@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { LESSON_VALIDATE } from '../../../utils/mutations';
+import { GET_LESSON } from '../../../utils/queries';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { abcdef } from '@uiw/codemirror-theme-abcdef';
@@ -9,44 +10,52 @@ import lessons from '../../lessons';
 const Lesson1 = () => {
   const { code } = lessons[0];
 
-  const [getCode, setCode] = useState(code);
+  const [getAnswer, setAnswer] = useState('');
   const [getIsCorrect, setIsCorrect] = useState(false);
 
-  const [validateAnswer, { data, loading, error }] =
+  const [validateAnswer, { error }] =
     useMutation(LESSON_VALIDATE);
 
+    
+  const { loading, data } = useQuery(GET_LESSON, {
+    variables: { id: '6520e3c402879e129ac56253'}
+  });
+
+  const lesson = data?.lesson
+  //console.log(lesson)
+
   const submitHandler = async () => {
+    const answer = getAnswer
     let answerData = {
-      userID: 'bSFbFSnSRn4y35u357uu',
-      lessonID: '346o24ythik24jybi',
-      lessonAnswerData: getCode,
+      userID: '6520e3c302879e129ac5624d',
+      // in the future supplied via context???
+      lessonID: '6520e3c402879e129ac56253',
+      body: 'test',
     };
+
+    console.log(answerData)
     try {
-      await validateAnswer(answerData);
-    } catch {
+      const data = await validateAnswer({
+        variables: { answerData }
+      });
+      if (data.isValidated) {
+        setIsCorrect(true);
+      } else {
+        setIsCorrect(false);
+      }
+  
+      return isCorrect ? <p>You are correct!</p> : <p>You are incorrect!</p>;
+    } catch (err) {
       console.log(err);
     }
-
-    if (data.statusCode == 200) {
-      setIsCorrect(true);
-    } else {
-      setIsCorrect(false);
-    }
-
-    return isCorrect ? <p>You are correct!</p> : <p>You are incorrect!</p>;
   };
 
   const isCorrect = getIsCorrect;
 
-  return (
+  if (!loading) {return (
     <div>
-      <CodeMirror
-        value={getCode}
-        height="500px"
-        theme={abcdef}
-        extensions={[javascript({ jsx: true })]}
-        onChange={(value) => setCode(value)}
-      />
+      <h1>{lesson.question}</h1>
+      <textarea onChange={setAnswer} defaultValue={'Enter here'}></textarea>
       <button
         className=" bg-slate-500 border-4 p-2 border-red-950 text-white"
         onClick={submitHandler}
@@ -54,7 +63,9 @@ const Lesson1 = () => {
         submit
       </button>
     </div>
-  );
+  )} else {
+    return <h1>LOADING...</h1>
+  }
 };
 
 export default Lesson1;

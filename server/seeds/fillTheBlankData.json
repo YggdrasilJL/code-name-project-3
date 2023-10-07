@@ -1,8 +1,0 @@
-{
-  "problems": [
-    {
-      "question": "Make the console output 'Fluffy'",
-      "givenAnswer": "var shelter = {\ndogs: ['Mackie', 'Bernice', 'Cookie Monster', 'Spot'],\n cats: ['Astrid', 'Lulu', 'Fluffy', 'Mouser']};\nvar chosenPet = function () {\n// code here};\nconsole.log(chosenPet());`"
-    }
-  ]
-}
