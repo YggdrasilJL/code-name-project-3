@@ -1,4 +1,4 @@
-import auth0 from 'auth0-js';
+/*import auth0 from 'auth0-js';
 
 class Auth {
     constructor() {
@@ -87,4 +87,4 @@ class Auth {
 
 const auth = new Auth();
 
-export default auth;
+export default auth;*/

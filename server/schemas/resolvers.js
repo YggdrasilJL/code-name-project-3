@@ -1,7 +1,4 @@
-const { User } = require('../models');
-const { userAnswerFile } = require('../utils/fsUtils')
-const answerTester = require('../utils/answerTester')
-
+const { User, Lesson } = require('../models');
 
 const resolvers = {
   Query: {
@@ -10,6 +7,9 @@ const resolvers = {
         return User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    lesson: async (_, args, ) => {
+      return Lesson.findOne({ _id: args.id });
     }
   },
   Mutation: {
@@ -44,48 +44,20 @@ const resolvers = {
       return { token, user }
     },
     // lesson routes?
-    lessonValidate: async (parent, { lessonData }) => {
-      /*
-        using userID and lessonID for filename,
-        data should be the string output of the lesson/codeMirror
-        will probably also need a token
+    lessonValidate: async (_, { answerData }) => {
+      let { userID, lessonID, body, isValidated } = answerData;
+      //const user = await User.findOne({ _id: userID })
+      const lesson = await Lesson.findOne({ _id: lessonID })
+      const validator = new RegExp(lesson.correctAnswer)
+      isValidated = validator.test(body)
+      console.log(isValidated)
 
-        lessonData = {
-          userID: User._id,
-          lessonID: lesson._id,
-          lessonAnswerData: `
-          // make the console output 'Fluffy'
+      /*if (isValidated) {
+        user.xp += lesson.xpValue
+      }*/
 
-            var shelter = {
-              dogs: ["Mackie", "Bernice", "Cookie Monster", "Spot"],
-              cats: ["Astrid", "Lulu", "Fluffy", "Mouser"]
-            };
-
-            var chosenPet = function () {
-              // code here
-            };
-
-            console.log(chosenPet());`
-        }
-      */
-
-      const { userID, lessonID, lessonAnswerData } = lessonData
-      const path = await userAnswerFile(userID, lessonID, lessonAnswerData)
-
-      answerTester(path, (err) => {
-        if (err) {
-          return new GraphQLError(err, {
-            extensions: {
-              code: 'VALIDATION_FAILED'
-            }
-          });
-        } else {
-          return 200
-        }
-
-      })
-    }
-
+      return answerData
+    },
   },
 }
 

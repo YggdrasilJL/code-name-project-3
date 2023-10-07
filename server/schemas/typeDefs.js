@@ -12,12 +12,31 @@ const typeDefs = gql`
     user: User
   }
 
-  type Res {
-    statusCode: Int!
+  type Lesson {
+    _id: ID!
+    lessonType: String!
+    question: String!
+    answers: [Answer]
+    correctAnswer: String!
+  }
+
+  type Answer {
+    answerID: ID!
+    userID: String
+    lessonID: String!
+    body: String
+    isValidated: Boolean!
+  }
+
+  input answerInput {
+    userID: String
+    lessonID: String!
+    body: String
   }
 
   type Query {
     me: User
+    lesson(id: ID!): Lesson
   }
 
   input userInput {
@@ -35,7 +54,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(userData: userInput!): Auth
-    lessonValidate(lessonData: lessonInput!): Res
+    lessonValidate(answerData: answerInput!): Answer
   }
 
 `;

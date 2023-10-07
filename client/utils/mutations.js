@@ -31,11 +31,9 @@ export const ADD_USER = gql`
 `;
 
 export const LESSON_VALIDATE = gql`
-    mutation lessonValidate($lessonData: lessonInput!) {
-        lessonValidate(lessonData: $lessonData) {
-            Res {
-                statusCode
-            }
+    mutation lessonValidate($answerData: answerInput!) {
+        lessonValidate(answerData: $answerData) {
+            isValidated     
         }
     }
 `

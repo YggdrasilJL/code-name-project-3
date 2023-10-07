@@ -1,7 +1,7 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
-const { authMiddleware } = require('./utils/authMiddleware')
+//const { verifyToken } = require('./utils/authMiddleware')
 
 require('dotenv').config()
 
@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: authMiddleware
+    //context: verifyToken
 });
 
 app.use(express.urlencoded({ extended: true }));
