@@ -1,13 +1,21 @@
-// place holder for react icons , 
+// place holder for react icons ,
 import React from 'react';
 import { FaHome, FaUser, FaBook, FaSignOutAlt } from 'react-icons/fa';
 
-
-// basic template , styling after 
+// basic template , styling after
 const Header = () => {
   return (
-    <header className="bg-black text-white p-4">
-      <nav>
+    <header className="flex justify-between text-white p-4">
+      <a href="/" className="w-auto">
+        <img
+          href="/"
+          src="../../public/images/cyberpic.png"
+          alt="Cyber Script"
+          width={350}
+          className="object-contain"
+        />
+      </a>
+      <nav className="mr-4 py-3 px-12 bg-opacityBlack border-2 border-cyber-yellow rounded-tl-3xl rounded-br-3xl">
         <ul className="flex space-x-4">
           <li>
             <a href="/" className="flex items-center text-white">

@@ -9,8 +9,8 @@ import Lesson2 from './components/Lessons/Lesson2';
 import Register from './components/Register';
 //import LoginButton from "./components/LoginButton";
 //import LogoutButton from "./components/LogoutButton";
-import Profile from "./components/Profile";
-import UserMessages from "./components/UserMessages";
+import Profile from './components/Profile';
+import UserMessages from './components/UserMessages';
 import Login from './components/Login';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -24,12 +24,8 @@ const routes = createBrowserRouter([
     element: <Lessons />,
     children: [
       {
-        path: 'lesson1',
+        path: ':id',
         element: <Lesson1 />,
-      },
-      {
-        path: 'lesson2',
-        element: <Lesson2 />,
       },
     ],
   },
@@ -49,7 +45,18 @@ const routes = createBrowserRouter([
     path: '/login',
     element: <Login />,
   },
-  {},
+  {
+    path: '/messages',
+    element: <UserMessages />,
+  },
+  {
+    path: '/logout',
+    element: <Login />,
+  },
+  {
+    path: '*',
+    element: <Home />,
+  },
 ]);
 
 const App = () => {
