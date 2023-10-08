@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import UserMessages from "./UserMessages"; 
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile = () => {
+  const{ user, isAuthenticated, isLoading } = useAuth0();
   //  mock user data 
   const mockUser = {
     name: "John Doe",
