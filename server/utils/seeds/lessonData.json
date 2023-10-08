@@ -1,10 +1,7 @@
 [
     {
-        "lessonType": "test",
-        "question": "test",
-        "correctAnswer": "test"
-    },
-    {
-        
+        "name": "testLesson",
+        "iconUrl": "test",
+        "unit":"test"
     }
 ]

@@ -1,23 +1,19 @@
-const mongoose = require('mongoose')
-const { Schema, model } = mongoose
-require('mongoose-regexp')(mongoose);
-
-const answerSchema = require ('./answerSchema')
+const { Schema, model } = require('mongoose');
 
 const lessonSchema = new Schema({
-  lessonType: {
+  name: {
+    type: String,
+    required: true,
+  },
+  iconUrl: {
     type: String,
     required:true,
   },
-  question: {
+  problems: [{ type: Schema.ObjectId, ref: 'problem' }],
+  unit: {
     type: String,
-    required: true
-  },
-  answers: [answerSchema],
-  correctAnswer: {
-    type: String,
-    required: true
-  },
+    required: true,
+  }
 })
 
 const Lesson = model("lesson", lessonSchema)

@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header'; 
-import Footer from './Footer'; 
+import Header from './Header';
+import Footer from './Footer';
 
 // note - place holders / trying to get a visual / not final 
 const Dashboard = () => {
@@ -24,7 +24,14 @@ const Dashboard = () => {
         {/* Course selection section */}
         <section className="mb-4">
           <h2 className="text-xl font-bold mb-2">Select a Course</h2>
-          
+          {/* Collection of units with some number of lesson icons */}
+          {/* Lesson icon is an href for the lessonID */}
+          {/* 
+              /lessons/:lessonID => pull problems => use random problem? => validateAnswer,
+              useState for correct answers? => show next problem => once all problems done,
+              show final score 
+          */}
+          {/* props = {problemID, question, answers} */}
           {/* Subsection for HTML */}
           <div className="mb-2">
             <h3 className="text-lg font-semibold">HTML</h3>

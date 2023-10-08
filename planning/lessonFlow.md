@@ -5,7 +5,7 @@
     => get lesson id from lesson icon data
     ==> send user to /lessons/${lessonID}
     ===> req lesson data from server with lessonID
-    lesson.lessonType
+    lesson.problems
     different lesson templates returned based on lesson.lessonType??
 ## loading screen
     receive lesson data and populate
