@@ -1,15 +1,20 @@
-import { defineConfig, loadEnv } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import dotenv from 'dotenv';
 
-// https://vitejs.dev/config/
+// Load environment variables from .env file
+dotenv.config();
+
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '');
   return {
     define: {
-      'process.env.REACT_APP_AUTH0_DOMAIN': JSON.stringify(env.REACT_APP_AUTH0_DOMAIN),
-      'process.env.REACT_APP_AUTH0_CLIENT_ID': JSON.stringify(env.REACT_APP_AUTH0_CLIENT_ID)
+      'process.env.REACT_APP_AUTH0_DOMAIN': JSON.stringify(
+        process.env.REACT_APP_AUTH0_DOMAIN
+      ),
+      'process.env.REACT_APP_AUTH0_CLIENT_ID': JSON.stringify(
+        process.env.REACT_APP_AUTH0_CLIENT_ID
+      ),
     },
     plugins: [react()],
-  }
-  
-})
+  };
+});
