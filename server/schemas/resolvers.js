@@ -1,15 +1,18 @@
-const { User, Lesson } = require('../models');
+const { User, Lesson, Problem } = require('../models');
 
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        return await User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
     },
     lesson: async (_, args, ) => {
-      return Lesson.findOne({ _id: args.id });
+      return await Lesson.findOne({ _id: args.id });
+    },
+    problem: async (_, args, ) => {
+      return await Problem.findOne({ _id: args.id });
     }
   },
   Mutation: {
@@ -44,19 +47,19 @@ const resolvers = {
       return { token, user }
     },
     // lesson routes?
-    lessonValidate: async (_, { answerData }) => {
-      let { userID, lessonID, body, isValidated } = answerData;
+    problemValidate: async (_, { answerData }) => {
+      let { userID, lessonID, body } = answerData;
       //const user = await User.findOne({ _id: userID })
       const lesson = await Lesson.findOne({ _id: lessonID })
-      const validator = new RegExp(lesson.correctAnswer)
+      const validator = new RegExp('test*') //lesson.correctAnswer
       isValidated = validator.test(body)
-      console.log(isValidated)
+
 
       /*if (isValidated) {
         user.xp += lesson.xpValue
       }*/
 
-      return answerData
+      return { isValidated }
     },
   },
 }

@@ -10,7 +10,7 @@ const answerSchema = new Schema({
         type: String
     },
     lessonID: {
-        type: String,
+        type: Schema.Types.ObjectId,
         required: true,
     },
     body: {

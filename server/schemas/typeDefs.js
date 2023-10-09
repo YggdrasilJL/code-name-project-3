@@ -1,6 +1,9 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+
+  # Object types
+
   type User {
     _id: ID
     username: String!
@@ -14,7 +17,17 @@ const typeDefs = gql`
 
   type Lesson {
     _id: ID!
-    lessonType: String!
+    name: String!
+    iconUrl: String!
+    problems: [Problem]!
+    unit: String!
+  }
+
+  type Problem {
+    _id: ID!
+    name: String!
+    lessonID: ID!
+    problemType: String!
     question: String!
     answers: [Answer]
     correctAnswer: String!
@@ -28,15 +41,12 @@ const typeDefs = gql`
     isValidated: Boolean!
   }
 
+ # Input types
+
   input answerInput {
     userID: String
     lessonID: String!
     body: String
-  }
-
-  type Query {
-    me: User
-    lesson(id: ID!): Lesson
   }
 
   input userInput {
@@ -51,10 +61,18 @@ const typeDefs = gql`
     lessonAnswerData: String!
   }
 
+  # Queries & Mutations
+
+  type Query {
+    me: User
+    lesson(id: ID!): Lesson
+    problem(id: ID!): Problem
+  }
+
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(userData: userInput!): Auth
-    lessonValidate(answerData: answerInput!): Answer
+    problemValidate(answerData: answerInput!): Answer
   }
 
 `;
