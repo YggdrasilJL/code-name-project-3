@@ -1,16 +1,14 @@
-const { Schema, model } = require("mongoose");
+const {Schema, model} = require("mongoose")
 
-const answerSchema = require ('./answerSchema')
+const answerSchema = require("./answerSchema")
 
 const multChoiceSchema = new Schema({
   question: {
     type: String,
-
   },
   answers: [answerSchema],
   correctAnswer: {
     Type: String,
-
   },
 })
 

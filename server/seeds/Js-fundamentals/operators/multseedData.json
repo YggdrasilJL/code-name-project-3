@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What does `++` do to a variable in JavaScript?",
+    "answer": [
+      {"_id": "a", "body": "Subtract 1"},
+      {"_id": "b", "body": "Add 1"},
+      {"_id": "c", "body": "Check equality"},
+      {"_id": "d", "body": "Double it"}
+    ],
+    "correctAnswer": "b"
+  },
+  {
+    "question": "After `x = 10` and `x--`, what is `x`'s value?",
+    "answer": [
+      {"_id": "a", "body": "10"},
+      {"_id": "b", "body": "11"},
+      {"_id": "c", "body": "9"},
+      {"_id": "d", "body": "0"}
+    ],
+    "correctAnswer": "c"
+  },
+  {
+    "question": "Which logical represents 'AND' in JavaScript?",
+    "answer": [
+      {"_id": "a", "body": "&"},
+      {"_id": "b", "body": "|"},
+      {"_id": "c", "body": "&&"},
+      {"_id": "d", "body": "=="}
+    ],
+    "correctAnswer": "c"
+  },
+  {
+    "question": "What does || stand for in `false || true`?",
+    "answer": [
+      {"_id": "a", "body": "or"},
+      {"_id": "b", "body": "and"},
+      {"_id": "c", "body": "increment"},
+      {"_id": "d", "body": "equal"}
+    ],
+    "correctAnswer": "a"
+  },
+  {
+    "question": "What is the result of '!true'",
+    "answer": [
+      {"_id": "a", "body": "true"},
+      {"_id": "b", "body": "false"},
+      {"_id": "c", "body": "'true'"},
+      {"_id": "d", "body": "'false'"}
+    ],
+    "correctAnswer": "b"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Which is NOT a JavaScript variable declaration?",
+    "answers": [
+      {"_id": "a", "text": "set"},
+      {"_id": "b", "text": "let"},
+      {"_id": "c", "text": "const"},
+      {"_id": "d", "text": "var"}
+    ],
+    "correctAnswer": "a"
+  },
+  {
+    "question": "Which keyword allows re-assigning, but not re-declaring in the same scope?",
+    "answers": [
+      {"_id": "a", "text": "var"},
+      {"_id": "b", "text": "let"},
+      {"_id": "c", "text": "const"},
+      {"_id": "d", "text": "Both a and b"}
+    ],
+    "correctAnswer": "b"
+  },
+  {
+    "question": "Which variable declaration is for unchangeable variables?",
+    "answers": [
+      {"_id": "a", "text": "var"},
+      {"_id": "b", "text": "let"},
+      {"_id": "c", "text": "const"},
+      {"_id": "d", "text": "mutable"}
+    ],
+    "correctAnswer": "c"
+  },
+  {
+    "question": "Which keyword allows variable hoisting?",
+    "answers": [
+      {"_id": "a", "text": "var"},
+      {"_id": "b", "text": "let"},
+      {"_id": "c", "text": "const"},
+      {"_id": "d", "text": "Both a and b"}
+    ],
+    "correctAnswer": "a"
+  },
+  {
+    "question": "Which variable declaration is preferred in modern JavaScript?",
+    "answers": [
+      {"_id": "a", "text": "var"},
+      {"_id": "b", "text": "let"},
+      {"_id": "c", "text": "const"},
+      {"_id": "d", "text": "const and let"}
+    ],
+    "correctAnswer": "d"
+  }
+]
