@@ -1,0 +1,53 @@
+[
+  {
+    "question": "Which data type represents both integers and decimals in JavaScript?",
+    "answers": [
+      {"_id": "a", "text": "String"},
+      {"_id": "b", "text": "Boolean"},
+      {"_id": "c", "text": "Number"},
+      {"_id": "d", "text": "Undefined"}
+    ],
+    "correctAnswer": "c"
+  },
+
+  {
+    "question": "Which data type represents text?",
+    "answers": [
+      {"_id": "a", "text": "Null"},
+      {"_id": "b", "text": "Number"},
+      {"_id": "c", "text": "String"},
+      {"_id": "d", "text": "Boolean"}
+    ],
+    "correctAnswer": "c"
+  },
+  {
+    "question": "Which data type has a value of true or false?",
+    "answers": [
+      {"_id": "a", "text": "Number"},
+      {"_id": "b", "text": "String"},
+      {"_id": "c", "text": "Boolean"},
+      {"_id": "d", "text": "Undefined"}
+    ],
+    "correctAnswer": "c"
+  },
+  {
+    "question": "What's the default value of an uninitialized variable?",
+    "answers": [
+      {"_id": "a", "text": "null"},
+      {"_id": "b", "text": "0"},
+      {"_id": "c", "text": "''"},
+      {"_id": "d", "text": "undefined"}
+    ],
+    "correctAnswer": "d"
+  },
+  {
+    "question": "Which data type implies 'no value'",
+    "answers": [
+      {"_id": "a", "text": "Boolean"},
+      {"_id": "b", "text": "Empty"},
+      {"_id": "c", "text": "None"},
+      {"_id": "d", "text": "Null"}
+    ],
+    "correctAnswer": "d"
+  }
+]
