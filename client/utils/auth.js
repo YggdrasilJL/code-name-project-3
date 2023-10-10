@@ -1,12 +1,14 @@
 import auth0 from 'auth0-js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 class Auth {
     constructor() {
         this.auth0 = new auth0.WebAuth({
-            domain: '<YOUR_AUTH0_DOMAIN>',
-            clientID: '<YOUR_AUTH0_CLIENT_ID>',
+            domain: process.env.REACT_APP_AUTH0_DOMAIN,
+            clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
             redirectUri: 'http://localhost:3000/callback',
-            audience: 'https://<YOUR_AUTH0_DOMAIN>/userinfo',
+            audience: `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo`,
             responseType: 'token id_token',
             scope: 'openid email'
         });

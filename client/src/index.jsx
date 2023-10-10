@@ -4,7 +4,9 @@ import App from "./App";
 import './index.css';
 import { Auth0Provider } from '@auth0/auth0-react'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-
+import path from 'path'
+import dotenv from 'dotenv';
+dotenv.config();
 //import auth from '..//utils/auth.js';
 
 const client = new ApolloClient({
