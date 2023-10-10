@@ -28,6 +28,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client//dist/index.html'));
 });
 
+app.get('*', function (req, res) {
+  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+});
+
 const startApolloServer = async (typeDefs, resolvers) => {
     await server.start();
     server.applyMiddleware({ app });
