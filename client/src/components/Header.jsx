@@ -9,7 +9,7 @@ const Header = () => {
       <a href="/" className="w-auto">
         <img
           href="/"
-          src="../../public/images/cyberpic.png"
+          src="../../images/cyberpic.png"
           alt="Cyber Script"
           width={350}
           className="object-contain"
