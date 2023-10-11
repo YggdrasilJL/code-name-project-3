@@ -18,7 +18,7 @@ const UserMessages = ({ messages, newMessage, handleNewMessageChange, handleSend
             placeholder="Type your message..."
             value={newMessage}
             onChange={handleNewMessageChange}
-            className="border border-gray-300 rounded-md p-2 w-full"
+            className="border-gray-300 rounded-md p-2 w-full"
           />
           {/* Submit */}
           <button
