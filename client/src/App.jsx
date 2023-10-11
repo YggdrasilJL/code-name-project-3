@@ -1,7 +1,7 @@
 // components
 import Dashboard from './components/Dashboard';
-//import Footer from './components/Footer';
-//import Header from './components/Header';
+import Footer from './components/Footer';
+import Header from './components/Header';
 import Home from './components/Home';
 import Lesson1 from './components/Lessons/Lesson1';
 import Lessons from './components/Lessons/Lessons';
@@ -61,8 +61,10 @@ const routes = createBrowserRouter([
 
 const App = () => {
   return (
-    <main>
+    <main className="bg-[url('./images/background.png')] bg-cover text-white font-zen">
+      <Header />
       <RouterProvider router={routes} fallbackElement={<Home />} />
+      <Footer />
     </main>
   );
 };

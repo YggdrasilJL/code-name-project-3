@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/YggdrasilJL/code-name-project-3#readme",
   "dependencies": {
+    "@vitejs/plugin-react": "^4.0.3",
     "concurrently": "^8.2.1",
     "dotenv": "^16.3.1",
-    "vite": "^4.4.5",
-    "@vitejs/plugin-react": "^4.0.3"
+    "vite": "^4.4.5"
   }
 }
