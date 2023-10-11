@@ -13,25 +13,25 @@ const Header = () => {
     {
       id: 1,
       icon: <FaHome className="mx-1" />,
-      text: 'Home',
+      text: 'HOME',
       link: '/',
     },
     {
       id: 2,
       icon: <FaUser className="mx-1" />,
-      text: 'Profile',
+      text: 'PROFILE',
       link: '/profile',
     },
     {
       id: 3,
       icon: <FaBook className="mx-1" />,
-      text: 'Lessons',
+      text: 'LESSONS',
       link: '/lessons',
     },
     {
       id: 4,
       icon: <FaSignOutAlt className="mx-1" />,
-      text: 'Logout',
+      text: 'LOG_OUT',
       link: '/logout',
     },
   ];
@@ -47,7 +47,7 @@ const Header = () => {
         <ul className="gap-x-5 text-lg text-white hidden md:flex mr-5 p-4 bg-opacityBlack border-2 border-cyber-yellow rounded-tl-3xl rounded-br-3xl">
           {navs.map(({ id, icon, text, link }) => (
             <a href={link} key={id}>
-              <li className="flex items-center justify-center cursor-pointer">
+              <li className="flex items-center justify-center cursor-pointer hover:text-cyber-pink duration-300">
                 {icon} {text}
               </li>
             </a>

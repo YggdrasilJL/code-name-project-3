@@ -8,7 +8,7 @@ const Profile = () => {
   const mockUser = {
     name: 'John Doe',
     email: 'john.doe@example.com',
-    picture: 'user-avatar.jpg', // path to the user's avatar image
+    picture: '../../images/mockpfp.png', // path to the user's avatar image
   };
 
   // Define mock bio and skills data
@@ -113,86 +113,81 @@ const Profile = () => {
   };
 
   return (
-    <div className=''>
+    <div>
       {/* Main content  */}
-      <main>
-        <section className="mb-4">
-          <h1 className="text-2xl font-bold mb-2">Profile</h1>
-          <div className=" p-4 ">
-            <h2 className="text-lg font-semibold mb-2">User Information</h2>
-            {/* User avatar */}
-            <img
-              src={mockUser.picture}
-              alt={mockUser.name}
-              className="w-20 h-20 rounded-full mb-2"
-            />
-            <h2 className="text-xl font-semibold mb-2">{mockUser.name}</h2>
-            <p>{mockUser.email}</p>
-          </div>
-        </section>
-
-        {/* Bio and Skills */}
-        <section className="mb-4">
-          <h2 className="text-lg font-semibold mb-2">Bio</h2>
-          <div className=" p-4 ">
-            <p>{mockBio}</p>
-          </div>
-          <h2 className="text-lg font-semibold mb-2 mt-4">Skills</h2>
-          <div className=" p-4 ">
-            {mockSkills.map((skill, index) => (
-              <span
-                key={index}
-                className="bg-blue-500 text-white px-2 py-1 rounded-md mr-2"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        {/* Badge section */}
-        <section className="mb-4">
-          <h2 className="text-lg font-semibold mb-2">Badges</h2>
-          <div className=" p-4 ">
-            {mockBadges.map((badge, index) => (
-              <div key={index} className="flex items-center mb-2">
+      <h2 className="text-center text-cyber-darkYellow mb-3">
+        STRING USER_INFO = SYSTEM.IO.FILE.READLINES("USER_DATA.TXT")
+      </h2>
+      <main className="flex flex-col items-center">
+        <div className="flex">
+          <div className="p-3 mb-4 bg-opacityBlack w-fit rounded-lg border border-cyber-blue">
+            <div className="flex flex-col items-center p-4">
+              <h2 className="text-lg font-semibold mb-2">USER_INFORMATION</h2>
+              {/* User avatar */}
+              <div className="w-60 border-2 border-cyber-pink rounded-2xl">
                 <img
-                  src={badge.icon}
-                  alt={badge.name}
-                  className="w-6 h-6 mr-2"
+                  src={mockUser.picture}
+                  alt={mockUser.name}
+                  className="rounded-2xl"
                 />
-                <span>{badge.name}</span>
               </div>
-            ))}
+              <h2 className="text-xl font-semibold mb-2">{mockUser.name}</h2>
+              <p>{mockUser.email}</p>
+            </div>
+            {/* Bio and Skills */}
+            <div className="p-3 mb-4 bg-opacityBlack w-fit rounded-lg border border-cyber-blue">
+              <h2 className="text-lg font-semibold mb-2">BIO_</h2>
+              <div className=" p-4 ">
+                <p>{mockBio}</p>
+              </div>
+              <h2 className="text-lg font-semibold mb-2 mt-4">SKILLS_</h2>
+              <div className=" p-4 ">
+                {mockSkills.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="bg-blue-500 text-white px-2 py-1 rounded-md mr-2"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
-        </section>
+          {/* Badge div */}
+          <div className="flex flex-col justify-end ml-5">
+            <div className="p-3 mb-4 bg-opacityBlack rounded-lg border border-cyber-blue">
+              <h2 className="text-lg font-semibold mb-2">BADGES_</h2>
+              <div className=" p-4 ">
+                {mockBadges.map((badge, index) => (
+                  <div key={index} className="flex items-center mb-2">
+                    <img
+                      src={badge.icon}
+                      alt={badge.name}
+                      className="w-6 h-6 mr-2"
+                    />
+                    <span>{badge.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-        {/* Progress section */}
-        <section className="mb-4">
-          <h2 className="text-lg font-semibold mb-2">Progress Tracking</h2>
-          <div className=" p-4 ">{/* Progress content */}</div>
-        </section>
+            {/* Progress div */}
+            <div className="p-3 mb-4 bg-opacityBlack rounded-lg border border-cyber-blue">
+              <h2 className="text-lg font-semibold mb-2">PROGRESS_TRACKING</h2>
+              <div className=" p-4 ">{/* Progress content */}</div>
+            </div>
 
-        {/* Achievement */}
-        <section className="mb-4">
-          <h2 className="text-lg font-semibold mb-2">Achievements</h2>
-          <div className=" p-4 ">{/* Achievement content */}</div>
-        </section>
+            {/* Achievement */}
+            <div className="p-3 mb-4 bg-opacityBlack rounded-lg border  border-cyber-blue">
+              <h2 className="text-lg font-semibold mb-2">ACHIEVEMENTS_</h2>
+              <div className=" p-4 ">{/* Achievement content */}</div>
+            </div>
+          </div>
+        </div>
 
-        {/* User messages  */}
-        <section className="mb-4">
-          <h2 className="text-lg font-semibold mb-2">User Messages</h2>
-          <UserMessages
-            messages={comments}
-            newMessage={newMessage}
-            handleNewMessageChange={handleNewMessageChange}
-            handleSendMessage={handleSendMessage}
-          />
-        </section>
-
-        {/* Mock Messages section (placeholder) */}
-        <section className="mb-4">
-          <h2 className="text-lg font-semibold mb-2">Mock Messages</h2>
+        {/* Mock Messages div (placeholder) */}
+        <div className="p-3 mb-4 bg-opacityBlack w-fit rounded-lg border  border-cyber-blue">
+          <h2 className="text-lg font-semibold mb-2">MOCK_MESSAGES</h2>
           <div className=" p-4 ">
             {mockMessages.map((message) => (
               <div key={message.id} className="mb-2">
@@ -202,7 +197,17 @@ const Profile = () => {
               </div>
             ))}
           </div>
-        </section>
+        </div>
+        {/* User messages  */}
+        <div className="p-3 mb-4 bg-opacityBlack w-fit rounded-lg border  border-cyber-blue">
+          <h2 className="text-lg font-semibold mb-2">USER_MESSAGES</h2>
+          <UserMessages
+            messages={comments}
+            newMessage={newMessage}
+            handleNewMessageChange={handleNewMessageChange}
+            handleSendMessage={handleSendMessage}
+          />
+        </div>
       </main>
     </div>
   );
