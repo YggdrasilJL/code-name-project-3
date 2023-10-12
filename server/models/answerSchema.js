@@ -9,7 +9,7 @@ const answerSchema = new Schema({
     userID: {
         type: String
     },
-    lessonID: {
+    problemID: {
         type: Schema.Types.ObjectId,
         required: true,
     },
@@ -21,6 +21,6 @@ const answerSchema = new Schema({
         required: true,
         default: false
     }
-})
+});
 
 module.exports = answerSchema
