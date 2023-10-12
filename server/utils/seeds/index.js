@@ -5,8 +5,9 @@ const { User, Lesson, Problem } = require("../../models")
 const userData = require("./userData.json")
 const lessonData = require("./lessonData.json")
 const problemData = require("./problemData.json")
+const answerData = require("./answerData.json")
 
-const { lessonNameMatch } = require("../seedNameMatch")
+const { lessonNameMatch, problemNameMatch } = require("../seedNameMatch")
 
 db.once("open", async () => {
   await seedDB("users");
@@ -31,13 +32,26 @@ db.once("open", async () => {
     let { lessonID, problemID } = problemLessonIDs[i]
     await Lesson.updateOne(
       { _id: lessonID },
-      { $push: { problems: problemID } }
+      { $addToSet: { problems: problemID } },
+      { new: true }
+    )
+  };
+
+  const answerSeeds = problemNameMatch(problemSeeds, answerData);
+
+  for (let i = 0; i < answerSeeds.length; i++) {
+    const { problemID, body } = answerSeeds[i];
+    const problem = await Problem.findOne({ _id: problemID })
+    await Problem.updateOne(
+      { _id: problemID },
+      { $addToSet: { answers: { body } } },
     )
   };
 
   console.table(userData);
   console.table(lessonData);
   console.table(problemSeeds);
+  console.table(answerSeeds);
   console.log("problems seeded!");
   process.exit(0);
 })

@@ -10,5 +10,14 @@ module.exports = {
                 correctAnswer: problemObj.correctAnswer
             }
         })
+    },
+    problemNameMatch: (problems, answers) => {
+        return answers.map(answerObj => {
+            const problem = problems.find(problem => problem.name === answerObj.problemName);
+            return {
+                problemID: problem._id.toString(),
+                body: answerObj.body
+            }
+        })
     }
 };
