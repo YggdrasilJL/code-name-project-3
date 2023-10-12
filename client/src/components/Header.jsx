@@ -13,8 +13,8 @@ const Header = () => {
     {
       id: 1,
       icon: <FaHome className="mx-1" />,
-      text: 'HOME',
-      link: '/',
+      text: 'DASHBOARD',
+      link: '/dashboard',
     },
     {
       id: 2,
