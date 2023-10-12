@@ -7,7 +7,7 @@
       {"_id": "c", "text": "const"},
       {"_id": "d", "text": "var"}
     ],
-    "correctAnswer": "a"
+    "correctAnswer": "set"
   },
   {
     "question": "Which keyword allows re-assigning, but not re-declaring in the same scope?",

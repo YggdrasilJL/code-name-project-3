@@ -1,9 +1,242 @@
 [
-    {   
-        "name": "testProblem",
-        "lessonName": "testLesson",
-        "problemType": "test",
-        "question": "test",
-        "correctAnswer": "test"
-    }
+  {
+    "name": "Variables.prob.1",
+    "lessonName": "Variables",
+    "problemType": "Fill in the blank",
+    "question": "To declare a block-scoped variable named 'price', you'd use: '______ price;'",
+    "answers": [],
+    "correctAnswer": "let"
+  },
+  {
+    "name": "Variables.prob.2",
+    "lessonName": "Variables",
+    "problemType": "Fill in the blank",
+    "question": "To declare an unchangeable variable named 'maxValue', you'd use: '______ maxValue = 100;'",
+    "answers": [],
+    "correctAnswer": "const"
+  },
+  {
+    "name": "Variables.prob.3",
+    "lessonName": "Variables",
+    "problemType": "Fill in the blank",
+    "question": "To declare a function-scoped variable named 'username' without assigning a value, you'd write: '______ username;'",
+    "answers": [],
+    "correctAnswer": "var"
+  },
+  {
+    "name": "Variables.prob.4",
+    "lessonName": "Variables",
+    "problemType": "Fill in the blank",
+    "question": "For a variable 'count', that will be reassigned in the future, you'd use '______ count = 0;'",
+    "answers": [],
+    "correctAnswer": "let"
+  },
+  {
+    "name": "Variables.prob.5",
+    "lessonName": "Variables",
+    "problemType": "Fill in the blank",
+    "question": "To create a variable `total` that shouldn't change and is set to 50, you'd write: '______ total = 50;'",
+    "answers": [],
+    "correctAnswer": "const"
+  },
+  {
+    "name": "Variables.prob.6",
+    "lessonName": "Variables",
+    "problemType": "Multiple Choice",
+    "question": "Which is NOT a JavaScript variable declaration?",
+    "answers": [],
+    "correctAnswer": "set"
+  },
+  {
+    "name": "Variables.prob.7",
+    "lessonName": "Variables",
+    "problemType": "Multiple Choice",
+    "question": "Which keyword allows re-assigning, but not re-declaring in the same scope?",
+    "answers": [],
+    "correctAnswer": "let"
+  },
+  {
+    "name": "Variables.prob.8",
+    "lessonName": "Variables",
+    "problemType": "Multiple Choice",
+    "question": "Which variable declaration is for unchangeable variables?",
+    "answers": [],
+    "correctAnswer": "const"
+  },
+  {
+    "name": "Variables.prob.9",
+    "lessonName": "Variables",
+    "problemType": "Multiple Choice",
+    "question": "Which keyword allows variable hoisting?",
+    "answers": [],
+    "correctAnswer": "var"
+  },
+  {
+    "name": "Variables.prob.10",
+    "lessonName": "Variables",
+    "problemType": "Multiple Choice",
+    "question": "Which variable declaration is preferred in modern JavaScript?",
+    "answers": [],
+    "correctAnswer": "const and let"
+  },
+  {
+    "name": "DataTypes.prob.1",
+    "lessonName": "DataTypes",
+    "problemType": "Fill in the blank",
+    "question": "Assign 10 times 2 to 'result': 'var result = _______;'",
+    "answers": [],
+    "correctAnswer": "10 * 2"
+  },
+  {
+    "name": "DataTypes.prob.2",
+    "lessonName": "DataTypes",
+    "problemType": "Fill in the blank",
+    "question": "A declared but uninitialized variable in JavaScript is _______.",
+    "answers": [],
+    "correctAnswer": "undefined"
+  },
+  {
+    "name": "DataTypes.prob.3",
+    "lessonName": "DataTypes",
+    "problemType": "Fill in the blank",
+    "question": "Add a string to this line of code: 'var greeting = '_______';",
+    "answers": [],
+    "correctAnswer": "Hello!"
+  },
+  {
+    "name": "DataTypes.prob.4",
+    "lessonName": "DataTypes",
+    "problemType": "Fill in the blank",
+    "question": "Declare 'name' with an empty string: 'var name = _______;'",
+    "answers": [],
+    "correctAnswer": "''"
+  },
+  {
+    "name": "DataTypes.prob.5",
+    "lessonName": "DataTypes",
+    "problemType": "Fill in the blank",
+    "question": "Make currentUser return null: 'var currentUser = _______;' console.log(currentUser)'",
+    "answers": [],
+    "correctAnswer": "Null"
+  },
+  {
+    "name": "DataTypes.prob.6",
+    "lessonName": "DataTypes",
+    "problemType": "Multiple Choice",
+    "question": "Which data type represents both integers and decimals in JavaScript?",
+    "answers": [],
+    "correctAnswer": "Number"
+  },
+  {
+    "name": "DataTypes.prob.7",
+    "lessonName": "DataTypes",
+    "problemType": "Multiple Choice",
+    "question": "Which data type represents text?",
+    "answers": [],
+    "correctAnswer": "String"
+  },
+  {
+    "name": "DataTypes.prob.9",
+    "lessonName": "DataTypes",
+    "problemType": "Multiple Choice",
+    "question": "Which data type has a value of true or false?",
+    "answers": [],
+    "correctAnswer": "Boolean"
+  },
+  {
+    "name": "DataTypes.prob.10",
+    "lessonName": "DataTypes",
+    "problemType": "Multiple Choice",
+    "question": "What's the default value of an uninitialized variable?",
+    "answers": [],
+    "correctAnswer": "undefined"
+  },
+  {
+    "name": "DataTypes.prob.10",
+    "lessonName": "DataTypes",
+    "problemType": "Multiple Choice",
+    "question": "Which data type implies 'no value'",
+    "answers": [],
+    "correctAnswer": "Null"
+  },
+  {
+    "name": "Operators.prob.1",
+    "lessonName": "Operators",
+    "problemType": "Fill in the blank",
+    "question": "To increase 'count' by 1, use the ______ operator.",
+    "answers": [],
+    "correctAnswer": "++"
+  },
+  {
+    "name": "Operators.prob.2",
+    "lessonName": "Operators",
+    "problemType": "Fill in the blank",
+    "question": "To decrease 'score' by 1, use the ______ operator.",
+    "answers": [],
+    "correctAnswer": "--"
+  },
+  {
+    "name": "Operators.prob.3",
+    "lessonName": "Operators",
+    "problemType": "Fill in the blank",
+    "question": "To check if both 'isTrue' and 'isCorrect' are true, use ______.",
+    "answers": [],
+    "correctAnswer": "&&"
+  },
+  {
+    "name": "Operators.prob.4",
+    "lessonName": "Operators",
+    "problemType": "Fill in the blank",
+    "question": "To verify if either 'isDay' or 'isNight' is true, use ______.",
+    "answers": [],
+    "correctAnswer": "||"
+  },
+  {
+    "name": "Operators.prob.5",
+    "lessonName": "Operators",
+    "problemType": "Fill in the blank",
+    "question": "To reverse the value of 'isActive', use the ______ operator.",
+    "answers": [],
+    "correctAnswer": "!"
+  },
+  {
+    "name": "Operators.prob.6",
+    "lessonName": "Operators",
+    "problemType": "Multiple Choice",
+    "question": "What does '++' do to a variable in JavaScript?",
+    "answers": [],
+    "correctAnswer": "Add 1"
+  },
+  {
+    "name": "Operators.prob.7",
+    "lessonName": "Operators",
+    "problemType": "Multiple Choice",
+    "question": "After 'x = 10' and 'x--', what is x's value?",
+    "answers": [],
+    "correctAnswer": "9"
+  },
+  {
+    "name": "Operators.prob.8",
+    "lessonName": "Operators",
+    "problemType": "Multiple Choice",
+    "question": "Which logical represents 'AND' in JavaScript?",
+    "answers": [],
+    "correctAnswer": "&&"
+  },
+  {
+    "name": "Operators.prob.9",
+    "lessonName": "Operators",
+    "problemType": "Multiple Choice",
+    "question": "What does || stand for in 'false || true'?",
+    "answers": [],
+    "correctAnswer": "or"
+  },
+  {
+    "name": "Operators.prob.10",
+    "lessonName": "Operators",
+    "problemType": "Multiple Choice",
+    "question": "What is the result of '!true'",
+    "answers": [],
+    "correctAnswer": "false"
+  }
 ]

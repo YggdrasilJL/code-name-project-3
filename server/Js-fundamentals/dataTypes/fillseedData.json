@@ -7,7 +7,7 @@
       {"_id": "c", "body": "10 / 2"},
       {"_id": "d", "body": "10 - 2"}
     ],
-    "correctAnswer": "c"
+    "correctAnswer": "b"
   },
   {
     "question": "A declared but uninitialized variable in JavaScript is _______.",
