@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './Header';
 import Footer from './Footer';
 
 const Dashboard = () => {
@@ -20,8 +19,6 @@ const Dashboard = () => {
 
   return (
     <div style={dashboardStyle}>
-      {/* Header */}
-      <Header />
 
       {/* Main */}
       <main className="bg-opacity-80 p-4">
@@ -59,9 +56,6 @@ const Dashboard = () => {
           {/* ... (lessons, exercises, etc.) */}
         </section>
       </main>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };
