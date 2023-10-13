@@ -13,6 +13,7 @@
     "@apollo/client": "^3.8.4",
     "@auth0/auth0-react": "^2.2.1",
     "@codemirror/lang-javascript": "^6.2.1",
+    "@material-tailwind/react": "^2.1.2",
     "@uiw/codemirror-theme-abcdef": "^4.21.19",
     "@uiw/react-codemirror": "^4.21.19",
     "auth0-js": "^9.23.0",

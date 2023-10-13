@@ -1,16 +1,9 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
-const { auth } = require('express-oauth2-jwt-bearer');
 //const { verifyToken } = require('./utils/authMiddleware')
 
 require('dotenv').config()
-
-const jwtCheck = auth({
-  audience: 'localhost:3001/graphql',
-  issuerBaseURL: 'https://dev-2kax28qvyzlsa7s0.us.auth0.com/',
-  tokenSigningAlg: 'RS256'
-});
 
 const { typeDefs, resolvers } = require('./schemas/')
 const db = require('./config/connection');
@@ -21,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: jwtCheck,
+  //context: jwtCheck,
 });
 
 app.use(express.urlencoded({ extended: true }));

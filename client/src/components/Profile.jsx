@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-//import { GET_ME, GET_LEADERBOARD } from '../utils/queries';
+import { GET_ME, /*GET_LEADERBOARD*/ } from '../utils/queries';
 import UserMessages from './UserMessages';
+import progressBar from './progressBar';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  //const { user, isAuthenticated, isLoading } = useAuth0();
+  const { loading, userData } = useQuery(GET_ME);
+  const user = userData?.me;
   //  mock user data
   const mockUser = {
     name: 'John Doe',
