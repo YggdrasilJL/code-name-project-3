@@ -17,6 +17,7 @@
     "@uiw/react-codemirror": "^4.21.19",
     "auth0-js": "^9.23.0",
     "autoprefixer": "^10.4.16",
+    "esbuild": "^0.19.4",
     "graphql": "^16.8.1",
     "postcss": "^8.4.31",
     "react": "^18.2.0",

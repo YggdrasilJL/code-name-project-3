@@ -2,12 +2,15 @@ const { User, Lesson, Problem } = require('../models');
 
 const resolvers = {
   Query: {
-    me: async (parent, args, context) => {
+    me: async (_, __, context) => {
       if (context.user) {
         return await User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    // leaderboard: async (parent, args, context) => {
+      //
+    //}
     lesson: async (_, args, ) => {
       return await Lesson.findOne({ _id: args.id });
     },
@@ -16,7 +19,7 @@ const resolvers = {
     }
   },
   Mutation: {
-    login: async (parent, { email, password }) => {
+    login: async (_, { email, password }) => {
       const user = await User.findOne({ email });
 
       if (!user) {
@@ -32,7 +35,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addUser: async (parent, { userData }) => {
+    addUser: async (_, { userData }) => {
       const { username, email, password } = userData;
       const user = await User.create({
         username: username,
@@ -48,16 +51,15 @@ const resolvers = {
     },
     // lesson routes?
     problemValidate: async (_, { answerData }) => {
-      let { userID, lessonID, body } = answerData;
-      //const user = await User.findOne({ _id: userID })
-      const lesson = await Lesson.findOne({ _id: lessonID })
-      const validator = new RegExp('test*') //lesson.correctAnswer
+      let { userID, problemID, body } = answerData;
+      const user = await User.findOne({ _id: userID })
+      const problem = await Problem.findOne({ _id: problemID })
+      const validator = new RegExp(problem.correctAnswer)
       isValidated = validator.test(body)
 
 
-      /*if (isValidated) {
-        user.xp += lesson.xpValue
-      }*/
+      user.xp += problem.xpValue
+      await user.save()
 
       return { isValidated }
     },

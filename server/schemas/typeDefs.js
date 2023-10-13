@@ -8,6 +8,9 @@ const typeDefs = gql`
     _id: ID
     username: String!
     email: String!
+    password: String!
+    avatar: String
+    xp: Int!
   }
 
   type Auth {
@@ -65,6 +68,7 @@ const typeDefs = gql`
 
   type Query {
     me: User
+    leaderboard: [User]
     lesson(id: ID!): Lesson
     problem(id: ID!): Problem
   }

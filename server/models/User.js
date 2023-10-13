@@ -5,7 +5,6 @@ const userSchema = new Schema(
     {
         username: {
             type: String,
-            required: true,
             unique: true,
         },
         email: {
@@ -22,15 +21,21 @@ const userSchema = new Schema(
         avatar: {
             type: String,
         },
-        //streak: {
-            //type: Decimal
-        //}
-        //xp: [xp],
+        xp: {
+            type: Number,
+            required: true,
+            default: 0
+        },
         //achievements: [achievements],
         // to add progress tracking, i have a few ideas. we could add it based on the user's xp.
         // each lesson provides x amount of xp which adds up to a totoal of the whole course material
         // or we can track how many lessons the user has completed.
         // but it is the end of my lunch so i'll discuss later.
+        
+        // in future i think it'd be a ggod idea to check for bad behaviour.
+        // such as if the user is trying to cheat.
+        // general idea might be to track completed problems/lessons and check against xp
+        // ex. if !xp === 10*completedLessons then user is cheating or there is a bug.
     },
     {
         toJSON: {

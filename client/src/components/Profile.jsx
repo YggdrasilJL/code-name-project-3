@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useQuery, useMutation } from '@apollo/client';
+//import { GET_ME, GET_LEADERBOARD } from '../utils/queries';
 import UserMessages from './UserMessages';
 import { useAuth0 } from '@auth0/auth0-react';
 

@@ -24,7 +24,14 @@ const problemSchema = new Schema({
         type: String,
         required: true
     },
+    xpValue: {
+        type: Number,
+        required: true,
+        default: 10
+    }
 })
+
+// a problem should have xp, default of 10? maybe a subdivision of 3000?
 
 const Problem = model("problem", problemSchema)
 

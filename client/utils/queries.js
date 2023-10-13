@@ -5,12 +5,19 @@ export const GET_ME = gql`
         me {
             _id
             username
-            savedBooks {
-                bookID
-                title
-                description
-                image
-            }
+            email
+            password
+            avatar
+            xp
+        }
+    }
+`;
+
+export const GET_LEADERBOARD = gql`
+    query leaderboard {
+        leaderboard {
+            username
+            xp
         }
     }
 `;
