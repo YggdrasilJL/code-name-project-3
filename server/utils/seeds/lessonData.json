@@ -10,7 +10,17 @@
     "unit": "JS Fundamentals"
   },
   {
-    "name": "DataTypes",
+    "name": "Operators",
+    "iconUrl": "test",
+    "unit": "JS Fundamentals"
+  },
+  {
+    "name": "Strings",
+    "iconUrl": "test",
+    "unit": "JS Fundamentals"
+  },
+  {
+    "name": "Arrays",
     "iconUrl": "test",
     "unit": "JS Fundamentals"
   }

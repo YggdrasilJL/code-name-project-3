@@ -238,5 +238,173 @@
     "question": "What is the result of '!true'",
     "answers": [],
     "correctAnswer": "false"
+  },
+  {
+    "name": "Strings.prob.1",
+    "lessonName": "Strings",
+    "problemType": "Multiple Choice",
+    "question": "What data type is this 'Dog'?",
+    "answers": [],
+    "correctAnswer": "String"
+  },
+  {
+    "name": "Strings.prob.2",
+    "lessonName": "Strings",
+    "problemType": "Multiple Choice",
+    "question": "How do you get the length of a string?",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Strings.prob.3",
+    "lessonName": "Strings",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Strings.prob.4",
+    "lessonName": "Strings",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Strings.prob.5",
+    "lessonName": "Strings",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Strings.prob.1",
+    "lessonName": "Strings",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Strings.prob.6",
+    "lessonName": "Strings",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Strings.prob.7",
+    "lessonName": "Strings",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Strings.prob.8",
+    "lessonName": "Strings",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Strings.prob.9",
+    "lessonName": "Strings",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Strings.prob.10",
+    "lessonName": "Strings",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Arrays.prob.1",
+    "lessonName": "Arrays",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Arrays.prob.2",
+    "lessonName": "Arrays",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Arrays.prob.3",
+    "lessonName": "Arrays",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Arrays.prob.4",
+    "lessonName": "Arrays",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Arrays.prob.5",
+    "lessonName": "Arrays",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Arrays.prob.6",
+    "lessonName": "Arrays",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Arrays.prob.7",
+    "lessonName": "Arrays",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Arrays.prob.8",
+    "lessonName": "Arrays",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Arrays.prob.9",
+    "lessonName": "Arrays",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
+  },
+  {
+    "name": "Arrays.prob.10",
+    "lessonName": "Arrays",
+    "problemType": "Multiple Choice",
+    "question": "",
+    "answers": [],
+    "correctAnswer": ""
   }
 ]
