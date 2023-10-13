@@ -1,8 +1,9 @@
 import React from 'react';
+import ParticleEffect from './ParticleEffect';
 
 const Home = () => {
   const homeStyle = {
-    background: 'url("/images/background.jpg")', 
+    background: 'url("/images/background.jpg")',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     minHeight: '100vh', // full screen
@@ -10,9 +11,12 @@ const Home = () => {
 
   return (
     <div style={homeStyle}>
-      <main className="bg-opacity-80 p-4">
-        {/* text here if we want to add anything  */}
-      </main>
+      <div className="relative bg-cover bg-center bg-no-repeat h-screen">
+        <ParticleEffect />
+        <main className="bg-opacity-80 p-4 relative z-10">
+          {/* Your text content goes here */}
+        </main>
+      </div>
     </div>
   );
 };
