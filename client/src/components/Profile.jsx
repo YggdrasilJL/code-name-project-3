@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import UserMessages from './UserMessages';
+import Donation from './Donation';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Profile = () => {
@@ -120,7 +121,7 @@ const Profile = () => {
       </h2>
       <main className="flex flex-col items-center">
         <div className="flex">
-          <div className="p-3 mb-4 bg-opacityBlack w-fit rounded-lg border border-cyber-blue">
+          <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
             <div className="flex flex-col items-center p-4">
               <h2 className="text-lg font-semibold mb-2">USER_INFORMATION</h2>
               {/* User avatar */}
@@ -135,7 +136,7 @@ const Profile = () => {
               <p>{mockUser.email}</p>
             </div>
             {/* Bio and Skills */}
-            <div className="p-3 mb-4 bg-opacityBlack w-fit rounded-lg border border-cyber-blue">
+            <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
               <h2 className="text-lg font-semibold mb-2">BIO_</h2>
               <div className=" p-4 ">
                 <p>{mockBio}</p>
@@ -155,7 +156,7 @@ const Profile = () => {
           </div>
           {/* Badge div */}
           <div className="flex flex-col justify-end ml-5">
-            <div className="p-3 mb-4 bg-opacityBlack rounded-lg border border-cyber-blue">
+            <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
               <h2 className="text-lg font-semibold mb-2">BADGES_</h2>
               <div className=" p-4 ">
                 {mockBadges.map((badge, index) => (
@@ -172,13 +173,13 @@ const Profile = () => {
             </div>
 
             {/* Progress div */}
-            <div className="p-3 mb-4 bg-opacityBlack rounded-lg border border-cyber-blue">
+            <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
               <h2 className="text-lg font-semibold mb-2">PROGRESS_TRACKING</h2>
               <div className=" p-4 ">{/* Progress content */}</div>
             </div>
 
             {/* Achievement */}
-            <div className="p-3 mb-4 bg-opacityBlack rounded-lg border  border-cyber-blue">
+            <div className="p-3 mb-4 bg-black rounded-lg border  border-cyber-blue">
               <h2 className="text-lg font-semibold mb-2">ACHIEVEMENTS_</h2>
               <div className=" p-4 ">{/* Achievement content */}</div>
             </div>
@@ -186,7 +187,7 @@ const Profile = () => {
         </div>
 
         {/* Mock Messages div (placeholder) */}
-        <div className="p-3 mb-4 bg-opacityBlack w-fit rounded-lg border  border-cyber-blue">
+        <div className="p-3 mb-4 bg-black w-fit rounded-lg border  border-cyber-blue">
           <h2 className="text-lg font-semibold mb-2">MOCK_MESSAGES</h2>
           <div className=" p-4 ">
             {mockMessages.map((message) => (
@@ -199,7 +200,7 @@ const Profile = () => {
           </div>
         </div>
         {/* User messages  */}
-        <div className="p-3 mb-4 bg-opacityBlack w-fit rounded-lg border  border-cyber-blue">
+        <div className="p-3 mb-4 bg-black w-fit rounded-lg border  border-cyber-blue">
           <h2 className="text-lg font-semibold mb-2">USER_MESSAGES</h2>
           <UserMessages
             messages={comments}
