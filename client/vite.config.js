@@ -4,18 +4,22 @@ import dotenv from 'dotenv';
 
 // dotenv.config();
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: 3000,
-    open: true,
-    proxy: {
-      '/graphql': {
-        target: 'http://localhost:3001',
-        changeOrigin: true,
-        secure: false,
+export default defineConfig(({ mode }) => {
+  return {
+    define: {
+      'process.env': process.env,
+    },
+    plugins: [react()],
+    server: {
+      port: 3000,
+      open: true,
+      proxy: {
+        '/graphql': {
+          target: 'http://localhost:3001',
+          changeOrigin: true,
+          secure: false,
+        }
       }
     }
-  }
-})
+  };
+});
