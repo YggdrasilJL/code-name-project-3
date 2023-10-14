@@ -1,6 +1,9 @@
 import React from "react";
 
 const UserMessages = ({ messages, newMessage, handleNewMessageChange, handleSendMessage }) => {
+  if (!messages.length) {
+    return <h3>No Messages Yet</h3>;
+  }
   return (
     <div>
       <ul className="list-none">
