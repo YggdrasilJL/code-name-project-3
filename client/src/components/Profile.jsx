@@ -189,7 +189,6 @@ const Profile = () => {
             </div>
           </div>
         </div>
-
         {/* Mock Messages div (placeholder) */}
         <div className="p-3 mb-4 bg-black w-fit rounded-lg border  border-cyber-blue">
           <h2 className="text-lg font-semibold mb-2">MOCK_MESSAGES</h2>
