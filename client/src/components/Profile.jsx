@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { QUERY_ME } from '../utils/queries';
+import { Navigate, useParams } from 'react-router-dom';
+import Auth from '../utils/auth';
+import { useQuery, useMutation } from '@apollo/client';
 import UserMessages from './UserMessages';
 import Donation from './Donation';
-import { useAuth0 } from '@auth0/auth0-react';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
