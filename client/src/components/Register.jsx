@@ -52,7 +52,7 @@ const Register = () => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form className="space-y-4 md:space-y-6" action="#" onSubmit={handleFormSubmit}>
               <div>
                 <label
                   htmlFor="email"
