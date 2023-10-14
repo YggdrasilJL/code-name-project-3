@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { QUERY_ME } from '../utils/queries';
-import { Navigate, useParams } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Auth from '../utils/auth';
 import { useQuery, useMutation } from '@apollo/client';
 import UserMessages from './UserMessages';
@@ -8,114 +8,137 @@ import Donation from './Donation';
 import { Link } from 'react-router-dom';
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { username: userParam } = useParams();
+
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
+  });
+
+  const user = data?.me || data?.user || {};
+  // navigate to personal profile page if username is yours
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Navigate to="/me" />;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!user?.username) {
+    return (
+      <h4>
+        You need to be logged in to see this. Use the navigation links above to
+        sign up or log in!
+      </h4>
+    );
+  }
   //  mock user data
-  const mockUser = {
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    picture: '../../images/mockpfp.png', // path to the user's avatar image
-  };
+  // const mockUser = {
+  //   name: 'John Doe',
+  //   email: 'john.doe@example.com',
+  //   picture: '../../images/mockpfp.png', // path to the user's avatar image
+  // };
 
-  // Define mock bio and skills data
-  const mockBio = 'I am a web developer passionate about coding.';
-  const mockSkills = ['HTML', 'CSS', 'JavaScript'];
+  // // Define mock bio and skills data
+  // const mockBio = 'I am a web developer passionate about coding.';
+  // const mockSkills = ['HTML', 'CSS', 'JavaScript'];
 
-  // mock badge data
-  const mockBadges = [
-    { name: 'Badge 1', icon: 'badge1-icon.png' },
-    { name: 'Badge 2', icon: 'badge2-icon.png' },
-    //  more badge here as needed
-  ];
+  // // mock badge data
+  // const mockBadges = [
+  //   { name: 'Badge 1', icon: 'badge1-icon.png' },
+  //   { name: 'Badge 2', icon: 'badge2-icon.png' },
+  //   //  more badge here as needed
+  // ];
 
-  // mock message data ( remove once users are made )
-  const mockMessages = [
-    {
-      id: 1,
-      user: 'CodeMaster',
-      content:
-        "Hello fellow code wrangler! How's your debugging journey going?",
-      timestamp: '2023-10-03T12:00:00Z',
-    },
-    {
-      id: 2,
-      user: 'SyntaxSorcerer',
-      content:
-        "Ahoy there! Remember, semicolons are like a knight's armor in the JavaScript kingdom.",
-      timestamp: '2023-10-03T12:05:00Z',
-    },
-    {
-      id: 3,
-      user: 'BugHunter',
-      content:
-        'Bug discovered! Time to put on my Sherlock Holmes hat and hunt it down.',
-      timestamp: '2023-10-03T12:10:00Z',
-    },
-    {
-      id: 4,
-      user: 'Pythonista',
-      content: 'Python is like a snake, it slithers through code effortlessly.',
-      timestamp: '2023-10-03T12:15:00Z',
-    },
-    {
-      id: 5,
-      user: 'HTMLHero',
-      content:
-        'HTML tags are my building blocks, and the web is my playground!',
-      timestamp: '2023-10-03T12:20:00Z',
-    },
-  ];
+  // // mock message data ( remove once users are made )
+  // const mockMessages = [
+  //   {
+  //     id: 1,
+  //     user: 'CodeMaster',
+  //     content:
+  //       "Hello fellow code wrangler! How's your debugging journey going?",
+  //     timestamp: '2023-10-03T12:00:00Z',
+  //   },
+  //   {
+  //     id: 2,
+  //     user: 'SyntaxSorcerer',
+  //     content:
+  //       "Ahoy there! Remember, semicolons are like a knight's armor in the JavaScript kingdom.",
+  //     timestamp: '2023-10-03T12:05:00Z',
+  //   },
+  //   {
+  //     id: 3,
+  //     user: 'BugHunter',
+  //     content:
+  //       'Bug discovered! Time to put on my Sherlock Holmes hat and hunt it down.',
+  //     timestamp: '2023-10-03T12:10:00Z',
+  //   },
+  //   {
+  //     id: 4,
+  //     user: 'Pythonista',
+  //     content: 'Python is like a snake, it slithers through code effortlessly.',
+  //     timestamp: '2023-10-03T12:15:00Z',
+  //   },
+  //   {
+  //     id: 5,
+  //     user: 'HTMLHero',
+  //     content:
+  //       'HTML tags are my building blocks, and the web is my playground!',
+  //     timestamp: '2023-10-03T12:20:00Z',
+  //   },
+  // ];
 
   //  manage user comments
-  const [comments, setComments] = useState([]);
+  // const [comments, setComments] = useState([]);
 
-  // fetch mock user comments (replace with actual API request as mention above)
-  const fetchComments = async () => {
-    try {
-      // mock fetching comments from an API
-      const response = await fetch('/api/comments'); // actual API endpoint here
-      if (response.ok) {
-        const data = await response.json();
-        setComments(data);
-      }
-    } catch (error) {
-      console.error('Error fetching comments:', error);
-    }
-  };
+  // // fetch mock user comments (replace with actual API request as mention above)
+  // const fetchComments = async () => {
+  //   try {
+  //     // mock fetching comments from an API
+  //     const response = await fetch('/api/comments'); // actual API endpoint here
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       setComments(data);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching comments:', error);
+  //   }
+  // };
 
-  //  fetch comments when the component mounts
-  useEffect(() => {
-    fetchComments();
-  }, []);
+  // //  fetch comments when the component mounts
+  // useEffect(() => {
+  //   fetchComments();
+  // }, []);
 
-  //  manage the new message input
-  const [newMessage, setNewMessage] = useState('');
+  // //  manage the new message input
+  // const [newMessage, setNewMessage] = useState('');
 
-  // handle changes in the new message input field
-  const handleNewMessageChange = (e) => {
-    setNewMessage(e.target.value);
-  };
+  // // handle changes in the new message input field
+  // const handleNewMessageChange = (e) => {
+  //   setNewMessage(e.target.value);
+  // };
 
-  // handle submitting a new message
-  const handleSendMessage = () => {
-    if (newMessage.trim() === '') {
-      return; // Don't send empty messages
-    }
+  // // handle submitting a new message
+  // const handleSendMessage = () => {
+  //   if (newMessage.trim() === '') {
+  //     return; // Don't send empty messages
+  //   }
 
-    // send the message to the server here
-    // For development purposes, add the message to the mockMessages array or ill forget
-    const newMessageObj = {
-      id: comments.length + 1, // (replace with real ID generation)
-      user: 'CurrentUser', // actual username or user ID
-      content: newMessage,
-      timestamp: new Date().toISOString(),
-    };
+  //   // send the message to the server here
+  //   // For development purposes, add the message to the mockMessages array or ill forget
+  //   const newMessageObj = {
+  //     id: comments.length + 1, // (replace with real ID generation)
+  //     user: 'CurrentUser', // actual username or user ID
+  //     content: newMessage,
+  //     timestamp: new Date().toISOString(),
+  //   };
 
-    // state to include the new message
-    setComments([...comments, newMessageObj]);
+  //   // state to include the new message
+  //   setComments([...comments, newMessageObj]);
 
-    // Clear the input field
-    setNewMessage('');
-  };
+  //   // Clear the input field
+  //   setNewMessage('');
+  // };
 
   return (
     <div>
@@ -219,6 +242,7 @@ const Profile = () => {
 };
 
 export default Profile;
+
 
 {
   /* Dark Mode **neon mode tba**

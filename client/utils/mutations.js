@@ -7,11 +7,6 @@ export const LOGIN_USER = gql`
             user {
                 _id
                 username
-                savedBooks {
-                    bookID
-                    title
-                    description
-                    image
                 }
             }
         }
@@ -37,3 +32,13 @@ export const LESSON_VALIDATE = gql`
         }
     }
 `
+export const ADD_MESSAGE = gql`
+  mutation addMessage($messageText: String!) {
+    addMessage(messageText: $messageText) {
+      _id
+      messageText
+      messageAuthor
+      createdAt
+    }
+  }
+`;
