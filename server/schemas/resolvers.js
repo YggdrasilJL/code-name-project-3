@@ -1,4 +1,5 @@
 const { User, Lesson, Problem } = require('../models');
+const { signToken, AuthenticationError } = require('../utils/Auth');
 
 const resolvers = {
   Query: {
