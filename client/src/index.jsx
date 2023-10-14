@@ -49,6 +49,8 @@ const client = new ApolloClient({
     },
   ]);
 
+
   ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   )
+
