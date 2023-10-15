@@ -8,9 +8,9 @@ const UserMessages = ({ messages, newMessage, handleNewMessageChange, handleSend
     <div>
       <ul className="list-none">
         {messages.map((message) => (
-          <li key={message.id} className="mb-2">
+          <li key={message._id} className="mb-2">
             {/* Display existing messages */}
-            <div className="font-semibold">{message.user}</div>
+            <div className="font-semibold">{message.username}</div>
             <div>{message.content}</div>
           </li>
         ))}

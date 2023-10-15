@@ -8,6 +8,13 @@ const typeDefs = `
     email: String!
   }
 
+  type Message {
+    _id: ID!
+    messageText: String!
+    messageAuthor: User!
+    createdAt: String!
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -53,8 +60,12 @@ const typeDefs = `
     password: String!
   }
 
+  input messageInput {
+    messageText: String!
+    messageAuthor: String!
+  }
+
   input lessonInput {
-    userID: ID!
     lessonID: ID!
     lessonAnswerData: String!
   }
@@ -71,6 +82,7 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     addUser(userData: userInput!): Auth
     problemValidate(answerData: answerInput!): Answer
+    addMessage(messageData: messageInput): String!): Message
   }
 
 `;
