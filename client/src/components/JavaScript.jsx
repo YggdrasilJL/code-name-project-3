@@ -3,7 +3,7 @@ import ParticleEffect from './ParticleEffect';
 
 const JavaScript = () => {
   const jsStyle = {
-    background: 'url("/images/background.jpg")',
+    background: 'url("/images/background.png")',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     minHeight: '100vh',
