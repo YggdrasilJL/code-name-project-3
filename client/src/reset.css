@@ -119,4 +119,13 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0;
+  background: url("/images/background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+  margin: 0; 
+  padding: 0; 
+  height: 100vh; 
+  overflow: hidden; 
+  background-repeat: no-repeat;
 }

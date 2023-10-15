@@ -11,15 +11,6 @@ const Dashboard = () => {
     // Add more HTML lessons as needed, then move to CSS and JS
   ];
 
-  const dashboardStyle = {
-    background: 'url("/images/background.png")', // Update with the actual image path
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  };
-
-  return (
-    <div style={dashboardStyle}>
-
       {/* Main */}
       <main className="bg-opacity-80 p-4">
         {/* Course selection section */}
@@ -56,8 +47,7 @@ const Dashboard = () => {
           {/* ... (lessons, exercises, etc.) */}
         </section>
       </main>
-    </div>
-  );
+  ;
 };
 
 export default Dashboard;
