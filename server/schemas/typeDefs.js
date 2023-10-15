@@ -6,12 +6,14 @@ const typeDefs = `
     _id: ID
     username: String!
     email: String!
+    avatar: String
+    messages: [Message]
   }
 
   type Message {
     _id: ID!
+    messageAuthor: String!
     messageText: String!
-    messageAuthor: User!
     createdAt: String!
   }
 
@@ -74,6 +76,7 @@ const typeDefs = `
 
   type Query {
     me: User
+    user(username: String!): User
     lesson(id: ID!): Lesson
     problem(id: ID!): Problem
   }

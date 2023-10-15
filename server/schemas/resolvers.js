@@ -9,6 +9,9 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    user: async (_, { username }) => {
+      return await User.findOne({ username: username });
+    },
     lesson: async (_, args, ) => {
       return await Lesson.findOne({ _id: args.id });
     },
