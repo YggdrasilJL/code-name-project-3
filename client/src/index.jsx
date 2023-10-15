@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ReactDOM from 'react-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'; // Fix import path
@@ -69,4 +70,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </ApolloProvider>
 );
-

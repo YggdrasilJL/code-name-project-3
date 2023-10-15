@@ -12,7 +12,7 @@ const Dashboard = () => {
   ];
 
   const dashboardStyle = {
-    background: 'url("/images/background.jpg")', // Update with the actual image path
+    background: 'url("/images/background.png")', // Update with the actual image path
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   };
