@@ -22,10 +22,10 @@ const server = new ApolloServer({
 })
 
 
-const startApolloServer = async (typeDefs, resolvers) => {
+const startApolloServer = async () => {
   await server.start()
 
-  app.use(express.urlencoded({ extended: true }))
+  app.use(express.urlencoded({ extended: false }))
   app.use(express.json())
   app.use(cors())
 
@@ -49,4 +49,4 @@ const startApolloServer = async (typeDefs, resolvers) => {
   })
 }
 
-startApolloServer(typeDefs, resolvers)
+startApolloServer()

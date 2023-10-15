@@ -16,7 +16,6 @@
 // import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import './App.css';
-
 import {
   ApolloClient,
   InMemoryCache,
@@ -54,7 +53,7 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-=======
+
 
 const routes = createBrowserRouter([
   {
@@ -100,9 +99,6 @@ const routes = createBrowserRouter([
     element: <Home />,
   },
 ]);
-
-
-
   function App() {
     return (
       <ApolloProvider client={client}>
@@ -116,5 +112,5 @@ const routes = createBrowserRouter([
       </ApolloProvider>
     );
   }
-  
+ 
   export default App;

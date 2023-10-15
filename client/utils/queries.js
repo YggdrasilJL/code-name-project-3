@@ -7,10 +7,14 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      messages {
+      thoughts {
         _id
-        messageText
+        thoughtText
         createdAt
+      }
+    }
+  }
+`;
 
 export const QUERY_ME = gql`
   query me {
