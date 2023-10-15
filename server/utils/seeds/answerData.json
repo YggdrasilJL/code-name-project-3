@@ -268,5 +268,95 @@
       {"_id": "c", "body": "'true'"},
       {"_id": "d", "body": "'false'"}
     ]
+  },
+  {
+    "problemName": "HTML.prob.1",
+    "body": [
+      {"_id": "a", "body": "Hyperlink and Text Markup Language"},
+      {"_id": "b", "body": "Hyper Textual Modular Language"},
+      {"_id": "c", "body": "Hyper Transfer Markup Language"},
+      {"_id": "d", "body": "Hyper Text Markup Language"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.2",
+    "body": [
+      {"_id": "a", "body": "<main>"},
+      {"_id": "b", "body": "<content>"},
+      {"_id": "c", "body": "<body>"},
+      {"_id": "d", "body": "<head>"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.3",
+    "body": [
+      {"_id": "a", "body": "<hl href=\"url\">Link Text</hl>"},
+      {"_id": "b", "body": "<a source=\"url\">Link Text</a>"},
+      {"_id": "c", "body": "<link href=\"url\">Link Text</link>"},
+      {"_id": "d", "body": "<a href=\"url\">Link Text</a>"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.4",
+    "body": [
+      {"_id": "a", "body": "<lb>"},
+      {"_id": "b", "body": "<br>"},
+      {"_id": "c", "body": "<break>"},
+      {"_id": "d", "body": "<linebreak>"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.5",
+    "body": [
+      {"_id": "a", "body": "<!--This is a comment-->"},
+      {"_id": "b", "body": "//This is a comment//"},
+      {"_id": "c", "body": "/*This is a comment*/"},
+      {"_id": "d", "body": "--This is a comment--"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.6",
+    "body": [
+      {"_id": "a", "body": "<pg>"},
+      {"_id": "b", "body": "<text>"},
+      {"_id": "c", "body": "<pr>"},
+      {"_id": "d", "body": "<p>"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.7",
+    "body": [
+      {"_id": "a", "body": "<ul>"},
+      {"_id": "b", "body": "<li>"},
+      {"_id": "c", "body": "<ol>"},
+      {"_id": "d", "body": "<dl>"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.8",
+    "body": [
+      {"_id": "a", "body": "<metadata>"},
+      {"_id": "b", "body": "<info>"},
+      {"_id": "c", "body": "<head>"},
+      {"_id": "d", "body": "<meta>"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.9",
+    "body": [
+      {"_id": "a", "body": "src"},
+      {"_id": "b", "body": "desc"},
+      {"_id": "c", "body": "href"},
+      {"_id": "d", "body": "alt"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.10",
+    "body": [
+      {"_id": "a", "body": "<!DOCTYPE HTML5>"},
+      {"_id": "b", "body": "<!DOCTYPE>"},
+      {"_id": "c", "body": "<!DOCTYPE html>"},
+      {"_id": "d", "body": "<!HTML5 DOCTYPE>"}
+    ]
   }
 ]

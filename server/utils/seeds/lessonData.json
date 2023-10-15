@@ -13,5 +13,10 @@
     "name": "DataTypes",
     "iconUrl": "test",
     "unit": "JS Fundamentals"
+  },
+  {
+    "name": "HTML",
+    "iconUrl": "test",
+    "unit": "HTML"
   }
 ]
