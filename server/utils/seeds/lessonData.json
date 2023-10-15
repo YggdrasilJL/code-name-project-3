@@ -18,5 +18,10 @@
     "name": "HTML",
     "iconUrl": "test",
     "unit": "HTML"
+  },
+  {
+    "name": "CSS",
+    "iconUrl": "test",
+    "unit": "CSS"
   }
 ]

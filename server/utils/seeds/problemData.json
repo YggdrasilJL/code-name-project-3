@@ -318,5 +318,85 @@
     "question": "Which doctype is correct for an HTML5 document?",
     "answers": [],
     "correctAnswer": "<!DOCTYPE html>"
+  },
+  {
+    "name": "CSS.prob.1",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which property controls element visibility?",
+    "answers": [],
+    "correctAnswer": "visibility"
+  },
+  {
+    "name": "CSS.prob.2",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which property adds space inside a border?",
+    "answers": [],
+    "correctAnswer": "padding"
+  },
+  {
+    "name": "CSS.prob.3",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which 'position' value adjusts an element relative to its normal location?",
+    "answers": [],
+    "correctAnswer": "relative"
+  },
+  {
+    "name": "CSS.prob.4",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which property sets background color?",
+    "answers": [],
+    "correctAnswer": "background-color"
+  },
+  {
+    "name": "CSS.prob.5",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which is a valid 'display' value?",
+    "answers": [],
+    "correctAnswer": "inline-block"
+  },
+  {
+    "name": "CSS.prob.6",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "How do you link 'styles.css'?",
+    "answers": [],
+    "correctAnswer": "<link rel='stylesheet' href='styles.css'>"
+  },
+  {
+    "name": "CSS.prob.7",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which unit refers to viewport width?",
+    "answers": [],
+    "correctAnswer": "vw"
+  },
+  {
+    "name": "CSS.prob.8",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "How to comment in CSS?",
+    "answers": [],
+    "correctAnswer": "/* This is a comment */"
+  },
+  {
+    "name": "CSS.prob.9",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "How to set text to bold in CSS?",
+    "answers": [],
+    "correctAnswer": "font-weight: bold;"
+  },
+  {
+    "name": "CSS.prob.10",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which property orders floating elements?",
+    "answers": [],
+    "correctAnswer": "z-index"
   }
 ]
