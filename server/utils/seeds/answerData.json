@@ -268,5 +268,185 @@
       {"_id": "c", "body": "'true'"},
       {"_id": "d", "body": "'false'"}
     ]
+  },
+  {
+    "problemName": "HTML.prob.1",
+    "body": [
+      {"_id": "a", "body": "Hyperlink and Text Markup Language"},
+      {"_id": "b", "body": "Hyper Textual Modular Language"},
+      {"_id": "c", "body": "Hyper Transfer Markup Language"},
+      {"_id": "d", "body": "Hyper Text Markup Language"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.2",
+    "body": [
+      {"_id": "a", "body": "<main>"},
+      {"_id": "b", "body": "<content>"},
+      {"_id": "c", "body": "<body>"},
+      {"_id": "d", "body": "<head>"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.3",
+    "body": [
+      {"_id": "a", "body": "<hl href=\"url\">Link Text</hl>"},
+      {"_id": "b", "body": "<a source=\"url\">Link Text</a>"},
+      {"_id": "c", "body": "<link href=\"url\">Link Text</link>"},
+      {"_id": "d", "body": "<a href=\"url\">Link Text</a>"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.4",
+    "body": [
+      {"_id": "a", "body": "<lb>"},
+      {"_id": "b", "body": "<br>"},
+      {"_id": "c", "body": "<break>"},
+      {"_id": "d", "body": "<linebreak>"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.5",
+    "body": [
+      {"_id": "a", "body": "<!--This is a comment-->"},
+      {"_id": "b", "body": "//This is a comment//"},
+      {"_id": "c", "body": "/*This is a comment*/"},
+      {"_id": "d", "body": "--This is a comment--"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.6",
+    "body": [
+      {"_id": "a", "body": "<pg>"},
+      {"_id": "b", "body": "<text>"},
+      {"_id": "c", "body": "<pr>"},
+      {"_id": "d", "body": "<p>"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.7",
+    "body": [
+      {"_id": "a", "body": "<ul>"},
+      {"_id": "b", "body": "<li>"},
+      {"_id": "c", "body": "<ol>"},
+      {"_id": "d", "body": "<dl>"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.8",
+    "body": [
+      {"_id": "a", "body": "<metadata>"},
+      {"_id": "b", "body": "<info>"},
+      {"_id": "c", "body": "<head>"},
+      {"_id": "d", "body": "<meta>"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.9",
+    "body": [
+      {"_id": "a", "body": "src"},
+      {"_id": "b", "body": "desc"},
+      {"_id": "c", "body": "href"},
+      {"_id": "d", "body": "alt"}
+    ]
+  },
+  {
+    "problemName": "HTML.prob.10",
+    "body": [
+      {"_id": "a", "body": "<!DOCTYPE HTML5>"},
+      {"_id": "b", "body": "<!DOCTYPE>"},
+      {"_id": "c", "body": "<!DOCTYPE html>"},
+      {"_id": "d", "body": "<!HTML5 DOCTYPE>"}
+    ]
+  },
+  {
+    "problemName": "CSS.prob.1",
+    "body": [
+      {"_id": "a", "body": "display"},
+      {"_id": "b", "body": "visibility"},
+      {"_id": "c", "body": "opacity"},
+      {"_id": "d", "body": "show"}
+    ]
+  },
+  {
+    "problemName": "CSS.prob.2",
+    "body": [
+      {"_id": "a", "body": "margin"},
+      {"_id": "b", "body": "border"},
+      {"_id": "c", "body": "spacing"},
+      {"_id": "d", "body": "padding"}
+    ]
+  },
+  {
+    "problemName": "CSS.prob.3",
+    "body": [
+      {"_id": "a", "body": "static"},
+      {"_id": "b", "body": "absolute"},
+      {"_id": "c", "body": "fixed"},
+      {"_id": "d", "body": "relative"}
+    ]
+  },
+  {
+    "problemName": "CSS.prob.4",
+    "body": [
+      {"_id": "a", "body": "bgcolor"},
+      {"_id": "b", "body": "color-background"},
+      {"_id": "c", "body": "background-color"},
+      {"_id": "d", "body": "element-color"}
+    ]
+  },
+  {
+    "problemName": "CSS.prob.5",
+    "body": [
+      {"_id": "a", "body": "show"},
+      {"_id": "b", "body": "hide"},
+      {"_id": "c", "body": "inline-block"},
+      {"_id": "d", "body": "visible"}
+    ]
+  },
+  {
+    "problemName": "CSS.prob.6",
+    "body": [
+      {"_id": "a", "body": "<link href='styles.css' type='text/css'>"},
+      {"_id": "b", "body": "<css src='styles.css'>"},
+      {"_id": "c", "body": "<style src='styles.css'></style>"},
+      {"_id": "d", "body": "<link rel='stylesheet' href='styles.css'>"}
+    ]
+  },
+  {
+    "problemName": "CSS.prob.7",
+    "body": [
+      {"_id": "a", "body": "cm"},
+      {"_id": "b", "body": "px"},
+      {"_id": "c", "body": "vw"},
+      {"_id": "d", "body": "mm"}
+    ]
+  },
+  {
+    "problemName": "CSS.prob.8",
+    "body": [
+      {"_id": "a", "body": "// This is a comment //"},
+      {"_id": "b", "body": "-- This is a comment --"},
+      {"_id": "c", "body": "/* This is a comment */"},
+      {"_id": "d", "body": "<!-- This is a comment -->"}
+    ]
+  },
+  {
+    "problemName": "CSS.prob.9",
+    "body": [
+      {"_id": "a", "body": "text-style: bold;"},
+      {"_id": "b", "body": "font: bold;"},
+      {"_id": "c", "body": "text-weight: bold;"},
+      {"_id": "d", "body": "font-weight: bold;"}
+    ]
+  },
+  {
+    "problemName": "CSS.prob.10",
+    "body": [
+      {"_id": "a", "body": "z-axis"},
+      {"_id": "b", "body": "z-order"},
+      {"_id": "c", "body": "stack-order"},
+      {"_id": "d", "body": "z-index"}
+    ]
   }
 ]
