@@ -2,17 +2,6 @@ import React from 'react';
 import ParticleEffect from './ParticleEffect';
 
 const Html = () => {
-  const htmlStyle = {
-    background: 'url("/images/background.png")',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
-
   const neonSignStyle = {
     color: '#FF00F2', // Neon pink color
     fontSize: '2rem',

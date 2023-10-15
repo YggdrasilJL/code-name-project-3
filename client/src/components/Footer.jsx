@@ -12,7 +12,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white p-4 text-center">
+    <footer className="bg-black text-white p-4 text-center" style={{ position: 'fixed', bottom: 0, width: '100%' }}>
       <div className="container text-center mb-5">
         {location.pathname !== '/' && (
           <button className="btn btn-dark mb-3" onClick={handleGoBack}>
@@ -28,5 +28,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
