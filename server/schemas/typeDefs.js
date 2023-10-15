@@ -1,6 +1,4 @@
-const { gql } = require('apollo-server-express');
-
-const typeDefs = gql`
+const typeDefs = `
 
   # Object types
 
@@ -8,6 +6,13 @@ const typeDefs = gql`
     _id: ID
     username: String!
     email: String!
+  }
+
+  type Message {
+    _id: ID!
+    messageText: String!
+    messageAuthor: User!
+    createdAt: String!
   }
 
   type Auth {
@@ -55,8 +60,12 @@ const typeDefs = gql`
     password: String!
   }
 
+  input messageInput {
+    messageText: String!
+    messageAuthor: String!
+  }
+
   input lessonInput {
-    userID: ID!
     lessonID: ID!
     lessonAnswerData: String!
   }
@@ -73,6 +82,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(userData: userInput!): Auth
     problemValidate(answerData: answerInput!): Answer
+    addMessage(messageData: messageInput): Message
   }
 
 `;

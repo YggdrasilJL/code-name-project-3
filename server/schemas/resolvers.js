@@ -1,4 +1,5 @@
 const { User, Lesson, Problem } = require('../models');
+const { signToken, AuthenticationError } = require('../utils/Auth');
 
 const resolvers = {
   Query: {
@@ -47,9 +48,9 @@ const resolvers = {
       return { token, user }
     },
     // lesson routes?
-    problemValidate: async (_, { answerData }) => {
-      let { userID, lessonID, body } = answerData;
-      //const user = await User.findOne({ _id: userID })
+    problemValidate: async (_, { answerData }, context) => {
+      let { lessonID, body } = answerData;
+      //const user = await User.findOne({ _id: context.user._id })
       const lesson = await Lesson.findOne({ _id: lessonID })
       const validator = new RegExp('test*') //lesson.correctAnswer
       isValidated = validator.test(body)
@@ -61,6 +62,9 @@ const resolvers = {
 
       return { isValidated }
     },
+    addMessage: async (_, { messageText }, context) => {
+      // need to send user
+    }
   },
 }
 

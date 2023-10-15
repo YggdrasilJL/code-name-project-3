@@ -1,10 +1,37 @@
-import React, { useState, useEffect } from 'react';
+
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME, QUERY_USER } from '../../utils/queries';
+import { useParams, Navigate } from 'react-router-dom';
+import Auth from '../../utils/auth';
 import UserMessages from './UserMessages';
 import Donation from './Donation';
-import { useAuth0 } from '@auth0/auth0-react';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { username: userParam } = useParams();
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
+  });
+
+  const user = data?.me || data?.user || {};
+
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Navigate to="/me" />;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!user?.username) {
+    return (
+      <div>
+        <h4>You need to be logged in to see this. Use the navigation links above to sign up or log in!</h4>
+      </div>
+    );
+  }
+  
   //  mock user data
   const mockUser = {
     name: 'John Doe',
@@ -23,7 +50,7 @@ const Profile = () => {
     //  more badge here as needed
   ];
 
-  // mock message data ( remove once users are made )
+  //message data ( remove once users are made )
   const mockMessages = [
     {
       id: 1,
@@ -215,6 +242,7 @@ const Profile = () => {
 };
 
 export default Profile;
+
 
 {
   /* Dark Mode **neon mode tba**
