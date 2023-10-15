@@ -1,9 +1,6 @@
 import React from 'react';
 
 const Home = () => {
-<<<<<<< Updated upstream
-  return <div>Home</div>;
-=======
   const homeStyle = {
     background: 'url("/images/background.png")',
     backgroundSize: 'cover',
@@ -21,7 +18,6 @@ const Home = () => {
       </div>
     </div>
   );
->>>>>>> Stashed changes
 };
 
 export default Home;

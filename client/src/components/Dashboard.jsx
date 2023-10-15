@@ -14,15 +14,12 @@ const Dashboard = () => {
     // Add more HTML lessons as needed , then move to CSS and JS 
   ];
 
-<<<<<<< Updated upstream
-=======
   const dashboardStyle = {
     background: 'url("/images/background.png")', // Update with the actual image path
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   };
 
->>>>>>> Stashed changes
   return (
     <div>
       {/*  Header */}
