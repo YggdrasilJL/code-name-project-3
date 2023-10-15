@@ -1,33 +1,88 @@
-import React from 'react';
-import ParticleEffect from './ParticleEffect';
+import React, { useState } from "react";
+import ParticleEffect from "./ParticleEffect";
+import problemData from "../../../server/utils/seeds/problemData.json";
 
 const Css = () => {
-  const cssStyle = {
-    background: 'url("/images/background.png")',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+  const CssLessons = [
+    { id: 1, title: "CSS.prob.1" },
+    { id: 2, title: "CSS.prob.2" },
+    { id: 3, title: "CSS.prob.3" },
+    { id: 4, title: "CSS.prob.4" },
+    { id: 5, title: "CSS.prob.5" },
+    { id: 6, title: "CSS.prob.6" },
+    { id: 7, title: "CSS.prob.7" },
+    { id: 8, title: "CSS.prob.8" },
+    { id: 9, title: "CSS.prob.9" },
+    { id: 10, title: "CSS.prob.10" },
+  ];
+
+   // lesson data
+  const [lessonData, setLessonData] = useState(problemData);
+
+// hold the user's selected answer
+  const [selectedLesson, setSelectedLesson] = useState(null);
+
+// btn click and set the selected lesson
+  const [selectedAnswer, setSelectedAnswer] = useState("");
+// BTN title is used to find lesson data here
+  const handleButtonClick = (lessonTitle) => {
+    const selected = lessonData.find((lesson) => lesson.name === lessonTitle);
+    setSelectedLesson(selected);
   };
 
-  const neonSignStyle = {
-    color: '#FF00F2', // Neon pink color
-    fontSize: '2rem',
-    textTransform: 'uppercase',
-    letterSpacing: '8px',
-    fontWeight: 'bold',
-    textShadow: '0 0 10px #FF00F2',
+  const handleAnswerSelection = (answer) => {
+    setSelectedAnswer(answer);
   };
 
   return (
     <div style={cssStyle}>
       <ParticleEffect />
-      <div style={neonSignStyle}>COMING SOON</div>
+
+      <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+        <h2 className="text-xl font-bold mb-2 text-white">CSS Lessons</h2>
+        <ul className="flex flex-wrap justify-center space-x-4">
+          {CssLessons.map((item) => (
+            <li key={item.id}>
+              <button
+                className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded"
+                onClick={() => handleButtonClick(item.title)}
+              >
+                {item.title}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {selectedLesson && (
+        <div className="text-white">
+          <h3>{selectedLesson.lessonName}</h3>
+          <p>{selectedLesson.question}</p>
+
+          {selectedLesson.problemType === "Multiple Choice" &&
+            selectedLesson.answers.map((answer) => (
+              <div key={answer._id}>
+                <label>
+                  <input
+                    type="radio"
+                    name="answers"
+                    value={answer.body}
+                    onChange={() => handleAnswerSelection(answer.body)}
+                  />
+                  {answer.body}
+                </label>
+              </div>
+            ))}
+        </div>
+      )}
+
+      {selectedAnswer && (
+        <div className="text-white">
+          <p>Your answer: {selectedAnswer}</p>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Css;
