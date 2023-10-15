@@ -1,20 +1,20 @@
-// import React from 'react';
-// import auth from '../../utils/auth.js';
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
-// const LogoutButton = ({ isAuthenticated, history }) => {
-//   const logout = () => {
-//     auth.logout();
-//     history.replace('/');
-//   };
+const LogoutButton = ({ isAuthenticated, history }) => {
+    const logout = () => {
+        auth.logout();
+        history.replace('/');
+    };
 
-//   return (
-//     isAuthenticated && (
-//       <button onClick={logout}>
-//         Log Out
-//       </button>
-//     )
-//   );
-// };
+    return (
+        isAuthenticated && (
+            <button onClick={logout}>
+                Log Out
+            </button>
+        )
+    );
+};
 
-// export default LogoutButton;
+export default LogoutButton;
 
