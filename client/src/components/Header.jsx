@@ -7,12 +7,16 @@ import {
   FaBars,
   FaTimes,
 } from 'react-icons/fa';
+import Auth from '../../utils/auth'; // Assuming Auth is your authentication utility
+
 const Header = () => {
   const [nav, setNav] = useState(false);
-  const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
-  };
+  
+    const logout = (event) => {
+      event.preventDefault();
+      Auth.logout();
+    };
+
   const navs = [
     {
       id: 1,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
@@ -11,7 +11,9 @@ const Register = () => {
     username: '',
     email: '',
     password: '',
+    confirmPassword: '', // Added for password confirmation
   });
+
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
@@ -25,7 +27,6 @@ const Register = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
 
     try {
       const { data } = await addUser({
@@ -183,23 +184,4 @@ const Register = () => {
 
 export default Register;
 
-// import React from 'react';
-// import { createRoot } from 'react-dom/client';
-// import { Auth0Provider } from '@auth0/auth0-react';
-// import App from './App';
-
-// const root = createRoot(document.getElementById('root'));
-
-// root.render(
-// <Auth0Provider
-//     domain="{yourDomain}"
-//     clientId="{yourClientId}"
-//     authorizationParams={{
-//       redirect_uri: window.location.origin
-//     }}
-//   >
-//     <App />
-//   </Auth0Provider>,
-// );
-
-
+//

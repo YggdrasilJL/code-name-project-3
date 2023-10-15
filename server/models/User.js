@@ -2,27 +2,56 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema(
-    {
-        username: {
-            type: String,
-            required: true,
-            unique: true,
-        },
-        email: {
-            type: String,
-            required: true,
-            unique: true,
-            match: [/.+@.+\..+/, 'Must use a valid email address'],
-        },
-        password: {
-            type: String,
-            required: true,
-            minlength: 5,
-        },
-        avatar: {
-            type: String,
-        },
-        //streak: {
+  {
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      match: [/.+@.+\..+/, 'Must use a valid email address'],
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 5,
+    },
+    avatar: {
+      type: String,
+    },
+    // streak: {
+    //   type: Decimal
+    // }
+    // xp: [xp],
+    // achievements: [achievements],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
+);
+
+userSchema.pre('save', async function (next) {
+  if (this.isNew || this.isModified('password')) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+  next();
+});
+
+userSchema.methods.isCorrectPassword = async function (password) {
+  return bcrypt.compare(password, this.password);
+};
+
+const User = model('User', userSchema);
+
+module.exports = User;
+
+ //streak: {
             //type: Decimal
         //}
         //xp: [xp],
@@ -31,32 +60,7 @@ const userSchema = new Schema(
         // each lesson provides x amount of xp which adds up to a totoal of the whole course material
         // or we can track how many lessons the user has completed.
         // but it is the end of my lunch so i'll discuss later.
-    },
-    {
-        toJSON: {
-            virtuals: true,
-        },
-    }
-)
-
-userSchema.pre('save', async function (next) {
-    if (this.isNew || this.isModified('password')) {
-        const saltRounds = 10;
-        this.password = await bcrypt.hash(this.password, saltRounds);
-    }
-
-    next();
-});
-
-userSchema.methods.isCorrectPassword = async function (password) {
-    return bcrypt.compare(password, this.password);
-};
-
-const User = model('User', userSchema);
-
-module.exports = User;
-
-
+    // },
 /*
 userSchema
     username
