@@ -13,13 +13,15 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/server": "^4.7.1",
+    "apollo-server-express": "^3.12.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.3.1",
     "express": "^4.17.2",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^9.0.0",
     "jwks-rsa": "^3.1.0",
-    "mongoose": "^7.0.2"
+    "mongoose": "^7.0.2",
+    "stripe": "^13.10.0"
   },
   "devDependencies": {
     "mongoose-regexp": "^0.0.1",
