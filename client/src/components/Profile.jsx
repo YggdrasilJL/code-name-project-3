@@ -1,24 +1,28 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME, QUERY_USER } from '../../utils/queries';
 import { useParams, Navigate } from 'react-router-dom';
-import Auth from '../../utils/auth';
+import Auth from '../../utils/Auth';
 import UserMessages from './UserMessages';
 import Donation from './Donation';
 import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const { username: userParam } = useParams();
+
+  // if (!userParam) {
+  //   return <Navigate to="/me" />;  
+  //}
+
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
   const user = data?.me || data?.user || {};
 
-  if (Auth.loggedIn()) {
-    return <Navigate to="/me" />;
-  }
+  //if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    //return <Navigate to="/me" />;
+  //}
 
   if (loading) {
     return <div>Loading...</div>;
@@ -33,11 +37,11 @@ const Profile = () => {
   }
   
   //  mock user data
-  /*const mockUser = {
+  /*const user = {
     name: 'John Doe',
     email: 'john.doe@example.com',
     picture: '../../images/mockpfp.png', // path to the user's avatar image
-  };
+  };*/
 
   // Define mock bio and skills data
   const mockBio = 'I am a web developer passionate about coding.';
@@ -48,7 +52,7 @@ const Profile = () => {
     { name: 'Badge 1', icon: 'badge1-icon.png' },
     { name: 'Badge 2', icon: 'badge2-icon.png' },
     //  more badge here as needed
-  ];*/
+  ];
 
   //message data ( remove once users are made )
   /*const mockMessages = [
@@ -89,7 +93,7 @@ const Profile = () => {
   ];*/
 
   //  manage user comments
-  const [comments, setComments] = useState([]);
+  /*const [comments, setComments] = useState([]);
 
   // fetch mock user comments (replace with actual API request as mention above)
   const fetchComments = async () => {
@@ -138,7 +142,7 @@ const Profile = () => {
 
     // Clear the input field
     setNewMessage('');
-  };
+  };*/
 
   return (
     <div>
@@ -154,13 +158,13 @@ const Profile = () => {
               {/* User avatar */}
               <div className="w-60 border-2 border-cyber-pink rounded-2xl">
                 <img
-                  src={mockUser.picture}
-                  alt={mockUser.name}
+                  src={user.avatar}
+                  alt={user.username}
                   className="rounded-2xl"
                 />
               </div>
-              <h2 className="text-xl font-semibold mb-2">{mockUser.name}</h2>
-              <p>{mockUser.email}</p>
+              <h2 className="text-xl font-semibold mb-2">{user.username}</h2>
+              <p>{user.email}</p>
             </div>
             {/* Bio and Skills */}
             <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
@@ -217,24 +221,14 @@ const Profile = () => {
         <div className="p-3 mb-4 bg-black w-fit rounded-lg border  border-cyber-blue">
           <h2 className="text-lg font-semibold mb-2">MOCK_MESSAGES</h2>
           <div className=" p-4 ">
-            {mockMessages.map((message) => (
-              <div key={message.id} className="mb-2">
-                <p className="font-semibold">{message.user}</p>
-                <p>{message.content}</p>
-                <p className="text-gray-500">{message.timestamp}</p>
+            {user.messages.map((message) => (
+              <div key={message._id} className="mb-2">
+                <p className="font-semibold">{message.messageAuthor}</p>
+                <p>{message.messageText}</p>
+                <p className="text-gray-500">{message.createdAt}</p>
               </div>
             ))}
           </div>
-        </div>
-        {/* User messages  */}
-        <div className="p-3 mb-4 bg-black w-fit rounded-lg border  border-cyber-blue">
-          <h2 className="text-lg font-semibold mb-2">USER_MESSAGES</h2>
-          <UserMessages
-            messages={comments}
-            newMessage={newMessage}
-            handleNewMessageChange={handleNewMessageChange}
-            handleSendMessage={handleSendMessage}
-          />
         </div>
       </main>
     </div>
@@ -243,9 +237,19 @@ const Profile = () => {
 
 export default Profile;
 
+/*{ User messages  }
+<div className="p-3 mb-4 bg-black w-fit rounded-lg border  border-cyber-blue">
+<h2 className="text-lg font-semibold mb-2">USER_MESSAGES</h2>
+<UserMessages
+  messages={comments}
+  newMessage={newMessage}
+  handleNewMessageChange={handleNewMessageChange}
+  handleSendMessage={handleSendMessage}
+/>
+</div>
 
 {
-  /* Dark Mode **neon mode tba**
+   Dark Mode **neon mode tba**
       <button
         className={`${
           isDarkMode ? "bg-white text-black" : "bg-black text-white"
@@ -253,8 +257,9 @@ export default Profile;
         onClick={toggleDarkMode}
       >
         {isDarkMode ? "Light Mode" : "Dark Mode"}
-      </button> */
+      </button> 
 }
 // className={`${
 //           isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
 //         } p-4`}
+*/
