@@ -82,7 +82,7 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     addUser(userData: userInput!): Auth
     problemValidate(answerData: answerInput!): Answer
-    addMessage(messageData: messageInput): String!): Message
+    addMessage(messageData: messageInput): Message
   }
 
 `;
