@@ -35,7 +35,7 @@ module.exports = {
     const payload = {email, username, _id}
     return jwt.sign({data: payload}, secret, {expiresIn: expiration})
   },
-}
+};
 
 // const client = jwksClient({
 //     jwksUri: `https://dev-2kax28qvyzlsa7s0.us.auth0.com/.well-known/jwks.json`

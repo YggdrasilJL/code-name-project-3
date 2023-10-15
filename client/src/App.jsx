@@ -16,7 +16,6 @@
 // import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import './App.css';
-
 import {
   ApolloClient,
   InMemoryCache,
@@ -24,10 +23,12 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';  // Correct import
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -47,65 +48,15 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-
-
 const client = new ApolloClient({
   // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-=======
 
-const routes = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/lessons',
-    element: <Lessons />,
-    children: [
-      {
-        path: ':id',
-        element: <Lesson1 />,
-      },
-    ],
-  },
-  {
-    path: '/dashboard',
-    element: <Dashboard />,
-  },
-  {
-    path: '/register',
-    element: <Register />,
-  },
-  {
-    path: '/profile',
-    element: <Profile />,
-  },
-  {
-    path: '/login',
-    element: <Login />,
-  },
-  {
-    path: '/messages',
-    element: <UserMessages />,
-  },
-  {
-    path: '/logout',
-    element: <Login />,
-  },
-  {
-    path: '*',
-    element: <Home />,
-  },
-]);
-
-
-
-  function App() {
-    return (
-      <ApolloProvider client={client}>
+function App() {
+  return (
+    <ApolloProvider client={client}>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
@@ -113,8 +64,8 @@ const routes = createBrowserRouter([
           </div>
           <Footer />
         </div>
-      </ApolloProvider>
-    );
-  }
-  
-  export default App;
+    </ApolloProvider>
+  );
+}
+
+export default App;

@@ -6,13 +6,18 @@ import {
   FaSignOutAlt,
   FaBars,
   FaTimes,
+  FaSignInAlt,
 } from 'react-icons/fa';
+import Auth from '../../utils/auth'; // Assuming Auth is your authentication utility
+
 const Header = () => {
   const [nav, setNav] = useState(false);
-  const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
-  };
+  
+    const logout = (event) => {
+      event.preventDefault();
+      Auth.logout();
+    };
+
   const navs = [
     {
       id: 1,
@@ -38,7 +43,15 @@ const Header = () => {
       text: 'LOG_OUT',
       link: '/logout',
     },
+    {
+      id: 5,
+      icon: <FaSignInAlt className="mx-1" />,
+      text: 'LOG_IN',
+      link: '/login',
+    }
   ];
+
+  
 
   return (
     <div className="flex justify-between items-center w-full p-3 mb-10 bg-gradient-to-b from-opacityBlack sticky top-0">
