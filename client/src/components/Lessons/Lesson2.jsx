@@ -3,7 +3,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import { abcdef } from '@uiw/codemirror-theme-abcdef';
 import lessons from '../../lessons';
 
-const Lesson = () => {
+const Lesson2 = () => {
   const { code } = lessons[1];
   return (
     <div className="h-screen bg-gray-500">
@@ -38,4 +38,4 @@ const Lesson = () => {
   );
 };
 
-export default Lesson;
+export default Lesson2;

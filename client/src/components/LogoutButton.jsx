@@ -1,8 +1,12 @@
 import React from "react"
-import { useAuth0 } from "@auth0/auth0-react"
+import auth from '../Auth';
 
 const LogoutButton = () => {
-    const { logout, isAuthenticated } = useAuth0()
+    
+    logout = () => {
+        auth.logout();
+        this.props.history.replace('/');
+    };
 
     return (
         isAuthenticated && (
