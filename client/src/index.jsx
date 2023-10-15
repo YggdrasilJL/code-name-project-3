@@ -9,38 +9,36 @@ import Login from './components/Login';
 import UserMessages from './components/UserMessages';
 import Profile from './components/Profile';
 import Dashboard from './components/Dashboard';
-import Auth from '..//utils/auth.js';
+import Auth from '../utils/auth.js';
+import ErrorPage from './components/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (Auth.loggedIn ? (<Login />) : (<div>You’re not logged in</div>)),
-    children: [
-      {
-        index: true,
-        element: <App />
-      }, {
-        path: '/',
-        element: <Home />
-      }, {
-        path: '/login',
-        element: <Login />
-      }, {
-        path: '/dashboard',
-        element: <Dashboard />
-      }, {
-        path: '/register',
-        element: <Register />
-      }, {
-        path: '/profiles/:username',
-        element: <Profile />
-      }, {
-        path: '/me',
-        element: <Profile />
-      }, {
-        path: '/messages/:messageId',
-        element: <UserMessages />
-      }
+    element: (Auth.loggedIn ? (<App />) : (<Login />)),
+    errorElement: <ErrorPage />,
+    children: [{
+      path: '*',
+      element: <Home />
+    }, {
+      path: '/login',
+      element: <Login />
+    }, {
+      path: '/dashboard',
+      element: <Dashboard />
+    }, {
+      path: '/register',
+      element: <Register />
+    }, {
+      path: '/profiles/:username',
+      element: <Profile />
+    }, {
+      path: '/me',
+      element: <Profile />
+    }, {
+      path: '/messages/:messageId',
+      element: <UserMessages />
+    }
     ]
   },
 ]);
