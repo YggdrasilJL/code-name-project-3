@@ -45,7 +45,7 @@ const Html = () => {
           {HtmlLessons.map((item) => (
             <li key={item.id}>
               <button
-                className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded"
+                className="bg-gray-300 hover-bg-gray-400 px-4 py-2 rounded"
                 onClick={() => handleButtonClick(item.title)}
               >
                 {item.title}
@@ -53,6 +53,12 @@ const Html = () => {
             </li>
           ))}
         </ul>
+        <p
+          style={{ color: "#FF00F2" }}
+          className="text-center mt-4"
+        >
+          More Coming Soon
+        </p>
       </section>
 
       {selectedLesson && (
@@ -82,13 +88,6 @@ const Html = () => {
           <p>Your answer: {selectedAnswer}</p>
         </div>
       )}
-
-      <p
-        style={{ color: '#FF00F2' }}
-        className="text-center mt-4"
-      >
-        More Coming Soon
-      </p>
     </div>
   );
 };
