@@ -26,15 +26,20 @@ app.use(cors());
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
+
+  // Catch-all route for all other routes, which serves 'index.html'
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  });
 }
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client//dist/index.html'));
-});
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../client//dist/index.html'));
+// });
 
-app.get('*', function (req, res) {
-  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
-});
+// app.get('*', function (req, res) {
+//   res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+// });
 
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
