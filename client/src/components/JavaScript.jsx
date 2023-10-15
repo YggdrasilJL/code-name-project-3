@@ -4,17 +4,7 @@ import problemData from "../../../server/utils/seeds/problemData.json";
 import answerData from "../../../server/utils/seeds/answerData.json";
 
 const JavaScript = () => {
-  const jsStyle = {
-    background: 'url("/images/background.png")',
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-
+ 
   const JavaScriptLessons = [
     { id: 1, title: "Variables.prob.1" },
     { id: 2, title: "Variables.prob.2" },

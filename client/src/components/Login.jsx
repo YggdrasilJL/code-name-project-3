@@ -33,8 +33,8 @@ function Login(props) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black text-white">
-      <div className="bg-yellow-400 bborder-double border-4 border-sky-500 p-10 rounded-lg ">
+    <div className=" flex items-center justify-center ">
+      <div className="bg-yellow-400 border-double border-4 border-sky-500 p-10 rounded-lg ">
         <h1 className="text-3xl text-center text-sky-500 font-bold mb-5 border-b-4 border-sky-500">Login</h1>
         {data ? (
           <p>

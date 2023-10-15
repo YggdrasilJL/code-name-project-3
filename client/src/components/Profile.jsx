@@ -16,7 +16,7 @@ const Profile = () => {
 
   const user = data?.me || data?.user || {};
 
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+  if (Auth.loggedIn()) {
     return <Navigate to="/me" />;
   }
 
@@ -33,7 +33,7 @@ const Profile = () => {
   }
   
   //  mock user data
-  const mockUser = {
+  /*const mockUser = {
     name: 'John Doe',
     email: 'john.doe@example.com',
     picture: '../../images/mockpfp.png', // path to the user's avatar image
@@ -48,10 +48,10 @@ const Profile = () => {
     { name: 'Badge 1', icon: 'badge1-icon.png' },
     { name: 'Badge 2', icon: 'badge2-icon.png' },
     //  more badge here as needed
-  ];
+  ];*/
 
   //message data ( remove once users are made )
-  const mockMessages = [
+  /*const mockMessages = [
     {
       id: 1,
       user: 'CodeMaster',
@@ -86,7 +86,7 @@ const Profile = () => {
         'HTML tags are my building blocks, and the web is my playground!',
       timestamp: '2023-10-03T12:20:00Z',
     },
-  ];
+  ];*/
 
   //  manage user comments
   const [comments, setComments] = useState([]);
