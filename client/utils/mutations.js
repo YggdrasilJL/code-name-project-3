@@ -24,6 +24,7 @@ export const ADD_USER = gql`
   }
 `;
 
+
 export const LESSON_VALIDATE = gql`
   mutation problemValidate($answerData: answerInput!) {
     problemValidate(answerData: $answerData) {
