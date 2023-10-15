@@ -238,5 +238,165 @@
     "question": "What is the result of '!true'",
     "answers": [],
     "correctAnswer": "false"
+  },
+  {
+    "name": "HTML.prob.1",
+    "lessonName": "HTML",
+    "problemType": "Multiple Choice",
+    "question": "What does HTML stand for?",
+    "answers": [],
+    "correctAnswer": "Hyper Text Markup Language"
+  },
+  {
+    "name": "HTML.prob.2",
+    "lessonName": "HTML",
+    "problemType": "Multiple Choice",
+    "question": "Which element defines the main content in an HTML document?",
+    "answers": [],
+    "correctAnswer": "<body>"
+  },
+  {
+    "name": "HTML.prob.3",
+    "lessonName": "HTML",
+    "problemType": "Multiple Choice",
+    "question": "How do you create a hyperlink in HTML?",
+    "answers": [],
+    "correctAnswer": "<a href=\"url\">Link Text</a>"
+  },
+  {
+    "name": "HTML.prob.4",
+    "lessonName": "HTML",
+    "problemType": "Multiple Choice",
+    "question": "Which tag is used for inserting a line break?",
+    "answers": ["<lb>", "<br>", "<break>", "<linebreak>"],
+    "correctAnswer": "<br>"
+  },
+  {
+    "name": "HTML.prob.5",
+    "lessonName": "HTML",
+    "problemType": "Multiple Choice",
+    "question": "What is the correct way to comment out multiple lines in HTML?",
+    "answers": [],
+    "correctAnswer": "<!--This is a comment-->"
+  },
+  {
+    "name": "HTML.prob.6",
+    "lessonName": "HTML",
+    "problemType": "Multiple Choice",
+    "question": "Which HTML tag represents a paragraph?",
+    "answers": [],
+    "correctAnswer": "<p>"
+  },
+  {
+    "name": "HTML.prob.7",
+    "lessonName": "HTML",
+    "problemType": "Multiple Choice",
+    "question": "How do you create a numbered list in HTML?",
+    "answers": ["<ul>", "<li>", "<ol>", "<dl>"],
+    "correctAnswer": "<ol>"
+  },
+  {
+    "name": "HTML.prob.8",
+    "lessonName": "HTML",
+    "problemType": "Multiple Choice",
+    "question": "Which element defines the metadata for the document?",
+    "answers": [],
+    "correctAnswer": "<head>"
+  },
+  {
+    "name": "HTML.prob.9",
+    "lessonName": "HTML",
+    "problemType": "Multiple Choice",
+    "question": "Which attribute specifies an alternate text for an image?",
+    "answers": [],
+    "correctAnswer": "alt"
+  },
+  {
+    "name": "HTML.prob.10",
+    "lessonName": "HTML",
+    "problemType": "Multiple Choice",
+    "question": "Which doctype is correct for an HTML5 document?",
+    "answers": [],
+    "correctAnswer": "<!DOCTYPE html>"
+  },
+  {
+    "name": "CSS.prob.1",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which property controls element visibility?",
+    "answers": [],
+    "correctAnswer": "visibility"
+  },
+  {
+    "name": "CSS.prob.2",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which property adds space inside a border?",
+    "answers": [],
+    "correctAnswer": "padding"
+  },
+  {
+    "name": "CSS.prob.3",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which 'position' value adjusts an element relative to its normal location?",
+    "answers": [],
+    "correctAnswer": "relative"
+  },
+  {
+    "name": "CSS.prob.4",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which property sets background color?",
+    "answers": [],
+    "correctAnswer": "background-color"
+  },
+  {
+    "name": "CSS.prob.5",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which is a valid 'display' value?",
+    "answers": [],
+    "correctAnswer": "inline-block"
+  },
+  {
+    "name": "CSS.prob.6",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "How do you link 'styles.css'?",
+    "answers": [],
+    "correctAnswer": "<link rel='stylesheet' href='styles.css'>"
+  },
+  {
+    "name": "CSS.prob.7",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which unit refers to viewport width?",
+    "answers": [],
+    "correctAnswer": "vw"
+  },
+  {
+    "name": "CSS.prob.8",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "How to comment in CSS?",
+    "answers": [],
+    "correctAnswer": "/* This is a comment */"
+  },
+  {
+    "name": "CSS.prob.9",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "How to set text to bold in CSS?",
+    "answers": [],
+    "correctAnswer": "font-weight: bold;"
+  },
+  {
+    "name": "CSS.prob.10",
+    "lessonName": "CSS",
+    "problemType": "Multiple Choice",
+    "question": "Which property orders floating elements?",
+    "answers": [],
+    "correctAnswer": "z-index"
   }
 ]
