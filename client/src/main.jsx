@@ -11,6 +11,9 @@ import Profile from './components/Profile';
 import Dashboard from './components/Dashboard';
 import Auth from '../utils/auth.js';
 import ErrorPage from './components/ErrorPage';
+import HTML from './components/Html';
+import Css from './components/Css';
+import JavaScript from './components/JavaScript';
 
 const router = createBrowserRouter([
   {
@@ -38,7 +41,17 @@ const router = createBrowserRouter([
     }, {
       path: '/messages/:messageId',
       element: <UserMessages />
+    }, {
+      path: '/JavaScript',
+      element: <JavaScript />
+    }, {
+      path: '/Html',
+      element: <HTML />
+    }, {
+      path: '/Css',
+      element: <Css />
     }
+
     ]
   },
 ]);

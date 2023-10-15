@@ -60,7 +60,7 @@ const JavaScript = () => {
 };
 
 return (
-  <div style={jsStyle}>
+  <div>
     <ParticleEffect />
 
     <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
