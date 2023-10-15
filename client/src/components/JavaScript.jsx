@@ -59,14 +59,14 @@ const JavaScript = () => {
   };
 
   return (
-    <div>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
       <ParticleEffect />
 
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
         <h2 className="text-xl font-bold mb-2 text-white">JavaScript Lessons</h2>
-        <ul className="flex flex-wrap justify-center space-x-4">
+        <ul style={{ listStyle: "none", padding: 0 }}>
           {JavaScriptLessons.map((item) => (
-            <li key={item.id}>
+            <li key={item.id} style={{ display: "inline-block", margin: "5px" }}>
               <button
                 className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded"
                 onClick={() => handleButtonClick(item.title)}
@@ -75,6 +75,7 @@ const JavaScript = () => {
               </button>
             </li>
           ))}
+          <li style={{ color: "#FF00F2" }}>More Coming Soon</li>
         </ul>
       </section>
 
@@ -106,10 +107,8 @@ const JavaScript = () => {
           <p>Your answer: {selectedAnswer}</p>
         </div>
       )}
-      <p style={{ color: "#FF00F2" }} className="text-center mt-4">
-        More Coming Soon
-      </p>
     </div>
+
   );
 };
 
