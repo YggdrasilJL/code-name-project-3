@@ -1,4 +1,5 @@
 import React from 'react';
+import ParticleEffect from './ParticleEffect';
 
 const Home = () => {
   const homeStyle = {

@@ -1,5 +1,5 @@
 const User = require("./User")
-const FillTheBlank = require("./fillTheBlank")
-const MultChoice = require("./multChoice")
+const Lesson = require("./Lesson")
+const Problem = require("./Problem")
 
-module.exports = {User, FillTheBlank, MultChoice}
+module.exports = { User, Lesson, Problem }

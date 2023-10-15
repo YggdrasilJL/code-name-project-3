@@ -1,15 +1,19 @@
-const { User } = require('../models');
-const { userAnswerFile } = require('../utils/fsUtils')
-const answerTester = require('../utils/answerTester')
-
+const { User, Lesson, Problem } = require('../models');
+const { signToken, AuthenticationError } = require('../utils/Auth');
 
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        return await User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    lesson: async (_, args, ) => {
+      return await Lesson.findOne({ _id: args.id });
+    },
+    problem: async (_, args, ) => {
+      return await Problem.findOne({ _id: args.id });
     }
   },
   Mutation: {
@@ -44,48 +48,23 @@ const resolvers = {
       return { token, user }
     },
     // lesson routes?
-    lessonValidate: async (parent, { lessonData }) => {
-      /*
-        using userID and lessonID for filename,
-        data should be the string output of the lesson/codeMirror
-        will probably also need a token
+    problemValidate: async (_, { answerData }, context) => {
+      let { lessonID, body } = answerData;
+      //const user = await User.findOne({ _id: context.user._id })
+      const lesson = await Lesson.findOne({ _id: lessonID })
+      const validator = new RegExp('test*') //lesson.correctAnswer
+      isValidated = validator.test(body)
 
-        lessonData = {
-          userID: User._id,
-          lessonID: lesson._id,
-          lessonAnswerData: `
-          // make the console output 'Fluffy'
 
-            var shelter = {
-              dogs: ["Mackie", "Bernice", "Cookie Monster", "Spot"],
-              cats: ["Astrid", "Lulu", "Fluffy", "Mouser"]
-            };
+      /*if (isValidated) {
+        user.xp += lesson.xpValue
+      }*/
 
-            var chosenPet = function () {
-              // code here
-            };
-
-            console.log(chosenPet());`
-        }
-      */
-
-      const { userID, lessonID, lessonAnswerData } = lessonData
-      const path = await userAnswerFile(userID, lessonID, lessonAnswerData)
-
-      answerTester(path, (err) => {
-        if (err) {
-          return new GraphQLError(err, {
-            extensions: {
-              code: 'VALIDATION_FAILED'
-            }
-          });
-        } else {
-          return 200
-        }
-
-      })
+      return { isValidated }
+    },
+    addMessage: async (_, { messageText }, context) => {
+      // need to send user
     }
-
   },
 }
 

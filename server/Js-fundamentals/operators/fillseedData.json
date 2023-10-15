@@ -1,0 +1,52 @@
+[
+  {
+    "question": "To increase `count` by 1, use the ______ operator.",
+    "answer": [
+      {"_id": "a", "body": "+"},
+      {"_id": "b", "body": "--"},
+      {"_id": "c", "body": "++"},
+      {"_id": "d", "body": "*"}
+    ],
+    "correctAnswer": "c"
+  },
+  {
+    "question": "To decrease `score` by 1, use the ______ operator.",
+    "answer": [
+      {"_id": "a", "body": "+"},
+      {"_id": "b", "body": "--"},
+      {"_id": "c", "body": "++"},
+      {"_id": "d", "body": "/"}
+    ],
+    "correctAnswer": "b"
+  },
+  {
+    "question": "To check if both `isTrue` and `isCorrect` are true, use ______.",
+    "answer": [
+      {"_id": "a", "body": "||"},
+      {"_id": "b", "body": "&&"},
+      {"_id": "c", "body": "!"},
+      {"_id": "d", "body": "=="}
+    ],
+    "correctAnswer": "b"
+  },
+  {
+    "question": "To verify if either `isDay` or `isNight` is true, use ______.",
+    "answer": [
+      {"_id": "a", "body": "&&"},
+      {"_id": "b", "body": "||"},
+      {"_id": "c", "body": "!"},
+      {"_id": "d", "body": "==="}
+    ],
+    "correctAnswer": "b"
+  },
+  {
+    "question": "To reverse the value of `isActive`, use the ______ operator.",
+    "answer": [
+      {"_id": "a", "body": "||"},
+      {"_id": "b", "body": "&&"},
+      {"_id": "c", "body": "!"},
+      {"_id": "d", "body": "=="}
+    ],
+    "correctAnswer": "c"
+  }
+]

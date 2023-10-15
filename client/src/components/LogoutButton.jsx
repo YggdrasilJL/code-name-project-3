@@ -1,8 +1,8 @@
-import React from "react"
-import auth from '../Auth';
+/*import React from "react"
+import auth from '../../utils/auth.js';
 
 const LogoutButton = () => {
-    
+
     logout = () => {
         auth.logout();
         this.props.history.replace('/');
@@ -18,5 +18,5 @@ const LogoutButton = () => {
     )
 }
 
-export default LogoutButton
+export default LogoutButton*/
 

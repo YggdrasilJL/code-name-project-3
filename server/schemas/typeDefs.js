@@ -1,10 +1,18 @@
-const { gql } = require('apollo-server-express');
+const typeDefs = `
 
-const typeDefs = gql`
+  # Object types
+
   type User {
     _id: ID
     username: String!
     email: String!
+  }
+
+  type Message {
+    _id: ID!
+    messageText: String!
+    messageAuthor: User!
+    createdAt: String!
   }
 
   type Auth {
@@ -12,12 +20,38 @@ const typeDefs = gql`
     user: User
   }
 
-  type Res {
-    statusCode: Int!
+  type Lesson {
+    _id: ID!
+    name: String!
+    iconUrl: String!
+    problems: [Problem]!
+    unit: String!
   }
 
-  type Query {
-    me: User
+  type Problem {
+    _id: ID!
+    name: String!
+    lessonID: ID!
+    problemType: String!
+    question: String!
+    answers: [Answer]
+    correctAnswer: String!
+  }
+
+  type Answer {
+    answerID: ID!
+    userID: String
+    lessonID: String!
+    body: String
+    isValidated: Boolean!
+  }
+
+ # Input types
+
+  input answerInput {
+    userID: String
+    lessonID: String!
+    body: String
   }
 
   input userInput {
@@ -26,16 +60,29 @@ const typeDefs = gql`
     password: String!
   }
 
+  input messageInput {
+    messageText: String!
+    messageAuthor: String!
+  }
+
   input lessonInput {
-    userID: ID!
     lessonID: ID!
     lessonAnswerData: String!
+  }
+
+  # Queries & Mutations
+
+  type Query {
+    me: User
+    lesson(id: ID!): Lesson
+    problem(id: ID!): Problem
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(userData: userInput!): Auth
-    lessonValidate(lessonData: lessonInput!): Res
+    problemValidate(answerData: answerInput!): Answer
+    addMessage(messageData: messageInput): Message
   }
 
 `;

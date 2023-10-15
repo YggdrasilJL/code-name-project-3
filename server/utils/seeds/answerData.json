@@ -1,0 +1,272 @@
+[
+  {
+    "problemName": "Variables.prob.1",
+    "body": [
+      {"_id": "a", "body": "let"},
+      {"_id": "b", "body": "const"},
+      {"_id": "c", "body": "var"},
+      {"_id": "d", "body": "function"}
+    ]
+  },
+  {
+    "problemName": "Variables.prob.2",
+    "body": [
+      {"_id": "a", "body": "let"},
+      {"_id": "b", "body": "const"},
+      {"_id": "c", "body": "var"},
+      {"_id": "d", "body": "function"}
+    ]
+  },
+  {
+    "problemName": "Variables.prob.3",
+    "body": [
+      {"_id": "a", "body": "let"},
+      {"_id": "b", "body": "const"},
+      {"_id": "c", "body": "var"},
+      {"_id": "d", "body": "function"}
+    ]
+  },
+  {
+    "problemName": "Variables.prob.4",
+    "body": [
+      {"_id": "a", "body": "let"},
+      {"_id": "b", "body": "const"},
+      {"_id": "c", "body": "var"},
+      {"_id": "d", "body": "function"}
+    ]
+  },
+  {
+    "problemName": "Variables.prob.5",
+    "body": [
+      {"_id": "a", "body": "let"},
+      {"_id": "b", "body": "const"},
+      {"_id": "c", "body": "var"},
+      {"_id": "d", "body": "function"}
+    ]
+  },
+  {
+    "problemName": "Variables.prob.6",
+    "body": [
+      {"_id": "a", "text": "set"},
+      {"_id": "b", "text": "let"},
+      {"_id": "c", "text": "const"},
+      {"_id": "d", "text": "var"}
+    ]
+  },
+  {
+    "problemName": "Variables.prob.7",
+    "body": [
+      {"_id": "a", "text": "var"},
+      {"_id": "b", "text": "let"},
+      {"_id": "c", "text": "const"},
+      {"_id": "d", "text": "Both a and b"}
+    ]
+  },
+  {
+    "problemName": "Variables.prob.8",
+    "body": [
+      {"_id": "a", "text": "var"},
+      {"_id": "b", "text": "let"},
+      {"_id": "c", "text": "const"},
+      {"_id": "d", "text": "mutable"}
+    ]
+  },
+  {
+    "problemName": "Variables.prob.9",
+    "body": [
+      {"_id": "a", "text": "var"},
+      {"_id": "b", "text": "let"},
+      {"_id": "c", "text": "const"},
+      {"_id": "d", "text": "Both a and b"}
+    ]
+  },
+  {
+    "problemName": "Variables.prob.10",
+    "body": [
+      {"_id": "a", "text": "var"},
+      {"_id": "b", "text": "let"},
+      {"_id": "c", "text": "const"},
+      {"_id": "d", "text": "const and let"}
+    ]
+  },
+  {
+    "problemName": "DataTypes.prob.1",
+    "body": [
+      {"_id": "a", "body": "10 + 2"},
+      {"_id": "b", "body": "10 * 2"},
+      {"_id": "c", "body": "10 / 2"},
+      {"_id": "d", "body": "10 - 2"}
+    ]
+  },
+  {
+    "problemName": "DataTypes.prob.2",
+    "body": [
+      {"_id": "a", "body": "null"},
+      {"_id": "b", "body": "a Boolean"},
+      {"_id": "c", "body": "NaN"},
+      {"_id": "d", "body": "undefined"}
+    ]
+  },
+  {
+    "problemName": "DataTypes.prob.3",
+    "body": [
+      {"_id": "a", "body": "Hello!"},
+      {"_id": "b", "body": "24"},
+      {"_id": "c", "body": "true"},
+      {"_id": "d", "body": "null"}
+    ]
+  },
+  {
+    "problemName": "DataTypes.prob.4",
+    "body": [
+      {"_id": "a", "body": "null"},
+      {"_id": "b", "body": "''"},
+      {"_id": "c", "body": "undefined"},
+      {"_id": "d", "body": "0"}
+    ]
+  },
+  {
+    "problemName": "DataTypes.prob.5",
+    "body": [
+      {"_id": "a", "body": "false"},
+      {"_id": "b", "body": "''"},
+      {"_id": "c", "body": "undefined"},
+      {"_id": "d", "body": "null"}
+    ]
+  },
+  {
+    "problemName": "DataTypes.prob.6",
+    "body": [
+      {"_id": "a", "text": "String"},
+      {"_id": "b", "text": "Boolean"},
+      {"_id": "c", "text": "Number"},
+      {"_id": "d", "text": "Undefined"}
+    ]
+  },
+  {
+    "problemName": "DataTypes.prob.7",
+    "body": [
+      {"_id": "a", "text": "Null"},
+      {"_id": "b", "text": "Number"},
+      {"_id": "c", "text": "String"},
+      {"_id": "d", "text": "Boolean"}
+    ]
+  },
+  {
+    "problemName": "DataTypes.prob.8",
+    "body": [
+      {"_id": "a", "text": "Number"},
+      {"_id": "b", "text": "String"},
+      {"_id": "c", "text": "Boolean"},
+      {"_id": "d", "text": "Undefined"}
+    ]
+  },
+  {
+    "problemName": "DataTypes.prob.9",
+    "body": [
+      {"_id": "a", "text": "null"},
+      {"_id": "b", "text": "0"},
+      {"_id": "c", "text": "''"},
+      {"_id": "d", "text": "undefined"}
+    ]
+  },
+  {
+    "problemName": "DataTypes.prob.10",
+    "body": [
+      {"_id": "a", "text": "Boolean"},
+      {"_id": "b", "text": "Empty"},
+      {"_id": "c", "text": "None"},
+      {"_id": "d", "text": "Null"}
+    ]
+  },
+  {
+    "problemName": "Operators.prob.1",
+    "body": [
+      {"_id": "a", "body": "+"},
+      {"_id": "b", "body": "--"},
+      {"_id": "c", "body": "++"},
+      {"_id": "d", "body": "*"}
+    ]
+  },
+  {
+    "problemName": "Operators.prob.2",
+    "body": [
+      {"_id": "a", "body": "+"},
+      {"_id": "b", "body": "--"},
+      {"_id": "c", "body": "++"},
+      {"_id": "d", "body": "/"}
+    ]
+  },
+  {
+    "problemName": "Operators.prob.3",
+    "body": [
+      {"_id": "a", "body": "||"},
+      {"_id": "b", "body": "&&"},
+      {"_id": "c", "body": "!"},
+      {"_id": "d", "body": "=="}
+    ]
+  },
+  {
+    "problemName": "Operators.prob.4",
+    "body": [
+      {"_id": "a", "body": "&&"},
+      {"_id": "b", "body": "||"},
+      {"_id": "c", "body": "!"},
+      {"_id": "d", "body": "==="}
+    ]
+  },
+  {
+    "problemName": "Operators.prob.5",
+    "body": [
+      {"_id": "a", "body": "||"},
+      {"_id": "b", "body": "&&"},
+      {"_id": "c", "body": "!"},
+      {"_id": "d", "body": "=="}
+    ]
+  },
+  {
+    "problemName": "Operators.prob.6",
+    "body": [
+      {"_id": "a", "body": "Subtract 1"},
+      {"_id": "b", "body": "Add 1"},
+      {"_id": "c", "body": "Check equality"},
+      {"_id": "d", "body": "Double it"}
+    ]
+  },
+  {
+    "problemName": "Operators.prob.7",
+    "body": [
+      {"_id": "a", "body": "10"},
+      {"_id": "b", "body": "11"},
+      {"_id": "c", "body": "9"},
+      {"_id": "d", "body": "0"}
+    ]
+  },
+  {
+    "problemName": "Operators.prob.8",
+    "body": [
+      {"_id": "a", "body": "&"},
+      {"_id": "b", "body": "|"},
+      {"_id": "c", "body": "&&"},
+      {"_id": "d", "body": "=="}
+    ]
+  },
+  {
+    "problemName": "Operators.prob.9",
+    "body": [
+      {"_id": "a", "body": "or"},
+      {"_id": "b", "body": "and"},
+      {"_id": "c", "body": "increment"},
+      {"_id": "d", "body": "equal"}
+    ]
+  },
+  {
+    "problemName": "Operators.prob.10",
+    "body": [
+      {"_id": "a", "body": "true"},
+      {"_id": "b", "body": "false"},
+      {"_id": "c", "body": "'true'"},
+      {"_id": "d", "body": "'false'"}
+    ]
+  }
+]

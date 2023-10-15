@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Assign 10 times 2 to `result`: `var result = _______;`",
+    "answer": [
+      {"_id": "a", "body": "10 + 2"},
+      {"_id": "b", "body": "10 * 2"},
+      {"_id": "c", "body": "10 / 2"},
+      {"_id": "d", "body": "10 - 2"}
+    ],
+    "correctAnswer": "c"
+  },
+  {
+    "question": "A declared but uninitialized variable in JavaScript is _______.",
+    "answer": [
+      {"_id": "a", "body": "null"},
+      {"_id": "b", "body": "a Boolean"},
+      {"_id": "c", "body": "NaN"},
+      {"_id": "d", "body": "undefined"}
+    ],
+    "correctAnswer": "d"
+  },
+  {
+    "question": "Add a string to this line of code: `var greeting = '_______';",
+    "answer": [
+      {"_id": "a", "body": "Hello!"},
+      {"_id": "b", "body": "24"},
+      {"_id": "c", "body": "true"},
+      {"_id": "d", "body": "null"}
+    ],
+    "correctAnswer": "a"
+  },
+  {
+    "question": "Declare `name` with an empty string: `var name = _______;`",
+    "answer": [
+      {"_id": "a", "body": "null"},
+      {"_id": "b", "body": "''"},
+      {"_id": "c", "body": "undefined"},
+      {"_id": "d", "body": "0"}
+    ],
+    "correctAnswer": "b"
+  },
+  {
+    "question": "Make currentUser return null: `var currentUser = _______;` `console.log(currentUser)`",
+    "answer": [
+      {"_id": "a", "body": "false"},
+      {"_id": "b", "body": "''"},
+      {"_id": "c", "body": "undefined"},
+      {"_id": "d", "body": "null"}
+    ],
+    "correctAnswer": "d"
+  }
+]

@@ -1,221 +1,253 @@
-import React, { useState, useEffect } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import UserMessages from "./UserMessages"; 
+import React, { useState, useEffect } from 'react';
+import { QUERY_ME } from '../../utils/queries';
+
+import { Navigate, useParams } from 'react-router-dom';
+import Auth from '../../utils/auth';
+
+import { useQuery, useMutation } from '@apollo/client';
+import UserMessages from './UserMessages';
+import Donation from './Donation';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
-  //  mock user data 
-  const mockUser = {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    picture: "user-avatar.jpg", // path to the user's avatar image
-  };
+  const { username: userParam } = useParams();
 
-  // Define mock bio and skills data
-  const mockBio = "I am a web developer passionate about coding.";
-  const mockSkills = ["HTML", "CSS", "JavaScript"];
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
+  });
 
-  // mock badge data
-  const mockBadges = [
-    { name: "Badge 1", icon: "badge1-icon.png" },
-    { name: "Badge 2", icon: "badge2-icon.png" },
-    //  more badge here as needed
-  ];
+  const user = data?.me || data?.user || {};
+  // navigate to personal profile page if username is yours
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Navigate to="/me" />;
+  }
 
-  // mock message data ( remove once users are made )
-  const mockMessages = [
-    {
-      id: 1,
-      user: "CodeMaster",
-      content: "Hello fellow code wrangler! How's your debugging journey going?",
-      timestamp: "2023-10-03T12:00:00Z",
-    },
-    {
-      id: 2,
-      user: "SyntaxSorcerer",
-      content: "Ahoy there! Remember, semicolons are like a knight's armor in the JavaScript kingdom.",
-      timestamp: "2023-10-03T12:05:00Z",
-    },
-    {
-      id: 3,
-      user: "BugHunter",
-      content: "Bug discovered! Time to put on my Sherlock Holmes hat and hunt it down.",
-      timestamp: "2023-10-03T12:10:00Z",
-    },
-    {
-      id: 4,
-      user: "Pythonista",
-      content: "Python is like a snake, it slithers through code effortlessly.",
-      timestamp: "2023-10-03T12:15:00Z",
-    },
-    {
-      id: 5,
-      user: "HTMLHero",
-      content: "HTML tags are my building blocks, and the web is my playground!",
-      timestamp: "2023-10-03T12:20:00Z",
-    },
-  ];
-  
-  // manage dark mode toggle
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  if (!user?.username) {
+    return (
+      <h4>
+        You need to be logged in to see this. Use the navigation links above to
+        sign up or log in!
+      </h4>
+    );
+  }
+  //  mock user data
+  // const mockUser = {
+  //   name: 'John Doe',
+  //   email: 'john.doe@example.com',
+  //   picture: '../../images/mockpfp.png', // path to the user's avatar image
+  // };
+
+  // // Define mock bio and skills data
+  // const mockBio = 'I am a web developer passionate about coding.';
+  // const mockSkills = ['HTML', 'CSS', 'JavaScript'];
+
+  // // mock badge data
+  // const mockBadges = [
+  //   { name: 'Badge 1', icon: 'badge1-icon.png' },
+  //   { name: 'Badge 2', icon: 'badge2-icon.png' },
+  //   //  more badge here as needed
+  // ];
+
+  // // mock message data ( remove once users are made )
+  // const mockMessages = [
+  //   {
+  //     id: 1,
+  //     user: 'CodeMaster',
+  //     content:
+  //       "Hello fellow code wrangler! How's your debugging journey going?",
+  //     timestamp: '2023-10-03T12:00:00Z',
+  //   },
+  //   {
+  //     id: 2,
+  //     user: 'SyntaxSorcerer',
+  //     content:
+  //       "Ahoy there! Remember, semicolons are like a knight's armor in the JavaScript kingdom.",
+  //     timestamp: '2023-10-03T12:05:00Z',
+  //   },
+  //   {
+  //     id: 3,
+  //     user: 'BugHunter',
+  //     content:
+  //       'Bug discovered! Time to put on my Sherlock Holmes hat and hunt it down.',
+  //     timestamp: '2023-10-03T12:10:00Z',
+  //   },
+  //   {
+  //     id: 4,
+  //     user: 'Pythonista',
+  //     content: 'Python is like a snake, it slithers through code effortlessly.',
+  //     timestamp: '2023-10-03T12:15:00Z',
+  //   },
+  //   {
+  //     id: 5,
+  //     user: 'HTMLHero',
+  //     content:
+  //       'HTML tags are my building blocks, and the web is my playground!',
+  //     timestamp: '2023-10-03T12:20:00Z',
+  //   },
+  // ];
 
   //  manage user comments
-  const [comments, setComments] = useState([]);
+  // const [comments, setComments] = useState([]);
 
-  // fetch mock user comments (replace with actual API request as mention above)
-  const fetchComments = async () => {
-    try {
-      // mock fetching comments from an API
-      const response = await fetch("/api/comments"); // actual API endpoint here
-      if (response.ok) {
-        const data = await response.json();
-        setComments(data);
-      }
-    } catch (error) {
-      console.error("Error fetching comments:", error);
-    }
-  };
+  // // fetch mock user comments (replace with actual API request as mention above)
+  // const fetchComments = async () => {
+  //   try {
+  //     // mock fetching comments from an API
+  //     const response = await fetch('/api/comments'); // actual API endpoint here
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       setComments(data);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching comments:', error);
+  //   }
+  // };
 
-  //  fetch comments when the component mounts
-  useEffect(() => {
-    fetchComments();
-  }, []);
+  // //  fetch comments when the component mounts
+  // useEffect(() => {
+  //   fetchComments();
+  // }, []);
 
-  //  manage the new message input
-  const [newMessage, setNewMessage] = useState("");
+  // //  manage the new message input
+  // const [newMessage, setNewMessage] = useState('');
 
-  // handle changes in the new message input field
-  const handleNewMessageChange = (e) => {
-    setNewMessage(e.target.value);
-  };
+  // // handle changes in the new message input field
+  // const handleNewMessageChange = (e) => {
+  //   setNewMessage(e.target.value);
+  // };
 
-  // handle submitting a new message
-  const handleSendMessage = () => {
-    if (newMessage.trim() === "") {
-      return; // Don't send empty messages
-    }
+  // // handle submitting a new message
+  // const handleSendMessage = () => {
+  //   if (newMessage.trim() === '') {
+  //     return; // Don't send empty messages
+  //   }
 
-    // send the message to the server here
-    // For development purposes, add the message to the mockMessages array or ill forget
-    const newMessageObj = {
-      id: comments.length + 1, // (replace with real ID generation)
-      user: "CurrentUser", // actual username or user ID
-      content: newMessage,
-      timestamp: new Date().toISOString(),
-    };
+  //   // send the message to the server here
+  //   // For development purposes, add the message to the mockMessages array or ill forget
+  //   const newMessageObj = {
+  //     id: comments.length + 1, // (replace with real ID generation)
+  //     user: 'CurrentUser', // actual username or user ID
+  //     content: newMessage,
+  //     timestamp: new Date().toISOString(),
+  //   };
 
-    // state to include the new message
-    setComments([...comments, newMessageObj]);
+  //   // state to include the new message
+  //   setComments([...comments, newMessageObj]);
 
-    // Clear the input field
-    setNewMessage("");
-  };
+  //   // Clear the input field
+  //   setNewMessage('');
+  // };
 
   return (
     <div>
-      {/*  Header component */}
-      <Header />
-
       {/* Main content  */}
-      <main
-        className={`${
-          isDarkMode ? "bg-black text-white" : "bg-white text-black"
-        } p-4`}
-      >
-        <section className="mb-4">
-          <h1 className="text-2xl font-bold mb-2">Profile</h1>
-          <div className="bg-gray-300 p-4 rounded-lg">
-            <h2 className="text-lg font-semibold mb-2">User Information</h2>
-            {/* User avatar */}
-            <img
-              src={mockUser.picture}
-              alt={mockUser.name}
-              className="w-20 h-20 rounded-full mb-2"
-            />
-            <h2 className="text-xl font-semibold mb-2">{mockUser.name}</h2>
-            <p>{mockUser.email}</p>
+      <h2 className="text-center text-cyber-darkYellow mb-3">
+        STRING USER_INFO = SYSTEM.IO.FILE.READLINES("USER_DATA.TXT")
+      </h2>
+      <main className="flex flex-col items-center">
+        <div className="flex">
+          <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
+            <div className="flex flex-col items-center p-4">
+              <h2 className="text-lg font-semibold mb-2">USER_INFORMATION</h2>
+              {/* User avatar */}
+              <div className="w-60 border-2 border-cyber-pink rounded-2xl">
+                <img
+                  src={mockUser.picture}
+                  alt={mockUser.name}
+                  className="rounded-2xl"
+                />
+              </div>
+              <h2 className="text-xl font-semibold mb-2">{mockUser.name}</h2>
+              <p>{mockUser.email}</p>
+            </div>
+            {/* Bio and Skills */}
+            <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
+              <h2 className="text-lg font-semibold mb-2">BIO_</h2>
+              <div className=" p-4 ">
+                <p>{mockBio}</p>
+              </div>
+              <h2 className="text-lg font-semibold mb-2 mt-4">SKILLS_</h2>
+              <div className=" p-4 ">
+                {mockSkills.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="bg-blue-500 text-white px-2 py-1 rounded-md mr-2"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
-        </section>
+          {/* Badge div */}
+          <div className="flex flex-col justify-end ml-5">
+            <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
+              <h2 className="text-lg font-semibold mb-2">BADGES_</h2>
+              <div className=" p-4 ">
+                {mockBadges.map((badge, index) => (
+                  <div key={index} className="flex items-center mb-2">
+                    <img
+                      src={badge.icon}
+                      alt={badge.name}
+                      className="w-6 h-6 mr-2"
+                    />
+                    <span>{badge.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-        {/* Bio and Skills */}
-        <section className="mb-4">
-          <h2 className="text-lg font-semibold mb-2">Bio</h2>
-          <div className="bg-gray-300 p-4 rounded-lg">
-            <p>{mockBio}</p>
-          </div>
-          <h2 className="text-lg font-semibold mb-2 mt-4">Skills</h2>
-          <div className="bg-gray-300 p-4 rounded-lg">
-            {mockSkills.map((skill, index) => (
-              <span
-                key={index}
-                className="bg-blue-500 text-white px-2 py-1 rounded-md mr-2"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </section>
+            {/* Progress div */}
+            <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
+              <h2 className="text-lg font-semibold mb-2">PROGRESS_TRACKING</h2>
+              <div className=" p-4 ">{/* Progress content */}</div>
+            </div>
 
-        {/* Badge section */}
-        <section className="mb-4">
-          <h2 className="text-lg font-semibold mb-2">Badges</h2>
-          <div className="bg-gray-300 p-4 rounded-lg">
-            {mockBadges.map((badge, index) => (
-              <div key={index} className="flex items-center mb-2">
-                <img src={badge.icon} alt={badge.name} className="w-6 h-6 mr-2" />
-                <span>{badge.name}</span>
+            {/* Achievement */}
+            <div className="p-3 mb-4 bg-black rounded-lg border  border-cyber-blue">
+              <h2 className="text-lg font-semibold mb-2">ACHIEVEMENTS_</h2>
+              <div className=" p-4 ">{/* Achievement content */}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mock Messages div (placeholder) */}
+        <div className="p-3 mb-4 bg-black w-fit rounded-lg border  border-cyber-blue">
+          <h2 className="text-lg font-semibold mb-2">MOCK_MESSAGES</h2>
+          <div className=" p-4 ">
+            {mockMessages.map((message) => (
+              <div key={message.id} className="mb-2">
+                <p className="font-semibold">{message.user}</p>
+                <p>{message.content}</p>
+                <p className="text-gray-500">{message.timestamp}</p>
               </div>
             ))}
           </div>
-        </section>
-
-        {/* Progress section */}
-        <section className="mb-4">
-          <h2 className="text-lg font-semibold mb-2">Progress Tracking</h2>
-          <div className="bg-gray-300 p-4 rounded-lg">
-            {/* Progress content */}
-          </div>
-        </section>
-
-        {/* Achievement */}
-        <section className="mb-4">
-          <h2 className="text-lg font-semibold mb-2">Achievements</h2>
-          <div className="bg-gray-300 p-4 rounded-lg">
-            {/* Achievement content */}
-          </div>
-        </section>
-
+        </div>
         {/* User messages  */}
-<section className="mb-4">
-  <h2 className="text-lg font-semibold mb-2">User Messages</h2>
-  <UserMessages
-    messages={comments}
-    newMessage={newMessage}
-    handleNewMessageChange={handleNewMessageChange}
-    handleSendMessage={handleSendMessage}
-  />
-</section>
-
-{/* Mock Messages section (placeholder) */}
-<section className="mb-4">
-  <h2 className="text-lg font-semibold mb-2">Mock Messages</h2>
-  <div className="bg-gray-300 p-4 rounded-lg">
-    {mockMessages.map((message) => (
-      <div key={message.id} className="mb-2">
-        <p className="font-semibold">{message.user}</p>
-        <p>{message.content}</p>
-        <p className="text-gray-500">{message.timestamp}</p>
-      </div>
-    ))}
-  </div>
-</section>
+        <div className="p-3 mb-4 bg-black w-fit rounded-lg border  border-cyber-blue">
+          <h2 className="text-lg font-semibold mb-2">USER_MESSAGES</h2>
+          <UserMessages
+            messages={comments}
+            newMessage={newMessage}
+            handleNewMessageChange={handleNewMessageChange}
+            handleSendMessage={handleSendMessage}
+          />
+        </div>
       </main>
+    </div>
+  );
+};
 
-      {/* Dark Mode **neon mode tba** */}
+export default Profile;
+
+
+{
+  /* Dark Mode **neon mode tba**
       <button
         className={`${
           isDarkMode ? "bg-white text-black" : "bg-black text-white"
@@ -223,12 +255,8 @@ const Profile = () => {
         onClick={toggleDarkMode}
       >
         {isDarkMode ? "Light Mode" : "Dark Mode"}
-      </button>
-
-      {/* Footer component */}
-      <Footer />
-    </div>
-  );
-};
-
-export default Profile;
+      </button> */
+}
+// className={`${
+//           isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
+//         } p-4`}

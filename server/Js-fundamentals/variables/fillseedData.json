@@ -1,0 +1,52 @@
+[
+  {
+    "question": "To declare a block-scoped variable named 'price', you'd use: '______ price;'",
+    "answer": [
+      {"_id": "a", "body": "let"},
+      {"_id": "b", "body": "const"},
+      {"_id": "c", "body": "var"},
+      {"_id": "d", "body": "function"}
+    ],
+    "correctAnswer": "a"
+  },
+  {
+    "question": "To declare an unchangeable variable named 'maxValue', you'd use: '______ maxValue = 100;'",
+    "answer": [
+      {"_id": "a", "body": "let"},
+      {"_id": "b", "body": "const"},
+      {"_id": "c", "body": "var"},
+      {"_id": "d", "body": "function"}
+    ],
+    "correctAnswer": "b"
+  },
+  {
+    "question": "To declare a function-scoped variable named 'username' without assigning a value, you'd write: '______ username;'",
+    "answer": [
+      {"_id": "a", "body": "let"},
+      {"_id": "b", "body": "const"},
+      {"_id": "c", "body": "var"},
+      {"_id": "d", "body": "function"}
+    ],
+    "correctAnswer": "c"
+  },
+  {
+    "question": "For a variable 'count', that will be reassigned in the future, you'd use '______ count = 0;'",
+    "answer": [
+      {"_id": "a", "body": "let"},
+      {"_id": "b", "body": "const"},
+      {"_id": "c", "body": "var"},
+      {"_id": "d", "body": "function"}
+    ],
+    "correctAnswer": "a"
+  },
+  {
+    "question": "To create a variable `total` that shouldn't change and is set to 50, you'd write: `______ total = 50;`",
+    "answer": [
+      {"_id": "a", "body": "let"},
+      {"_id": "b", "body": "const"},
+      {"_id": "c", "body": "var"},
+      {"_id": "d", "body": "function"}
+    ],
+    "correctAnswer": "b"
+  }
+]
