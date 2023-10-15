@@ -47,74 +47,24 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-
-
 const client = new ApolloClient({
   // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-=======
 
-const routes = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/lessons',
-    element: <Lessons />,
-    children: [
-      {
-        path: ':id',
-        element: <Lesson1 />,
-      },
-    ],
-  },
-  {
-    path: '/dashboard',
-    element: <Dashboard />,
-  },
-  {
-    path: '/register',
-    element: <Register />,
-  },
-  {
-    path: '/profile',
-    element: <Profile />,
-  },
-  {
-    path: '/login',
-    element: <Login />,
-  },
-  {
-    path: '/messages',
-    element: <UserMessages />,
-  },
-  {
-    path: '/logout',
-    element: <Login />,
-  },
-  {
-    path: '*',
-    element: <Home />,
-  },
-]);
-
-
-
-  function App() {
-    return (
-      <ApolloProvider client={client}>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Outlet />
-          </div>
-          <Footer />
+function App() {
+  return (
+    <ApolloProvider client={client}>
+      <div className="flex-column justify-flex-start min-100-vh">
+        <Header />
+        <div className="container">
+          <Outlet />
         </div>
-      </ApolloProvider>
-    );
-  }
-  
-  export default App;
+        <Footer />
+      </div>
+    </ApolloProvider>
+  );
+}
+
+export default App;

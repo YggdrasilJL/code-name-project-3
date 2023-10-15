@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { QUERY_ME } from '../utils/queries';
+import { QUERY_ME } from '../../utils/queries';
 
 import { Navigate, useParams } from 'react-router-dom';
 import Auth from '../../utils/auth';

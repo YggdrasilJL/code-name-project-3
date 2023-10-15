@@ -11,6 +11,10 @@ export const QUERY_USER = gql`
         _id
         messageText
         createdAt
+      }
+    }
+  }
+`
 
 export const QUERY_ME = gql`
   query me {
@@ -20,7 +24,6 @@ export const QUERY_ME = gql`
       email
       lessons {
         _id
-
       }
     }
   }
@@ -28,30 +31,30 @@ export const QUERY_ME = gql`
 
 
 export const GET_LESSON = gql`
-    query lesson($id: ID!) {
-        lesson(id: $id) {
-            _id
-            name
-            iconUrl
-            unit
-            problems {
-                _id
-            }
-        }
+  query lesson($id: ID!) {
+    lesson(id: $id) {
+      _id
+      name
+      iconUrl
+      unit
+      problems {
+        _id
+      }
     }
+  }
 `
 
 export const GET_PROBLEM = gql`
-    query problem($id: ID!) {
-        problem(id: $id) {
-            _id
-            problemType
-            question
-            answers {
-                body
-            }
-        }
+  query problem($id: ID!) {
+    problem(id: $id) {
+      _id
+      problemType
+      question
+      answers {
+        body
+      }
     }
+  }
 `
 export const QUERY_MESSAGES = gql`
   query getMessages {
@@ -66,7 +69,7 @@ export const QUERY_MESSAGES = gql`
 
 export const QUERY_SINGLE_MESSAGE = gql`
   query getSingleMessage($MessageId: ID!) {
-    Message(messageId: $MessageId) {
+    message(messageId: $MessageId) {
       _id
       messageText
       messageAuthor

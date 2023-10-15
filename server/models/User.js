@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const userMessagesSchema = require('./schemas/userMessagesSchema');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema(
@@ -22,8 +23,9 @@ const userSchema = new Schema(
         avatar: {
             type: String,
         },
+        messages: [userMessagesSchema]
         //streak: {
-            //type: Decimal
+        //type: Decimal
         //}
         //xp: [xp],
         //achievements: [achievements],
