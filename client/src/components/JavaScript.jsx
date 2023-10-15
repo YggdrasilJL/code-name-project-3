@@ -4,7 +4,6 @@ import problemData from "../../../server/utils/seeds/problemData.json";
 import answerData from "../../../server/utils/seeds/answerData.json";
 
 const JavaScript = () => {
- 
   const JavaScriptLessons = [
     { id: 1, title: "Variables.prob.1" },
     { id: 2, title: "Variables.prob.2" },
@@ -38,77 +37,80 @@ const JavaScript = () => {
     { id: 30, title: "Operators.prob.10" },
   ];
 
-   // lesson data
-   const [lessonData, setLessonData] = useState(problemData);
+  // lesson data
+  const [lessonData, setLessonData] = useState(problemData);
 
-   // hold the selected lesson
-   const [selectedLesson, setSelectedLesson] = useState(null);
- 
-   // hold the user's selected answer
-   const [selectedAnswer, setSelectedAnswer] = useState("");
- 
-   // btn click and set the selected lesson
-   const handleButtonClick = (lessonTitle) => {
-     // BTN title is used to find lesson data here
-     const selected = lessonData.find((lesson) => lesson.name === lessonTitle);
-     setSelectedLesson(selected);
-   };
+  // hold the selected lesson
+  const [selectedLesson, setSelectedLesson] = useState(null);
 
- // handle user answer selection
- const handleAnswerSelection = (answer) => {
-  setSelectedAnswer(answer);
-};
+  // hold the user's selected answer
+  const [selectedAnswer, setSelectedAnswer] = useState("");
 
-return (
-  <div style={jsStyle}>
-    <ParticleEffect />
+  // btn click and set the selected lesson
+  const handleButtonClick = (lessonTitle) => {
+    // BTN title is used to find lesson data here
+    const selected = lessonData.find((lesson) => lesson.name === lessonTitle);
+    setSelectedLesson(selected);
+  };
 
-    <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
-      <h2 className="text-xl font-bold mb-2 text-white">JavaScript Lessons </h2>
-      <ul className="flex flex-wrap justify-center space-x-4">
-        {JavaScriptLessons.map((item) => (
-          <li key={item.id}>
-            <button
-              className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded"
-              onClick={() => handleButtonClick(item.title)}
-            >
-              {item.title}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </section>
+  // handle user answer selection
+  const handleAnswerSelection = (answer) => {
+    setSelectedAnswer(answer);
+  };
 
-    {selectedLesson && (
-      <div className="text-white">
-        <h3>{selectedLesson.lessonName}</h3>
-        <p>{selectedLesson.question}</p>
+  return (
+    <div>
+      <ParticleEffect />
 
-        {/* answer options */}
-        {selectedLesson.problemType === "Multiple Choice" &&
-          selectedLesson.answers.map((answer) => (
-            <div key={answer._id}>
-              <label>
-                <input
-                  type="radio"
-                  name="answers"
-                  value={answer.body}
-                  onChange={() => handleAnswerSelection(answer.body)}
-                />
-                {answer.body}
-              </label>
-            </div>
+      <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+        <h2 className="text-xl font-bold mb-2 text-white">JavaScript Lessons</h2>
+        <ul className="flex flex-wrap justify-center space-x-4">
+          {JavaScriptLessons.map((item) => (
+            <li key={item.id}>
+              <button
+                className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded"
+                onClick={() => handleButtonClick(item.title)}
+              >
+                {item.title}
+              </button>
+            </li>
           ))}
-      </div>
-    )}
+        </ul>
+      </section>
 
-    {selectedAnswer && (
-      <div className="text-white">
-        <p>Your answer: {selectedAnswer}</p>
-      </div>
-    )}
-  </div>
-);
+      {selectedLesson && (
+        <div className="text-white">
+          <h3>{selectedLesson.lessonName}</h3>
+          <p>{selectedLesson.question}</p>
+
+          {/* answer options */}
+          {selectedLesson.problemType === "Multiple Choice" &&
+            selectedLesson.answers.map((answer) => (
+              <div key={answer._id}>
+                <label>
+                  <input
+                    type="radio"
+                    name="answers"
+                    value={answer.body}
+                    onChange={() => handleAnswerSelection(answer.body)}
+                  />
+                  {answer.body}
+                </label>
+              </div>
+            ))}
+        </div>
+      )}
+
+      {selectedAnswer && (
+        <div className="text-white">
+          <p>Your answer: {selectedAnswer}</p>
+        </div>
+      )}
+      <p style={{ color: "#FF00F2" }} className="text-center mt-4">
+        More Coming Soon
+      </p>
+    </div>
+  );
 };
 
 export default JavaScript;
