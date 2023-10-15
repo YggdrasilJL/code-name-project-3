@@ -16,15 +16,16 @@ const Css = () => {
     { id: 10, title: "CSS.prob.10" },
   ];
 
-   // lesson data
+  // lesson data
   const [lessonData, setLessonData] = useState(problemData);
 
-// hold the user's selected answer
+  // hold the user's selected answer
   const [selectedLesson, setSelectedLesson] = useState(null);
 
-// btn click and set the selected lesson
+  // btn click and set the selected lesson
   const [selectedAnswer, setSelectedAnswer] = useState("");
-// BTN title is used to find lesson data here
+
+  // BTN title is used to find lesson data here
   const handleButtonClick = (lessonTitle) => {
     const selected = lessonData.find((lesson) => lesson.name === lessonTitle);
     setSelectedLesson(selected);
@@ -35,7 +36,7 @@ const Css = () => {
   };
 
   return (
-    <div style={cssStyle}>
+    <div>
       <ParticleEffect />
 
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
@@ -52,6 +53,9 @@ const Css = () => {
             </li>
           ))}
         </ul>
+        <p style={{ color: "#FF00F2" }} className="text-center mt-4">
+          More Coming Soon
+        </p>
       </section>
 
       {selectedLesson && (
