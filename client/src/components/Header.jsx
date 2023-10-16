@@ -14,7 +14,7 @@ const Header = () => {
   const [nav, setNav] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
- useEffect(() => {
+  useEffect(() => {
     setIsLoggedIn(Auth.loggedIn());
   }, []);
   const logout = () => {

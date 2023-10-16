@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME, QUERY_USER } from '../../utils/queries';
 import { useParams, Navigate } from 'react-router-dom';
-import Auth from '../../utils/Auth';
+import Auth from '../../utils/auth';
 import UserMessages from './UserMessages';
 import Donation from './Donation';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ const Profile = () => {
   const { username: userParam } = useParams();
 
   // if (!userParam) {
-  //   return <Navigate to="/me" />;  
+  //   return <Navigate to="/me" />;
   //}
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -21,7 +21,7 @@ const Profile = () => {
   const user = data?.me || data?.user || {};
 
   //if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    //return <Navigate to="/me" />;
+  //return <Navigate to="/me" />;
   //}
 
   if (loading) {
@@ -31,11 +31,14 @@ const Profile = () => {
   if (!user?.username) {
     return (
       <div>
-        <h4>You need to be logged in to see this. Use the navigation links above to sign up or log in!</h4>
+        <h4>
+          You need to be logged in to see this. Use the navigation links above
+          to sign up or log in!
+        </h4>
       </div>
     );
   }
-  
+
   //  mock user data
   /*const user = {
     name: 'John Doe',
@@ -154,7 +157,9 @@ const Profile = () => {
         <div className="flex">
           <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
             <div className="flex flex-col items-center p-4">
-              <h2 className="text-lg text-white font-semibold mb-2">USER_INFORMATION</h2>
+              <h2 className="text-lg text-white font-semibold mb-2">
+                USER_INFORMATION
+              </h2>
               {/* User avatar */}
               <div className="w-60 text-white border-2 border-cyber-pink rounded-2xl">
                 <img
@@ -163,16 +168,24 @@ const Profile = () => {
                   className="rounded-2xl"
                 />
               </div>
-              <h2 className="text-xl text-white font-semibold mb-2">{user.username}</h2>
-              <p className="text-xl text-white font-semibold mb-2">{user.email}</p>
+              <h2 className="text-xl text-white font-semibold mb-2">
+                {user.username}
+              </h2>
+              <p className="text-xl text-white font-semibold mb-2">
+                {user.email}
+              </p>
             </div>
             {/* Bio and Skills */}
             <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
               <h2 className="text-lg text-white font-semibold mb-2">BIO_</h2>
               <div className=" p-4 ">
-                <p className="text-lg text-white font-semibold mb-2">{mockBio}</p>
+                <p className="text-lg text-white font-semibold mb-2">
+                  {mockBio}
+                </p>
               </div>
-              <h2 className="text-lg text-white font-semibold mb-2 mt-4">SKILLS_</h2>
+              <h2 className="text-lg text-white font-semibold mb-2 mt-4">
+                SKILLS_
+              </h2>
               <div className=" p-4 ">
                 {mockSkills.map((skill, index) => (
                   <span
@@ -191,7 +204,10 @@ const Profile = () => {
               <h2 className="text-lg text-white font-semibold mb-2">BADGES_</h2>
               <div className=" p-4 ">
                 {mockBadges.map((badge, index) => (
-                  <div key={index} className="flex items-center text-white mb-2">
+                  <div
+                    key={index}
+                    className="flex items-center text-white mb-2"
+                  >
                     <img
                       src={badge.icon}
                       alt={badge.name}
@@ -205,13 +221,17 @@ const Profile = () => {
 
             {/* Progress div */}
             <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
-              <h2 className="text-lg font-semibold text-white mb-2">PROGRESS_TRACKING</h2>
+              <h2 className="text-lg font-semibold text-white mb-2">
+                PROGRESS_TRACKING
+              </h2>
               <div className=" p-4 ">{/* Progress content */}</div>
             </div>
 
             {/* Achievement */}
             <div className="p-3 mb-4 bg-black rounded-lg border  border-cyber-blue">
-              <h2 className="text-lg text-white font-semibold mb-2">ACHIEVEMENTS_</h2>
+              <h2 className="text-lg text-white font-semibold mb-2">
+                ACHIEVEMENTS_
+              </h2>
               <div className=" p-4 ">{/* Achievement content */}</div>
             </div>
           </div>
@@ -219,7 +239,9 @@ const Profile = () => {
 
         {/* Mock Messages div (placeholder) */}
         <div className="p-3 mb-4 bg-black w-fit rounded-lg border  border-cyber-blue">
-          <h2 className="text-lg text-white font-semibold mb-2">MOCK_MESSAGES</h2>
+          <h2 className="text-lg text-white font-semibold mb-2">
+            MOCK_MESSAGES
+          </h2>
           <div className=" p-4 ">
             {user.messages.map((message) => (
               <div key={message._id} className="mb-2">
