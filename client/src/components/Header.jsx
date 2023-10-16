@@ -1,57 +1,49 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   FaHome,
   FaUser,
   FaBook,
-  FaSignOutAlt,
+  FaUserShield,
+  FaSignInAlt,
   FaBars,
   FaTimes,
-  FaSignInAlt,
 } from 'react-icons/fa';
 import Auth from '../../utils/auth'; // Assuming Auth is your authentication utility
 
 const Header = () => {
   const [nav, setNav] = useState(false);
-  
-    const logout = (event) => {
-      event.preventDefault();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setIsLoggedIn(Auth.loggedIn());
+  }, []);
+  const logout = () => {
+    if (isLoggedIn) {
       Auth.logout();
-    };
+    }
+    return;
+  };
 
   const navs = [
     {
       id: 1,
-      icon: <FaHome className="mx-1" />,
+      icon: <FaHome className="mx-2" />,
       text: 'DASHBOARD',
       link: '/dashboard',
     },
     {
       id: 2,
-      icon: <FaUser className="mx-1" />,
+      icon: <FaUser className="mx-2" />,
       text: 'PROFILE',
-      link: '/profile',
+      link: '/me',
     },
     {
       id: 3,
-      icon: <FaBook className="mx-1" />,
+      icon: <FaBook className="mx-2" />,
       text: 'LESSONS',
       link: '/lessons',
     },
-    {
-      id: 4,
-      icon: <FaSignOutAlt className="mx-1" />,
-      text: 'LOG_OUT',
-      link: '/logout',
-    },
-    {
-      id: 5,
-      icon: <FaSignInAlt className="mx-1" />,
-      text: 'LOG_IN',
-      link: '/login',
-    }
   ];
-
-  
 
   return (
     <div className="flex justify-between items-center w-full p-3 mb-10 bg-gradient-to-b from-opacityBlack sticky top-0">
@@ -69,6 +61,16 @@ const Header = () => {
               </li>
             </a>
           ))}
+          <a href={isLoggedIn ? '/' : '/login'} onClick={logout}>
+            <li className="flex items-center justify-center cursor-pointer hover:text-cyber-pink duration-300">
+              {isLoggedIn ? (
+                <FaSignInAlt className="mx-2" />
+              ) : (
+                <FaUserShield className="mx-2" />
+              )}
+              {isLoggedIn ? 'LOG_OUT' : 'LOG_IN'}
+            </li>
+          </a>
         </ul>
         <div
           onClick={() => setNav(!nav)}

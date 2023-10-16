@@ -60,7 +60,7 @@ const JavaScript = () => {
 
   return (
     <div>
-      <ParticleEffect />
+      {/* <ParticleEffect /> */}
 
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
         <h2 className="text-xl font-bold mb-2 text-white">JavaScript Lessons</h2>
@@ -68,7 +68,7 @@ const JavaScript = () => {
           {JavaScriptLessons.map((item) => (
             <li key={item.id}>
               <button
-                className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded"
+                className="bg-gray-300 hover:bg-cyber-yellow px-4 py-2 rounded"
                 onClick={() => handleButtonClick(item.title)}
               >
                 {item.title}
