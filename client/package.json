@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",
+    "@heroicons/react": "^2.0.18",
     "autoprefixer": "^10.4.16",
+    "flowbite": "^1.8.1",
+    "flowbite-react": "^0.6.4",
     "graphql": "^16.8.1",
     "jwt-decode": "^3.1.2",
     "postcss": "^8.4.31",

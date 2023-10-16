@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import {defineConfig} from "vite"
+import react from "@vitejs/plugin-react"
 // import dotenv from 'dotenv';
 
 // dotenv.config();
@@ -7,14 +7,14 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 3000,
+    port: 3002,
     open: true,
     proxy: {
-      '/graphql': {
-        target: 'http://localhost:3002',
+      "/graphql": {
+        target: "http://localhost:3002",
         changeOrigin: true,
         secure: false,
-      }
-    }
-  }
+      },
+    },
+  },
 })
