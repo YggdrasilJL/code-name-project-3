@@ -25,14 +25,24 @@ const Html = () => {
   // hold the user's selected answer
   const [selectedAnswer, setSelectedAnswer] = useState("");
 
-  // BTN title is used to find lesson data here
   const handleButtonClick = (lessonTitle) => {
     const selected = lessonData.find((lesson) => lesson.name === lessonTitle);
     setSelectedLesson(selected);
+    setSelectedAnswer(""); // Clear selected answer when a new lesson is selected
   };
 
   const handleAnswerSelection = (answer) => {
-    setSelectedAnswer(answer);
+    if (selectedAnswer === answer) {
+      setSelectedAnswer("");
+    } else {
+      setSelectedAnswer(answer);
+    }
+  };
+
+  // Helper function to retrieve answers based on the problem name
+  const getAnswersForProblem = (problemName) => {
+    const problemAnswers = answerData.find((answer) => answer.problemName === problemName);
+    return problemAnswers ? problemAnswers.body : [];
   };
 
   return (
@@ -51,10 +61,7 @@ const Html = () => {
             </li>
           ))}
         </ul>
-        <p
-          style={{ color: "#FF00F2" }}
-          className="text-center mt-4"
-        >
+        <p style={{ color: "#FF00F2" }} className="text-center mt-4">
           More Coming Soon
         </p>
       </section>
@@ -64,28 +71,32 @@ const Html = () => {
           <div className="text-white">
             <h3>{selectedLesson.lessonName}</h3>
             <p>{selectedLesson.question}</p>
-
-            {selectedLesson.problemType === "Multiple Choice" &&
-              selectedLesson.answers.map((answer) => (
-                <div key={answer._id}>
-                  <label>
-                    <input
-                      type="radio"
-                      name="answers"
-                      value={answer.body}
-                      onChange={() => handleAnswerSelection(answer.body)}
-                    />
-                    {answer.body}
-                  </label>
-                </div>
-              ))}
           </div>
+        </section>
+      )}
 
-          {selectedAnswer && (
-            <div className="text-white">
-              <p>Your answer: {selectedAnswer}</p>
-            </div>
-          )}
+      {selectedLesson && (
+        <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+          <div className="text-white">
+            <h3>Answers</h3>
+            {getAnswersForProblem(selectedLesson.name).map((answer) => (
+              <div key={answer._id} onClick={() => handleAnswerSelection(answer.body)}>
+                <label>
+                  <input type="radio" name="answers" value={answer.body} />
+                  {answer.body}
+                </label>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {selectedAnswer && (
+        <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+          <div className="text-white">
+            <h3>Your answer</h3>
+            <p>{selectedAnswer}</p>
+          </div>
         </section>
       )}
     </div>
