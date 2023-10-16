@@ -21,6 +21,8 @@
     "jsonwebtoken": "^9.0.0",
     "jwks-rsa": "^3.1.0",
     "mongoose": "^7.0.2",
+    "passport": "^0.6.0",
+    "passport-google-oidc": "^0.1.0",
     "stripe": "^13.10.0"
   },
   "devDependencies": {

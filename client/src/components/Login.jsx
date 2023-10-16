@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 
-import Auth from '../../utils/auth';
+import Auth from '../../utils/Auth';
 // import LoginButton from "./LoginButton";
 
 function Login(props) {
@@ -14,7 +14,7 @@ function Login(props) {
     event.preventDefault();
     try {
       const { email, password } = formState;
-      const mutationResponse = await login({
+      const { mutationResponse } = await login({
         variables: { email, password },
       });
       const token = mutationResponse.data.login.token;

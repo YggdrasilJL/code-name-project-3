@@ -27,6 +27,7 @@ import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 
 
 
@@ -56,7 +57,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
+      <ApolloProvider client={client}>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
@@ -64,7 +65,7 @@ function App() {
           </div>
           <Footer />
         </div>
-    </ApolloProvider>
+      </ApolloProvider>
   );
 }
 
