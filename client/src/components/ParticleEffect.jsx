@@ -39,7 +39,7 @@ const ParticleEffect = () => {
           },
           modes: {
             push: {
-              quantity: 90,
+              quantity: 70,
             },
             repulse: {
               distance: 200,
@@ -68,7 +68,7 @@ const ParticleEffect = () => {
               default: 'bounce',
             },
             random: false,
-            speed: 1, // speed for  movement
+            speed: 0.4, // speed for  movement
             straight: false,
           },
           number: {

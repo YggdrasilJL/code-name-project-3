@@ -147,32 +147,32 @@ const Profile = () => {
   return (
     <div>
       {/* Main content  */}
-      <h2 className="text-center text-cyber-darkYellow mb-3">
-        STRING USER_INFO = SYSTEM.IO.FILE.READLINES("USER_DATA.TXT")
+      <h2 className="text-center text-white mb-3">
+        Welcome {user.username} to your CYBERSCRIPT!
       </h2>
       <main className="flex flex-col items-center">
         <div className="flex">
           <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
             <div className="flex flex-col items-center p-4">
-              <h2 className="text-lg font-semibold mb-2">USER_INFORMATION</h2>
+              <h2 className="text-lg text-white font-semibold mb-2">USER_INFORMATION</h2>
               {/* User avatar */}
-              <div className="w-60 border-2 border-cyber-pink rounded-2xl">
+              <div className="w-60 text-white border-2 border-cyber-pink rounded-2xl">
                 <img
                   src={user.avatar}
                   alt={user.username}
                   className="rounded-2xl"
                 />
               </div>
-              <h2 className="text-xl font-semibold mb-2">{user.username}</h2>
-              <p>{user.email}</p>
+              <h2 className="text-xl text-white font-semibold mb-2">{user.username}</h2>
+              <p className="text-xl text-white font-semibold mb-2">{user.email}</p>
             </div>
             {/* Bio and Skills */}
             <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
-              <h2 className="text-lg font-semibold mb-2">BIO_</h2>
+              <h2 className="text-lg text-white font-semibold mb-2">BIO_</h2>
               <div className=" p-4 ">
-                <p>{mockBio}</p>
+                <p className="text-lg text-white font-semibold mb-2">{mockBio}</p>
               </div>
-              <h2 className="text-lg font-semibold mb-2 mt-4">SKILLS_</h2>
+              <h2 className="text-lg text-white font-semibold mb-2 mt-4">SKILLS_</h2>
               <div className=" p-4 ">
                 {mockSkills.map((skill, index) => (
                   <span
@@ -188,10 +188,10 @@ const Profile = () => {
           {/* Badge div */}
           <div className="flex flex-col justify-end ml-5">
             <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
-              <h2 className="text-lg font-semibold mb-2">BADGES_</h2>
+              <h2 className="text-lg text-white font-semibold mb-2">BADGES_</h2>
               <div className=" p-4 ">
                 {mockBadges.map((badge, index) => (
-                  <div key={index} className="flex items-center mb-2">
+                  <div key={index} className="flex items-center text-white mb-2">
                     <img
                       src={badge.icon}
                       alt={badge.name}
@@ -205,13 +205,13 @@ const Profile = () => {
 
             {/* Progress div */}
             <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
-              <h2 className="text-lg font-semibold mb-2">PROGRESS_TRACKING</h2>
+              <h2 className="text-lg font-semibold text-white mb-2">PROGRESS_TRACKING</h2>
               <div className=" p-4 ">{/* Progress content */}</div>
             </div>
 
             {/* Achievement */}
             <div className="p-3 mb-4 bg-black rounded-lg border  border-cyber-blue">
-              <h2 className="text-lg font-semibold mb-2">ACHIEVEMENTS_</h2>
+              <h2 className="text-lg text-white font-semibold mb-2">ACHIEVEMENTS_</h2>
               <div className=" p-4 ">{/* Achievement content */}</div>
             </div>
           </div>
@@ -219,7 +219,7 @@ const Profile = () => {
 
         {/* Mock Messages div (placeholder) */}
         <div className="p-3 mb-4 bg-black w-fit rounded-lg border  border-cyber-blue">
-          <h2 className="text-lg font-semibold mb-2">MOCK_MESSAGES</h2>
+          <h2 className="text-lg text-white font-semibold mb-2">MOCK_MESSAGES</h2>
           <div className=" p-4 ">
             {user.messages.map((message) => (
               <div key={message._id} className="mb-2">

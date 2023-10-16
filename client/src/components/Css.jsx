@@ -27,7 +27,7 @@ const Css = () => {
 
   // BTN title is used to find lesson data here
   const handleButtonClick = (lessonTitle) => {
-    const selected = lessonData.find((lesson) => lesson.name === lessonTitle);
+    const selected = lessonData.find((lesson) => lesson.problemName === lessonTitle);
     setSelectedLesson(selected);
   };
 
@@ -42,10 +42,13 @@ const Css = () => {
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
         <h2 className="text-xl font-bold mb-2 text-white">CSS Lessons</h2>
         <ul className="flex flex-wrap justify-center space-x-4 z-50">
+      <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+        <h2 className="text-xl font-bold mb-2 text-white text-center">CSS Lessons</h2>
+        <ul className="flex flex-wrap justify-center space-x-4">
           {CssLessons.map((item) => (
             <li key={item.id}>
               <button
-                className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded"
+                className="bg-gray-300 hover:bg-blue-400 px-4 py-2 rounded"
                 onClick={() => handleButtonClick(item.title)}
               >
                 {item.title}
@@ -53,18 +56,16 @@ const Css = () => {
             </li>
           ))}
         </ul>
-        <p style={{ color: "#FF00F2" }} className="text-center mt-4">
-          More Coming Soon
-        </p>
+        <p style={{ color: "#FF00F2", textAlign: "center" }}>More Coming Soon</p>
       </section>
 
       {selectedLesson && (
         <div className="text-white">
-          <h3>{selectedLesson.lessonName}</h3>
-          <p>{selectedLesson.question}</p>
+          <h3>{selectedLesson.problemName}</h3>
+          <p>{selectedLesson.body[0].body}</p>
 
           {selectedLesson.problemType === "Multiple Choice" &&
-            selectedLesson.answers.map((answer) => (
+            selectedLesson.body.map((answer) => (
               <div key={answer._id}>
                 <label>
                   <input

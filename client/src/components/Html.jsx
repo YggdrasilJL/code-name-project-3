@@ -37,15 +37,14 @@ const Html = () => {
 
   return (
     <div>
-      <ParticleEffect />
-
+     
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
         <h2 className="text-xl font-bold mb-2 text-white">HTML Lessons</h2>
         <ul className="flex flex-wrap justify-center space-x-4">
           {HtmlLessons.map((item) => (
             <li key={item.id}>
               <button
-                className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded"
+                className="bg-gray-300 hover:bg-red-400 px-4 py-2 rounded"
                 onClick={() => handleButtonClick(item.title)}
               >
                 {item.title}
@@ -53,6 +52,12 @@ const Html = () => {
             </li>
           ))}
         </ul>
+        <p
+          style={{ color: "#FF00F2" }}
+          className="text-center mt-4"
+        >
+          More Coming Soon
+        </p>
       </section>
 
       {selectedLesson && (
@@ -82,13 +87,6 @@ const Html = () => {
           <p>Your answer: {selectedAnswer}</p>
         </div>
       )}
-
-      <p
-        style={{ color: '#FF00F2' }}
-        className="text-center mt-4"
-      >
-        More Coming Soon
-      </p>
     </div>
   );
 };
