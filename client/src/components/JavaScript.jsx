@@ -54,60 +54,73 @@ const JavaScript = () => {
 
   // handle user answer selection
   const handleAnswerSelection = (answer) => {
-    setSelectedAnswer(answer);
+    if (selectedAnswer === answer) {
+      setSelectedAnswer('');
+    } else {
+      setSelectedAnswer(answer);
+    }
+  };
+
+  const getAnswersForProblem = (problemName) => {
+    const problemAnswers = answerData.find((answer) => answer.problemName === problemName);
+    return problemAnswers ? problemAnswers.body : [];
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-     
-
+    <div>
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
         <h2 className="text-xl font-bold mb-2 text-white">JavaScript Lessons</h2>
-        <ul style={{ listStyle: "none", padding: 0 }}>
+        <ul className="flex flex-wrap justify-center space-x-4">
           {JavaScriptLessons.map((item) => (
-            <li key={item.id} style={{ display: "inline-block", margin: "5px" }}>
+            <li key={item.id}>
               <button
-                className="bg-gray-300 hover:bg-cyber-yellow px-4 py-2 rounded"
+                className="bg-gray-300 hover:bg-red-400 px-4 py-2 rounded"
                 onClick={() => handleButtonClick(item.title)}
               >
                 {item.title}
               </button>
             </li>
           ))}
-          <li style={{ color: "#FF00F2" }}>More Coming Soon</li>
         </ul>
+        <p style={{ color: '#FF00F2' }} className="text-center mt-4">
+          More Coming Soon
+        </p>
       </section>
 
       {selectedLesson && (
-        <div className="text-white">
-          <h3>{selectedLesson.lessonName}</h3>
-          <p>{selectedLesson.question}</p>
+        <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+          <div className="text-white">
+            <h3>{selectedLesson.lessonName}</h3>
+            <p>{selectedLesson.question}</p>
+          </div>
+        </section>
+      )}
 
-          {/* answer options */}
-          {selectedLesson.problemType === "Multiple Choice" &&
-            selectedLesson.answers.map((answer) => (
-              <div key={answer._id}>
+      {selectedLesson && (
+        <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+          <div className="text-white">
+            <h3>Answers</h3>
+            {getAnswersForProblem(selectedLesson.name).map((answer) => (
+              <div key={answer._id} onClick={() => handleAnswerSelection(answer.body)}>
                 <label>
-                  <input
-                    type="radio"
-                    name="answers"
-                    value={answer.body}
-                    onChange={() => handleAnswerSelection(answer.body)}
-                  />
+                  <input type="radio" name="answers" value={answer.body} />
                   {answer.body}
                 </label>
               </div>
             ))}
-        </div>
+          </div>
+        </section>
       )}
 
       {selectedAnswer && (
-        <div className="text-white">
-          <p>Your answer: {selectedAnswer}</p>
-        </div>
+        <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+          <div className="text-white">
+            <h3>Your answer</h3>
+            <p>{selectedAnswer}</p>
+          </div>
+        </section>
       )}
     </div>
-
   );
 };
 
