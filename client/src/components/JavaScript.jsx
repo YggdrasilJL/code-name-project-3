@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ParticleEffect from "./ParticleEffect";
 import problemData from "../../../server/utils/seeds/problemData.json";
 import answerData from "../../../server/utils/seeds/answerData.json";
 

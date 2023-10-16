@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ParticleEffect from "./ParticleEffect";
 import problemData from "../../../server/utils/seeds/problemData.json";
+import answerData from "../../../server/utils/seeds/answerData.json";
 
 const Html = () => {
   const HtmlLessons = [
@@ -19,10 +19,10 @@ const Html = () => {
   // lesson data
   const [lessonData, setLessonData] = useState(problemData);
 
-  // hold the user's selected answer
+  // hold the user's selected lesson
   const [selectedLesson, setSelectedLesson] = useState(null);
 
-  // btn click and set the selected lesson
+  // hold the user's selected answer
   const [selectedAnswer, setSelectedAnswer] = useState("");
 
   // BTN title is used to find lesson data here
@@ -37,7 +37,6 @@ const Html = () => {
 
   return (
     <div>
-     
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
         <h2 className="text-xl font-bold mb-2 text-white">HTML Lessons</h2>
         <ul className="flex flex-wrap justify-center space-x-4">
@@ -61,31 +60,33 @@ const Html = () => {
       </section>
 
       {selectedLesson && (
-        <div className="text-white">
-          <h3>{selectedLesson.lessonName}</h3>
-          <p>{selectedLesson.question}</p>
+        <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+          <div className="text-white">
+            <h3>{selectedLesson.lessonName}</h3>
+            <p>{selectedLesson.question}</p>
 
-          {selectedLesson.problemType === "Multiple Choice" &&
-            selectedLesson.answers.map((answer) => (
-              <div key={answer._id}>
-                <label>
-                  <input
-                    type="radio"
-                    name="answers"
-                    value={answer.body}
-                    onChange={() => handleAnswerSelection(answer.body)}
-                  />
-                  {answer.body}
-                </label>
-              </div>
-            ))}
-        </div>
-      )}
+            {selectedLesson.problemType === "Multiple Choice" &&
+              selectedLesson.answers.map((answer) => (
+                <div key={answer._id}>
+                  <label>
+                    <input
+                      type="radio"
+                      name="answers"
+                      value={answer.body}
+                      onChange={() => handleAnswerSelection(answer.body)}
+                    />
+                    {answer.body}
+                  </label>
+                </div>
+              ))}
+          </div>
 
-      {selectedAnswer && (
-        <div className="text-white">
-          <p>Your answer: {selectedAnswer}</p>
-        </div>
+          {selectedAnswer && (
+            <div className="text-white">
+              <p>Your answer: {selectedAnswer}</p>
+            </div>
+          )}
+        </section>
       )}
     </div>
   );
