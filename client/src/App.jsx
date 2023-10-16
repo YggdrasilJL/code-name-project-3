@@ -1,4 +1,3 @@
-
 // // components
 // import Dashboard from './components/Dashboard';
 // import Footer from './components/Footer';
@@ -23,12 +22,15 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';  // Correct import
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+} from 'react-router-dom'; // Correct import
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
-
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -57,13 +59,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Outlet />
-          </div>
-          <Footer />
-        </div>
+      <Header />
+      <Outlet />
+      <Footer />
     </ApolloProvider>
   );
 }
