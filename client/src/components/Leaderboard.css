@@ -2,3 +2,8 @@
   max-width: none;
   width: 100%;
 }
+
+.avatar {
+  max-width: 30px;
+  max-height: 30px;
+}

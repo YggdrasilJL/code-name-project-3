@@ -1,4 +1,4 @@
-import {Card, Typography} from "@material-tailwind/react"
+import {Card, Typography, Avatar} from "@material-tailwind/react"
 import "./Leaderboard.css"
 
 const TABLE_HEAD = ["Ranking", "Avatar", "Username", "Score"]
@@ -6,29 +6,33 @@ const TABLE_HEAD = ["Ranking", "Avatar", "Username", "Score"]
 const TABLE_ROWS = [
   {
     Ranking: 1,
-    Avatar: "",
-    Username: "John Michael",
-    Score: "Manager",
+    UserLogo: "../../public/images/mockpfp.png",
+    Username: "NexusNightmare",
+    Score: "460",
   },
   {
     Ranking: 2,
-    Username: "Alexa Liras",
-    Score: "Developer",
+    UserLogo: "../../public/images/mockpfp.png",
+    Username: "VoidVoyager",
+    Score: "390",
   },
   {
     Ranking: 3,
-    Username: "Laurent Perrier",
-    Score: "Executive",
+    UserLogo: "../../public/images/mockpfp.png",
+    Username: "SaurahbTheHeartthrob",
+    Score: "380",
   },
   {
     Ranking: 4,
-    Username: "Michael Levi",
-    Score: "Developer",
+    UserLogo: "../../public/images/mockpfp.png",
+    Username: "ChronoCrusader",
+    Score: "350",
   },
   {
     Ranking: 5,
-    Username: "Richard Gran",
-    Score: "Manager",
+    UserLogo: "../../public/images/mockpfp.png",
+    Username: "VortexVandal",
+    Score: "190",
   },
 ]
 
@@ -60,7 +64,7 @@ export default function Leaderboard() {
               </tr>
             </thead>
             <tbody class="bg-black">
-              {TABLE_ROWS.map(({Ranking, Username, Score}, index) => {
+              {TABLE_ROWS.map(({Ranking, UserLogo, Username, Score}, index) => {
                 const isLast = index === TABLE_ROWS.length - 1
                 const classes = isLast ? "p-4" : "p-4 border-b border-black"
 
@@ -73,6 +77,23 @@ export default function Leaderboard() {
                         className="font-normal"
                       >
                         <p class="text-white">{Ranking}</p>
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="cyber-yellow"
+                        className="font-normal"
+                      >
+                        <Avatar
+                          src={UserLogo}
+                          variant="rounded"
+                          alt="avatar"
+                          size="xs"
+                          class="avatar"
+                          withBorder={true}
+                          color="cyber-yellow"
+                        />
                       </Typography>
                     </td>
                     <td className={classes}>
