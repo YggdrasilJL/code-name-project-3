@@ -7,14 +7,7 @@ const Logout = ({ isAuthenticated, history }) => {
     history.replace('/');
   };
 
-  return (
-    isAuthenticated && (
-      <button onClick={logout}>
-        Log Out
-      </button>
-    )
-  );
+  return isAuthenticated && <button onClick={logout}>Log Out</button>;
 };
 
 export default Logout;
-
