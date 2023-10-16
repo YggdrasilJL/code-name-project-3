@@ -14,7 +14,7 @@ const Header = () => {
   const [nav, setNav] = useState(false);
   
     const logout = (event) => {
-      event.preventDefault();
+      event.
       Auth.logout();
     };
 
