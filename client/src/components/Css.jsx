@@ -1,46 +1,48 @@
-import React, { useState } from "react";
-import ParticleEffect from "./ParticleEffect";
-import problemData from "../../../server/utils/seeds/problemData.json";
+import React, { useState } from 'react';
+import problemData from '../../../server/utils/seeds/problemData.json';
+import answerData from '../../../server/utils/seeds/answerData.json';
 
 const Css = () => {
   const CssLessons = [
-    { id: 1, title: "CSS.prob.1" },
-    { id: 2, title: "CSS.prob.2" },
-    { id: 3, title: "CSS.prob.3" },
-    { id: 4, title: "CSS.prob.4" },
-    { id: 5, title: "CSS.prob.5" },
-    { id: 6, title: "CSS.prob.6" },
-    { id: 7, title: "CSS.prob.7" },
-    { id: 8, title: "CSS.prob.8" },
-    { id: 9, title: "CSS.prob.9" },
-    { id: 10, title: "CSS.prob.10" },
+    { id: 1, title: 'CSS.prob.1' },
+    { id: 2, title: 'CSS.prob.2' },
+    { id: 3, title: 'CSS.prob.3' },
+    { id: 4, title: 'CSS.prob.4' },
+    { id: 5, title: 'CSS.prob.5' },
+    { id: 6, title: 'CSS.prob.6' },
+    { id: 7, title: 'CSS.prob.7' },
+    { id: 8, title: 'CSS.prob.8' },
+    { id: 9, title: 'CSS.prob.9' },
+    { id: 10, title: 'CSS.prob.10' },
   ];
 
-  // lesson data
   const [lessonData, setLessonData] = useState(problemData);
-
-  // hold the user's selected answer
   const [selectedLesson, setSelectedLesson] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState('');
 
-  // btn click and set the selected lesson
-  const [selectedAnswer, setSelectedAnswer] = useState("");
-
-  // BTN title is used to find lesson data here
   const handleButtonClick = (lessonTitle) => {
-    const selected = lessonData.find((lesson) => lesson.problemName === lessonTitle);
+    const selected = lessonData.find((lesson) => lesson.name === lessonTitle);
     setSelectedLesson(selected);
+    setSelectedAnswer(''); // Clear selected answer when a new lesson is selected
   };
 
   const handleAnswerSelection = (answer) => {
-    setSelectedAnswer(answer);
+    if (selectedAnswer === answer) {
+      setSelectedAnswer('');
+    } else {
+      setSelectedAnswer(answer);
+    }
+  };
+
+  const getAnswersForProblem = (problemName) => {
+    const problemAnswers = answerData.find((answer) => answer.problemName === problemName);
+    return problemAnswers ? problemAnswers.body : [];
   };
 
   return (
     <div>
-  
-
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
-        <h2 className="text-xl font-bold mb-2 text-white text-center">CSS Lessons</h2>
+        <h2 className="text-xl font-bold mb-2 text-white">CSS Lessons</h2>
         <ul className="flex flex-wrap justify-center space-x-4">
           {CssLessons.map((item) => (
             <li key={item.id}>
@@ -53,35 +55,43 @@ const Css = () => {
             </li>
           ))}
         </ul>
-        <p style={{ color: "#FF00F2", textAlign: "center" }}>More Coming Soon</p>
+        <p style={{ color: '#FF00F2' }} className="text-center mt-4">
+          More Coming Soon
+        </p>
       </section>
 
       {selectedLesson && (
-        <div className="text-white">
-          <h3>{selectedLesson.problemName}</h3>
-          <p>{selectedLesson.body[0].body}</p>
+        <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+          <div className="text-white">
+            <h3>{selectedLesson.lessonName}</h3>
+            <p>{selectedLesson.question}</p>
+          </div>
+        </section>
+      )}
 
-          {selectedLesson.problemType === "Multiple Choice" &&
-            selectedLesson.body.map((answer) => (
-              <div key={answer._id}>
+      {selectedLesson && (
+        <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+          <div className="text-white">
+            <h3>Answers</h3>
+            {getAnswersForProblem(selectedLesson.name).map((answer) => (
+              <div key={answer._id} onClick={() => handleAnswerSelection(answer.body)}>
                 <label>
-                  <input
-                    type="radio"
-                    name="answers"
-                    value={answer.body}
-                    onChange={() => handleAnswerSelection(answer.body)}
-                  />
+                  <input type="radio" name="answers" value={answer.body} />
                   {answer.body}
                 </label>
               </div>
             ))}
-        </div>
+          </div>
+        </section>
       )}
 
       {selectedAnswer && (
-        <div className="text-white">
-          <p>Your answer: {selectedAnswer}</p>
-        </div>
+        <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+          <div className="text-white">
+            <h3>Your answer</h3>
+            <p>{selectedAnswer}</p>
+          </div>
+        </section>
       )}
     </div>
   );
