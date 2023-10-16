@@ -10,20 +10,21 @@ import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import CustomAuth0Provider from '../config/Auth0Provider'
+import Loading from './components/Loading';
+import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
 
+const domain = import.meta.env.VITE_AUTH0_DOMAIN;
+const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
+const audience = import.meta.env.VITE_AUTH0_AUDIENCE;
 
-
-// Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
-// Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
-  const token = localStorage.getItem('id_token');
-  // return the headers to the context so httpLink can read them
+  const { getAccessTokenSilently } = useAuth0();
+  const token = getAccessTokenSilently();
+
   return {
     headers: {
       ...headers,
@@ -33,14 +34,22 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
 function App() {
   return (
-    <CustomAuth0Provider>
+    <Auth0Provider
+    domain={domain}
+    clientId={clientId}
+    audience={audience}
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+    useRefreshTokens
+    cacheLocation="localstorage"
+    >
       <ApolloProvider client={client}>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
@@ -50,7 +59,7 @@ function App() {
           <Footer />
         </div>
       </ApolloProvider>
-    </CustomAuth0Provider>
+    </Auth0Provider>
   );
 }
 

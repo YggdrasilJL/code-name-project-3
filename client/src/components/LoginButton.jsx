@@ -5,13 +5,16 @@ import { useAuth0 } from '@auth0/auth0-react';
 // then in nav.jsx import LoginButton and use it
 
 const LoginButton = ({ onLoginButtonClick }) => {
-  const { loginWithRedirect } = useAuth0();
+  const {
+    isAuthenticated,
+    loginWithRedirect,
+  } = useAuth0();
 
-  return (
+  return !isAuthenticated && (
     <button onClick={loginWithRedirect}>
       Login
     </button>
   );
 };
 
-// export default LoginButton;
+export default LoginButton;

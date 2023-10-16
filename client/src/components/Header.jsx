@@ -71,6 +71,7 @@ const Header = () => {
           ))}
         </ul>
         <div
+        
           onClick={() => setNav(!nav)}
           className="text-white cursor-pointer pr-3 md:hidden"
         >

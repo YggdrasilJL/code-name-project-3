@@ -6,12 +6,12 @@ const path = require("path")
 const Stripe = require("stripe")
 const cors = require("cors")
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+const { auth } = require("express-oauth2-jwt-bearer");
 
 require("dotenv").config()
 
 const { typeDefs, resolvers } = require("./schemas/")
 const db = require("./config/connection")
-
 
 const app = express()
 const PORT = process.env.PORT || 3002
@@ -20,6 +20,10 @@ const server = new ApolloServer({
   resolvers,
 })
 
+const checkJwt = auth({
+    audience: process.env.AUTH0_AUDIENCE,
+    issuerBaseURL: `https://${process.env.AUTH0_DOMAIN}`
+});
 
 const startApolloServer = async () => {
   await server.start()
@@ -29,7 +33,7 @@ const startApolloServer = async () => {
   app.use(cors())
 
   app.use('/graphql', expressMiddleware(server, {
-    context: authMiddleware
+    context: checkJwt
   }));
 
   if (process.env.NODE_ENV === 'production') {
