@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ParticleEffect from './ParticleEffect';
 import problemData from '../../../server/utils/seeds/problemData.json';
+import answerData from '../../../server/utils/seeds/answerData.json';
 
 const Css = () => {
   const CssLessons = [
@@ -16,32 +16,34 @@ const Css = () => {
     { id: 10, title: 'CSS.prob.10' },
   ];
 
-  // lesson data
   const [lessonData, setLessonData] = useState(problemData);
-
-  // hold the selected lesson
   const [selectedLesson, setSelectedLesson] = useState(null);
-
-  // hold the user's selected answer
   const [selectedAnswer, setSelectedAnswer] = useState('');
 
-  // btn click and set the selected lesson
   const handleButtonClick = (lessonTitle) => {
-    // BTN title is used to find lesson data here
     const selected = lessonData.find((lesson) => lesson.name === lessonTitle);
     setSelectedLesson(selected);
+    setSelectedAnswer(''); // Clear selected answer when a new lesson is selected
   };
 
-  // handle user answer selection
   const handleAnswerSelection = (answer) => {
-    setSelectedAnswer(answer);
+    if (selectedAnswer === answer) {
+      setSelectedAnswer('');
+    } else {
+      setSelectedAnswer(answer);
+    }
+  };
+
+  const getAnswersForProblem = (problemName) => {
+    const problemAnswers = answerData.find((answer) => answer.problemName === problemName);
+    return problemAnswers ? problemAnswers.body : [];
   };
 
   return (
     <div>
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
         <h2 className="text-xl font-bold mb-2 text-white">CSS Lessons</h2>
-        <ul className="flex flex-wrap justify-center space-x-4 z-50">
+        <ul className="flex flex-wrap justify-center space-x-4">
           {CssLessons.map((item) => (
             <li key={item.id}>
               <button
@@ -53,36 +55,43 @@ const Css = () => {
             </li>
           ))}
         </ul>
-        <p style={{ color: '#FF00F2', textAlign: 'center' }}>
+        <p style={{ color: '#FF00F2' }} className="text-center mt-4">
           More Coming Soon
         </p>
       </section>
 
       {selectedLesson && (
-        <div className="text-white">
-          <h3>{selectedLesson.lessonName}</h3>
-          <p>{selectedLesson.question}</p>
-          {selectedLesson.problemType === 'Multiple Choice' &&
-            selectedLesson.answers.map((answer) => (
-              <div key={answer._id}>
+        <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+          <div className="text-white">
+            <h3>{selectedLesson.lessonName}</h3>
+            <p>{selectedLesson.question}</p>
+          </div>
+        </section>
+      )}
+
+      {selectedLesson && (
+        <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+          <div className="text-white">
+            <h3>Answers</h3>
+            {getAnswersForProblem(selectedLesson.name).map((answer) => (
+              <div key={answer._id} onClick={() => handleAnswerSelection(answer.body)}>
                 <label>
-                  <input
-                    type="radio"
-                    name="answers"
-                    value={answer.body}
-                    onChange={() => handleAnswerSelection(answer.body)}
-                  />
+                  <input type="radio" name="answers" value={answer.body} />
                   {answer.body}
                 </label>
               </div>
             ))}
-        </div>
+          </div>
+        </section>
       )}
 
       {selectedAnswer && (
-        <div className="text-white">
-          <p>Your answer: {selectedAnswer}</p>
-        </div>
+        <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
+          <div className="text-white">
+            <h3>Your answer</h3>
+            <p>{selectedAnswer}</p>
+          </div>
+        </section>
       )}
     </div>
   );
