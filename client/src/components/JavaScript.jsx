@@ -3,38 +3,20 @@ import problemData from "../../../server/utils/seeds/problemData.json";
 import answerData from "../../../server/utils/seeds/answerData.json";
 
 const JavaScript = () => {
-  const JavaScriptLessons = [
-    { id: 1, title: "Variables.prob.1" },
-    { id: 2, title: "Variables.prob.2" },
-    { id: 3, title: "Variables.prob.3" },
-    { id: 4, title: "Variables.prob.4" },
-    { id: 5, title: "Variables.prob.5" },
-    { id: 6, title: "Variables.prob.6" },
-    { id: 7, title: "Variables.prob.7" },
-    { id: 8, title: "Variables.prob.8" },
-    { id: 9, title: "Variables.prob.9" },
-    { id: 10, title: "Variables.prob.10" },
-    { id: 11, title: "DataTypes.prob.1" },
-    { id: 12, title: "DataTypes.prob.2" },
-    { id: 13, title: "DataTypes.prob.3" },
-    { id: 14, title: "DataTypes.prob.4" },
-    { id: 15, title: "DataTypes.prob.5" },
-    { id: 16, title: "DataTypes.prob.6" },
-    { id: 17, title: "DataTypes.prob.7" },
-    { id: 18, title: "DataTypes.prob.8" },
-    { id: 19, title: "DataTypes.prob.9" },
-    { id: 20, title: "DataTypes.prob.10" },
-    { id: 21, title: "Operators.prob.1" },
-    { id: 22, title: "Operators.prob.2" },
-    { id: 23, title: "Operators.prob.3" },
-    { id: 24, title: "Operators.prob.4" },
-    { id: 25, title: "Operators.prob.5" },
-    { id: 26, title: "Operators.prob.6" },
-    { id: 27, title: "Operators.prob.7" },
-    { id: 28, title: "Operators.prob.8" },
-    { id: 29, title: "Operators.prob.9" },
-    { id: 30, title: "Operators.prob.10" },
-  ];
+  const JavaScriptLessons = [];
+
+// Number of lessons per category
+const lessonsPerCategory = 10;
+const categories = ["Variables", "DataTypes", "Operators"];
+
+// Generate the lesson objects
+for (const category of categories) {
+  for (let i = 1; i <= lessonsPerCategory; i++) {
+    const title = `${category}.prob.${i}`;
+    JavaScriptLessons.push({ id: JavaScriptLessons.length + 1, title });
+  }
+}
+
 
   // lesson data
   const [lessonData, setLessonData] = useState(problemData);
