@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
+// dont change auth.js to capital because there may be other imports
 import Auth from '../../utils/auth';
 
 const Register = () => {
@@ -34,12 +35,13 @@ const Register = () => {
     try {
       const { username, email, password } = formState;
       const { data } = await addUser({
-        variables: { 
-          userData: { 
-            username, 
-            email, 
-            password 
-          }},
+        variables: {
+          userData: {
+            username,
+            email,
+            password,
+          },
+        },
       });
 
       Auth.login(data.addUser.token);
@@ -49,10 +51,10 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div className="bg-yellow-400 border border-4 border-sky-500 p-10 rounded-lg">
+    <div>
+      <div className="flex flex-col items-center justify-center px-6 py-8 ">
+        <div className="w-full bg-white rounded-lg shadow dark:border sm:max-w-md  dark:bg-gray-800 dark:border-gray-700">
+          <div className="bg-yellow-400 border-4 border-sky-500 p-10 rounded-lg">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-sky-500 md:text-2xl mb-2 border-sky-500">
               Create an account
             </h1>
@@ -62,7 +64,10 @@ const Register = () => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form className="space-y-4 md:space-y-6" onSubmit={handleFormSubmit}>
+              <form
+                className="space-y-4 md:space-y-6"
+                onSubmit={handleFormSubmit}
+              >
                 <div>
                   <label
                     htmlFor="email"
@@ -165,7 +170,7 @@ const Register = () => {
                   className="w-full text-xl text-sky-500 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-bold rounded-lg px-5 py-2.5 text-center dark-bg-primary-600 dark-hover-bg-primary-700 dark-focus-ring-primary-800"
                 >
                   Create an account
-                </button >
+                </button>
                 <p className="text-sm text-centered font-light text-gray-500 dark-text-gray-400">
                   Already have an account?{' '}
                   <a

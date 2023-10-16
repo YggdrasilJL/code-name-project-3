@@ -9,7 +9,6 @@ import Login from './components/Login';
 import UserMessages from './components/UserMessages';
 import Profile from './components/Profile';
 import Dashboard from './components/Dashboard';
-import Auth from '../utils/auth.js';
 import ErrorPage from './components/ErrorPage';
 import HTML from './components/Html';
 import Css from './components/Css';

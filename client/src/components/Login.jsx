@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 
-import Auth from '../../utils/auth';
+import Auth from '../../utils/Auth';
 // import LoginButton from "./LoginButton";
 
 function Login(props) {
@@ -13,8 +13,9 @@ function Login(props) {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
+      const { email, password } = formState;
       const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password },
+        variables: { email, password },
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
@@ -33,7 +34,7 @@ function Login(props) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black text-white">
+    <div className=" flex items-center justify-center ">
       <div className="bg-yellow-400 border-double border-4 border-sky-500 p-10 rounded-lg ">
         <h1 className="text-3xl text-center text-sky-500 font-bold mb-5 border-b-4 border-sky-500">Login</h1>
         {data ? (
