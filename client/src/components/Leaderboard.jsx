@@ -1,111 +1,105 @@
 import {Card, Typography} from "@material-tailwind/react"
+import "./Leaderboard.css"
 
-const TABLE_HEAD = ["Name", "Job", "Employed", ""]
+const TABLE_HEAD = ["Ranking", "Avatar", "Username", "Score"]
 
 const TABLE_ROWS = [
   {
-    name: "John Michael",
-    job: "Manager",
-    date: "23/04/18",
+    Ranking: 1,
+    Avatar: "",
+    Username: "John Michael",
+    Score: "Manager",
   },
   {
-    name: "Alexa Liras",
-    job: "Developer",
-    date: "23/04/18",
+    Ranking: 2,
+    Username: "Alexa Liras",
+    Score: "Developer",
   },
   {
-    name: "Laurent Perrier",
-    job: "Executive",
-    date: "19/09/17",
+    Ranking: 3,
+    Username: "Laurent Perrier",
+    Score: "Executive",
   },
   {
-    name: "Michael Levi",
-    job: "Developer",
-    date: "24/12/08",
+    Ranking: 4,
+    Username: "Michael Levi",
+    Score: "Developer",
   },
   {
-    name: "Richard Gran",
-    job: "Manager",
-    date: "04/10/21",
+    Ranking: 5,
+    Username: "Richard Gran",
+    Score: "Manager",
   },
 ]
 
 export default function Leaderboard() {
   return (
-    <div class="decoration-black">
-      <Card className="h-full w-full overflow-scroll ">
-        <table className="w-full min-w-max table-auto text-left bg-black">
-          <thead>
-            <tr>
-              {TABLE_HEAD.map(head => (
-                <th
-                  key={head}
-                  className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
-                >
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal leading-none opacity-70"
+    <div class=" flex flex-col w-full items-center justify-center">
+      <div class="bg-black mb-2 rounded-lg border-solid border-2 border-cyber-yellow flex justify-center">
+        <h1 class="text-white m-1">Leaderboard</h1>
+      </div>
+      <div class="">
+        <Card className="h-full w-full bg-black color-black rounded-lg border-solid border-2 border-cyber-yellow">
+          <table className="w-full min-w-max table-auto text-left bg-black rounded-lg border-solid border-2 border-cyber-yellow">
+            <thead>
+              <tr>
+                {TABLE_HEAD.map(head => (
+                  <th
+                    key={head}
+                    className="border-b border-2 rounded-lg border-solid  border-cyber-yellow p-4"
                   >
-                    {head}
-                  </Typography>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {TABLE_ROWS.map(({name, job, date}, index) => {
-              const isLast = index === TABLE_ROWS.length - 1
-              const classes = isLast
-                ? "p-4"
-                : "p-4 border-b border-blue-gray-50"
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal leading-none "
+                    >
+                      <h2 class="text-white">{head}</h2>
+                    </Typography>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody class="bg-black">
+              {TABLE_ROWS.map(({Ranking, Username, Score}, index) => {
+                const isLast = index === TABLE_ROWS.length - 1
+                const classes = isLast ? "p-4" : "p-4 border-b border-black"
 
-              return (
-                <tr key={name}>
-                  <td className={classes}>
-                    <Typography
-                      variant="small"
-                      color="blue-gray"
-                      className="font-normal"
-                    >
-                      {name}
-                    </Typography>
-                  </td>
-                  <td className={classes}>
-                    <Typography
-                      variant="small"
-                      color="blue-gray"
-                      className="font-normal"
-                    >
-                      {job}
-                    </Typography>
-                  </td>
-                  <td className={classes}>
-                    <Typography
-                      variant="small"
-                      color="blue-gray"
-                      className="font-normal"
-                    >
-                      {date}
-                    </Typography>
-                  </td>
-                  <td className={classes}>
-                    <Typography
-                      as="a"
-                      href="#"
-                      variant="small"
-                      color="blue-gray"
-                      className="font-medium"
-                    >
-                      Edit
-                    </Typography>
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </Card>
+                return (
+                  <tr key={Username}>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="cyber-yellow"
+                        className="font-normal"
+                      >
+                        <p class="text-white">{Ranking}</p>
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="text-cyber-yellow"
+                        className="font-normal"
+                      >
+                        <p class="text-white">{Username}</p>
+                      </Typography>
+                    </td>
+                    <td className={classes}>
+                      <Typography
+                        variant="small"
+                        color="cyber-yellow"
+                        className="font-normal"
+                      >
+                        <p class="text-white">{Score}</p>
+                      </Typography>
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </Card>
+      </div>
     </div>
   )
 }
