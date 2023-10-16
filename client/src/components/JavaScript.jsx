@@ -59,9 +59,8 @@ const JavaScript = () => {
   };
 
   return (
+    <div>
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-     
-
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
         <h2 className="text-xl font-bold mb-2 text-white">JavaScript Lessons</h2>
         <ul style={{ listStyle: "none", padding: 0 }}>
