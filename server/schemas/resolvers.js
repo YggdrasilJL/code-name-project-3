@@ -104,15 +104,32 @@ const resolvers = {
           'You need to be logged in to create a comment!'
         );
       }
+      //userID is the user being commented on
+      //commenter is the user commenting
+      //when pulling a profile, comments display with username
+      //on front end, when a user clicks on the username
+      //an onclickhandler will be called which retrieves the
+      //userinfo using the username and populates the profile
+      
+      const { content, userID } = commentInput;
+      const commenter = context.user.username
 
-      const { content, userId } = commentInput;
-
-      const comment = await Comment.create({
-        content,
-        user: userId,
-      });
-
-      return comment;
+      try {
+        const user = await User.updateOne(
+          { _id: userID },
+          {
+            $addToSet: {
+              comments: {
+                content,
+                commenter: commenter
+              }
+            }
+          }
+        );
+        return user
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };

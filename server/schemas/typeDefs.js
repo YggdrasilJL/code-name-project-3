@@ -70,7 +70,7 @@ const typeDefs = `
 
   input CommentInput {
     content: String!
-    userId: ID!
+    userID: ID!
   }
 
   input lessonInput {
@@ -81,12 +81,11 @@ const typeDefs = `
   # Comments
 
   type Comment {
-  _id: ID!
-  content: String!
-  user: User!
-  createdAt: String!
-}
-
+    _id: ID!
+    content: String!
+    commenter: User!
+    createdAt: String!
+  }
 
   # Queries & Mutations
 
@@ -103,8 +102,8 @@ const typeDefs = `
     googleLogin(credential: String!): Auth
     addUser(userData: userInput!): Auth
     problemValidate(answerData: answerInput!): Answer
-    addMessage(messageData: messageInput): Message
-    createComment(commentInput: CommentInput!): Comment
+    addMessage(messageData: messageInput): User
+    createComment(commentInput: CommentInput!): User
   }
 
 `;

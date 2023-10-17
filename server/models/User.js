@@ -1,7 +1,8 @@
 const { Schema, model } = require('mongoose');
 const userMessagesSchema = require('./userMessagesSchema');
 const bcrypt = require('bcryptjs');
-const Comment = require('./Comment');
+const commentSchema = require('./commentSchema');
+
 const userSchema = new Schema(
   {
     username: {
@@ -32,7 +33,7 @@ const userSchema = new Schema(
     // to add progress tracking, i have a few ideas. we could add it based on the user's xp.
     // each lesson provides x amount of xp which adds up to the whole course material
     // or we can track how many lessons the user has completed.
-    comments: [Comment],
+    comments: [commentSchema],
   },
   {
     toJSON: {

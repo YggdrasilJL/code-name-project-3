@@ -41,7 +41,6 @@ db.once("open", async () => {
 
   for (let i = 0; i < answerSeeds.length; i++) {
     const { problemID, body } = answerSeeds[i];
-    const problem = await Problem.findOne({ _id: problemID })
     await Problem.updateOne(
       { _id: problemID },
       { $addToSet: { answers: { body } } },
