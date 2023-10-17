@@ -83,7 +83,7 @@ const typeDefs = `
   type Comment {
     _id: ID!
     content: String!
-    commenter: String!
+    commenter: User!
     createdAt: String!
   }
 
@@ -103,7 +103,7 @@ const typeDefs = `
     addUser(userData: userInput!): Auth
     problemValidate(answerData: answerInput!): Answer
     addMessage(messageData: messageInput): User
-    addComment(commentData: CommentInput!): User
+    createComment(commentInput: CommentInput!): User
   }
 
 `;

@@ -7,10 +7,10 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      comments {
+      messages {
         _id
-        content
-        commenter
+        messageAuthor
+        messageText
         createdAt
       }
     }
@@ -24,10 +24,10 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      comments {
+      messages {
         _id
-        content
-        commenter
+        messageAuthor
+        messageText
         createdAt
       }
     }

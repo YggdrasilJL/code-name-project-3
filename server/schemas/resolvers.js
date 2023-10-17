@@ -98,7 +98,7 @@ const resolvers = {
     addMessage: async (_, { messageText }, context) => {
       // need to send user
     },
-    addComment: async (_, { commentData }, context) => {
+    addComment: async (_, { commentInput }, context) => {
       if (!context.user) {
         throw new AuthenticationError(
           'You need to be logged in to create a comment!'
@@ -110,8 +110,8 @@ const resolvers = {
       //on front end, when a user clicks on the username
       //an onclickhandler will be called which retrieves the
       //userinfo using the username and populates the profile
-
-      const { content, userID } = commentData;
+      
+      const { content, userID } = commentInput;
       const commenter = context.user.username
 
       try {
