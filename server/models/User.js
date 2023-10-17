@@ -55,6 +55,28 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
+userSchema.statics.upsertGoogleUser = async function (data) {
+  const { email, name, picture } = data;
+  
+  const user = await this.findOne({email});
+
+  if (!user) {
+    const newUser = await this.create({
+      username: name || `${data.family_name}${data.given_name}`,
+      email: email,
+      avatar: picture,
+      password: 'newPassword'
+    });
+    return newUser;
+  }
+  return user;
+}
+
+userSchema.statics.upsertGitHubUser = async function (data) {
+
+}
+
+
 const User = model('User', userSchema);
 
 module.exports = User;

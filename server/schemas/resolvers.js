@@ -1,9 +1,9 @@
 const { User, Lesson, Problem } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/Auth');
+const { signToken, decodeToken, AuthenticationError } = require('../utils/Auth');
 
 const resolvers = {
   Query: {
-    me: async (parent, args, context) => {
+    me: async (parent, args, { req }) => {
       if (context.user) {
         return await User.findOne({ _id: context.user._id });
       }
@@ -35,6 +35,38 @@ const resolvers = {
 
       const token = signToken(user);
       return { token, user };
+    },
+    googleLogin: async (_, { credential }) => {
+
+
+      try {
+        const data = decodeToken(credential);
+
+        console.log(data);
+
+        if (data) {
+          const user = await User.upsertGoogleUser(data);
+
+          if (user) {
+            return {
+              token: signToken(user),
+              user
+            };
+          }
+        }
+        if (info) {
+          console.log(info);
+          switch (info.code) {
+            case 'ETIMEDOUT':
+              return new Error('Failed to reach Google: Try Again');
+            default:
+              return new Error('something went wrong');
+          }
+        }
+        return Error('server error');
+      } catch (error) {
+        return error;
+      }
     },
     addUser: async (parent, { userData }) => {
       const { username, email, password } = userData;
