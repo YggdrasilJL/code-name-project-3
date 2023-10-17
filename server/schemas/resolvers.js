@@ -3,7 +3,7 @@ const { signToken, decodeToken, AuthenticationError } = require('../utils/Auth')
 
 const resolvers = {
   Query: {
-    me: async (parent, args, { req }) => {
+    me: async (_, __, context) => {
       if (context.user) {
         return await User.findOne({ _id: context.user._id });
       }
@@ -41,8 +41,6 @@ const resolvers = {
 
       try {
         const data = decodeToken(credential);
-
-        console.log(data);
 
         if (data) {
           const user = await User.upsertGoogleUser(data);
