@@ -59,43 +59,52 @@ The following images show the application.
 
 ## Credits
 
-The following is what we all contributed to the project.
-Thank You , For all the hard work and dedication to our final project.
+The following is what we all roughly contributed to the project.
+Thank You Project 3 Team, For all the hard work and dedication to our final project.
 
 ### Alex - aedelfrid
-- 
-- 
--
+- Debugger Pro
+- Database
+- Mutations
+- Lesson Logic
+- Auth
 
 ### Coral - xNoirNightx
-- 
-- 
-- 
+- Layout
+- Lessons
+- Particles
+- Dashboard
+- ReadMe / Slideshow
 
 ### Daniel -
-- 
-- 
-- 
+- Auth0 integration
+- Auth
+- Database
+- Login/Logout
 
 ### Jacob - YggdrasilJL
-- 
-- 
-- 
+- Profile
+- Home
+- Layout
+- Front End Wizard
+- Login/Registe
+
 ### Skyler -
-- 
-- 
-- 
+- Lessons Data
+- LeaderBoard
+- Models
+- Database
 
 
 > **Note**: Project Requirements were provided to us in class UNB-VIRT-FSF-PT-04-2023-U-LOLC for Project 3.
 
 ## Our Githubs
 
-- Alex - [Github]()
+- Alex - [Github](https://github.com/aedelfrid)
 - Coral - [Github](https://github.com/xNoirNightx)
-- Daniel - [Github]()
-- Jacob - [Github]()
-- Skyler - [Github]()
+- Daniel - [Github](https://github.com/GrayCoded)
+- Jacob - [Github](https://github.com/YggdrasilJL)
+- Skyler - [Github](https://github.com/SkylerKeeling)
 
 ## Links
 
