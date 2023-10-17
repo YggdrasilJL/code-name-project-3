@@ -47,7 +47,7 @@ const Header = () => {
         </a>
       </div>
       <div className="z-50">
-        <ul className="avoid-particle gap-x-5 text-lg text-white hidden md:flex mr-5 p-4 bg-opacityBlack border-2 border-cyber-yellow rounded-tl-3xl rounded-br-3xl">
+        <ul className="avoid-particle gap-x-5 text-2xl text-white hidden md:flex mr-5 p-4 bg-opacityBlack border-2 border-cyber-yellow rounded-tl-3xl rounded-br-3xl">
           {navs.map(({ id, icon, text, link }) => (
             <a href={link} key={id}>
               <li className="flex items-center justify-center cursor-pointer hover:text-cyber-pink duration-300">

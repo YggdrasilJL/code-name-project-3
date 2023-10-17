@@ -154,102 +154,105 @@ const Profile = () => {
         Welcome {user.username} to your CYBERSCRIPT!
       </h2>
       <main className="flex flex-col items-center">
-        <div className="flex">
-          <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
-            <div className="flex flex-col items-center p-4">
-              <h2 className="text-lg text-white font-semibold mb-2">
-                USER_INFORMATION
-              </h2>
-              {/* User avatar */}
-              <div className="w-60 text-white border-2 border-cyber-pink rounded-2xl">
-                <img
-                  src={user.avatar}
-                  alt={user.username}
-                  className="rounded-2xl"
-                />
-              </div>
-              <h2 className="text-xl text-white font-semibold mb-2">
-                {user.username}
-              </h2>
-              <p className="text-xl text-white font-semibold mb-2">
-                {user.email}
-              </p>
-            </div>
-            {/* Bio and Skills */}
-            <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
-              <h2 className="text-lg text-white font-semibold mb-2">BIO_</h2>
-              <div className=" p-4 ">
-                <p className="text-lg text-white font-semibold mb-2">
-                  {mockBio}
+        <div className="flex flex-col">
+          <div className="flex">
+            <div className="p-3 mb-4 bg-black bg-opacity-70 shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
+              <div className="flex flex-col items-center p-4">
+                <h2 className="text-lg text-white font-semibold mb-2">
+                  USER_INFORMATION
+                </h2>
+                {/* User avatar */}
+                <div className="w-60 text-white border-2 border-cyber-pink rounded-2xl">
+                  <img
+                    src="./images/placeholderPFP.png"
+                    alt={user.username}
+                    className="rounded-2xl"
+                  />
+                </div>
+                <h2 className="text-xl text-white font-semibold mb-2">
+                  {user.username}
+                </h2>
+                <p className="text-xl text-white font-semibold mb-2">
+                  {user.email}
                 </p>
               </div>
-              <h2 className="text-lg text-white font-semibold mb-2 mt-4">
-                SKILLS_
-              </h2>
-              <div className=" p-4 ">
-                {mockSkills.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="bg-blue-500 text-white px-2 py-1 rounded-md mr-2"
-                  >
-                    {skill}
-                  </span>
-                ))}
+              {/* Bio and Skills */}
+              <div className="p-3 mb-4 bg-black bg-opacity-70 shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
+                <h2 className="text-lg text-white font-semibold mb-2">BIO_</h2>
+                <div className=" p-4 ">
+                  <p className="text-lg text-white font-semibold mb-2">
+                    {mockBio}
+                  </p>
+                </div>
+                <h2 className="text-lg text-white font-semibold mb-2 mt-4">
+                  SKILLS_
+                </h2>
+                <div className=" p-4 ">
+                  {mockSkills.map((skill, index) => (
+                    <span
+                      key={index}
+                      className="bg-blue-500 text-white px-2 py-1 rounded-md mr-2"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            {/* Badge div */}
+            <div className="flex flex-col justify-end ml-5">
+              <div className="p-3 mb-4 bg-black bg-opacity-70 shadow-inner shadow-inner-white shadow-cyber-blue w-auto rounded-lg border border-cyber-blue">
+                <h2 className="text-lg text-white font-semibold mb-2">
+                  BADGES_
+                </h2>
+                <div className=" p-4 ">
+                  {mockBadges.map((badge, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center text-white mb-2"
+                    >
+                      <img
+                        src={badge.icon}
+                        alt={badge.name}
+                        className="w-6 h-6 mr-2"
+                      />
+                      <span>{badge.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Progress div */}
+              <div className="p-3 mb-4 bg-black bg-opacity-70 shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
+                <h2 className="text-lg font-semibold text-white mb-2">
+                  PROGRESS_TRACKING
+                </h2>
+                <div className=" p-4 ">{/* Progress content */}</div>
+              </div>
+
+              {/* Achievement */}
+              <div className="p-3 mb-4 bg-black bg-opacity-70 rounded-lg border  border-cyber-blue">
+                <h2 className="text-lg text-white font-semibold mb-2">
+                  ACHIEVEMENTS_
+                </h2>
+                <div className=" p-4 ">{/* Achievement content */}</div>
               </div>
             </div>
           </div>
-          {/* Badge div */}
-          <div className="flex flex-col justify-end ml-5">
-            <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
-              <h2 className="text-lg text-white font-semibold mb-2">BADGES_</h2>
-              <div className=" p-4 ">
-                {mockBadges.map((badge, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center text-white mb-2"
-                  >
-                    <img
-                      src={badge.icon}
-                      alt={badge.name}
-                      className="w-6 h-6 mr-2"
-                    />
-                    <span>{badge.name}</span>
-                  </div>
-                ))}
-              </div>
+          {/* Mock Messages div (placeholder) */}
+          <div className="p-3 mb-4 mt-10 bg-black bg-opacity-70 w-auto rounded-lg border  border-cyber-blue">
+            <h2 className="text-lg text-white font-semibold mb-2">
+              COMMENTS
+            </h2>
+            <div className=" p-4 ">
+              {user.messages.map((message) => (
+                <div key={message._id} className="mb-2">
+                  <p className="font-semibold">{message.messageAuthor}</p>
+                  <p>{message.messageText}</p>
+                  <p className="text-gray-500">{message.createdAt}</p>
+                </div>
+              ))}
             </div>
-
-            {/* Progress div */}
-            <div className="p-3 mb-4 bg-black shadow-inner shadow-inner-white shadow-cyber-blue w-fit rounded-lg border border-cyber-blue">
-              <h2 className="text-lg font-semibold text-white mb-2">
-                PROGRESS_TRACKING
-              </h2>
-              <div className=" p-4 ">{/* Progress content */}</div>
-            </div>
-
-            {/* Achievement */}
-            <div className="p-3 mb-4 bg-black rounded-lg border  border-cyber-blue">
-              <h2 className="text-lg text-white font-semibold mb-2">
-                ACHIEVEMENTS_
-              </h2>
-              <div className=" p-4 ">{/* Achievement content */}</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Mock Messages div (placeholder) */}
-        <div className="p-3 mb-4 bg-black w-fit rounded-lg border  border-cyber-blue">
-          <h2 className="text-lg text-white font-semibold mb-2">
-            MOCK_MESSAGES
-          </h2>
-          <div className=" p-4 ">
-            {user.messages.map((message) => (
-              <div key={message._id} className="mb-2">
-                <p className="font-semibold">{message.messageAuthor}</p>
-                <p>{message.messageText}</p>
-                <p className="text-gray-500">{message.createdAt}</p>
-              </div>
-            ))}
           </div>
         </div>
       </main>
@@ -260,7 +263,7 @@ const Profile = () => {
 export default Profile;
 
 /*{ User messages  }
-<div className="p-3 mb-4 bg-black w-fit rounded-lg border  border-cyber-blue">
+<div className="p-3 mb-4 bg-black bg-opacity-70 w-fit rounded-lg border  border-cyber-blue">
 <h2 className="text-lg font-semibold mb-2">USER_MESSAGES</h2>
 <UserMessages
   messages={comments}
@@ -274,7 +277,7 @@ export default Profile;
    Dark Mode **neon mode tba**
       <button
         className={`${
-          isDarkMode ? "bg-white text-black" : "bg-black text-white"
+          isDarkMode ? "bg-white text-black" : "bg-black bg-opacity-70 text-white"
         } py-2 px-4 rounded-md mt-4`}
         onClick={toggleDarkMode}
       >
@@ -282,6 +285,6 @@ export default Profile;
       </button> 
 }
 // className={`${
-//           isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
+//           isDarkMode ? 'bg-black bg-opacity-70 text-white' : 'bg-white text-black'
 //         } p-4`}
 */

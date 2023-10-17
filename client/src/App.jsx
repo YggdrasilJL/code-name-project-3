@@ -47,13 +47,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <GoogleOAuthProvider clientId={clientID}>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Outlet />
-          </div>
-          <Footer />
-        </div>
+        <Header />
+        <Outlet />
+        <Footer />
       </GoogleOAuthProvider>
     </ApolloProvider>
   );
