@@ -52,7 +52,7 @@ const resolvers = {
           if (user) {
             return {
               name: user.username,
-              token: user.generateJWT(),
+              token: signToken(user),
             };
           }
         }

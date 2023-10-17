@@ -1,21 +1,38 @@
-const { google } = require('googleapis');
+const passport = require('passport');
+const { Strategy: GoogleTokenStrategy } = require('passport-google-token');
 
-const oauth2Client = new google.auth.OAuth2(
-    process.env.GOOGLE_CLIENT_ID,
-    process.env.GOOGLE_CLIENT_SECRET,
-    process.env.GOOGLE_REDIRECT_URI
+const GoogleTokenStrategyCallback = (
+    accessToken,
+    refreshToken,
+    profile,
+    done,
+) =>
+    done(null, {
+        accessToken,
+        refreshToken,
+        profile,
+    });
+
+passport.use(
+    new GoogleTokenStrategy(
+        {
+            clientID: '',
+            clientSecret: '',
+        },
+        GoogleTokenStrategyCallback,
+    ),
 );
 
-const scopes = [
-    'https://www.googleapis.com/auth/drive.metadata.readonly'
-];
+const authenticateGoogle = (req, res) =>
+    new Promise((resolve, reject) => {
+        passport.authenticate(
+            'google-token',
+            { session: false },
+            (err, data, info) => {
+                if (err) reject(err);
+                resolve({ data, info });
+            },
+        )(req, res);
+    });
 
-const authUrl = oauth2Client.generateAuthUrl({
-    access_type: 'offline',
-    scope: scopes,
-    include_granted_scopes: true,
-});
-
-module.exports = {
-    authUrl
-};
+module.exports = { authenticateGoogle };
