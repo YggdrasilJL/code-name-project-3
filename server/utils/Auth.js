@@ -1,7 +1,10 @@
-const { GraphQLError } = require("graphql")
+const {GraphQLError} = require("graphql")
 const jwt = require("jsonwebtoken")
+const jwt_decode = require('jwt-decode');
 
-const secret = process.env.JWT_SECRET
+const secret = '397A2859675EC4E447E66917F8BB8'
+
+
 const expiration = "2h"
 
 module.exports = {
@@ -10,7 +13,7 @@ module.exports = {
       code: "UNAUTHENTICATED",
     },
   }),
-  authMiddleware: function ({req, res}) {
+  authMiddleware: function ({req}) {
     let token = req.body.token || req.query.token || req.headers.authorization
 
     if (req.headers.authorization) {
@@ -18,7 +21,7 @@ module.exports = {
     }
 
     if (!token) {
-      return {req, res}
+      return req
     }
 
     try {
@@ -28,10 +31,13 @@ module.exports = {
       console.log("Invalid token")
     }
 
-    return {req, res}
+    return req
   },
   signToken: function ({email, username, _id}) {
     const payload = {email, username, _id}
     return jwt.sign({data: payload}, secret, {expiresIn: expiration})
   },
+  decodeToken: function (token) {
+    return jwt_decode(token)
+  }
 };

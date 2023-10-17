@@ -1,6 +1,5 @@
 const { User, Lesson, Problem } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/Auth');
-const { authenticateGoogle } = require('./passport');
+const { signToken, decodeToken, AuthenticationError } = require('../utils/Auth');
 
 const resolvers = {
   Query: {
@@ -37,22 +36,21 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    googleLogin: async (_, { input: { accessToken } }, { req, res }) => {
-      req.body = {
-        ...req.body,
-        access_token: accessToken,
-      };
+    googleLogin: async (_, { credential }) => {
+
 
       try {
-        const { data, info } = await authenticateGoogle(req, res);
+        const data = decodeToken(credential);
+
+        console.log(data);
 
         if (data) {
           const user = await User.upsertGoogleUser(data);
 
           if (user) {
             return {
-              name: user.username,
               token: signToken(user),
+              user
             };
           }
         }

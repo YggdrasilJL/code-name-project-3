@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../../utils/mutations';
-
+import { LOGIN_USER, GOOGLE_LOGIN } from '../../utils/mutations';
+import { GoogleLogin } from '@react-oauth/google';
 import Auth from '../../utils/Auth';
-// import LoginButton from "./LoginButton";
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error, loginData }] = useMutation(LOGIN_USER);
+  const [googleLogin, { gglLoginData }] = useMutation(GOOGLE_LOGIN);
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -20,10 +21,40 @@ function Login(props) {
       console.log(data);
       const token = data.login.token;
       console.log(token);
+      if (!token) {
+        return alert('Something went wrong with the login');
+      }
       Auth.login(token);
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const googleResponse = async (response) => {
+    console.log(response);
+
+    const { credential } = response;
+
+    try {
+      const { data } = await googleLogin({
+        variables: { credential: credential },
+      });
+
+      console.log(data);
+      const token = data.googleLogin.token;
+
+      if (!token) {
+        return alert('Something went wrong with the login');
+      }
+
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const onFailure = error => {
+    alert(error);
   };
 
   const handleChange = (event) => {
@@ -41,7 +72,7 @@ function Login(props) {
         <h1 className="text-3xl text-center text-sky-500 font-bold mb-5 border-b-4 border-sky-500">
           Login
         </h1>
-        {data ? (
+        {loginData || gglLoginData ? (
           <p>
             Success! You may now head <Link to="/">back to the homepage.</Link>
           </p>
@@ -107,6 +138,12 @@ function Login(props) {
               >
                 Register
               </a>
+            </div>
+            <div>
+              <GoogleLogin
+                onSuccess={googleResponse}
+                onFailure={onFailure}
+              />
             </div>
           </form>
         )}

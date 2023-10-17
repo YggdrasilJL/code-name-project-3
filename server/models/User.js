@@ -16,12 +16,6 @@ const userSchema = new Schema(
       unique: true,
       match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
-    social: {
-      googleProvider: {
-        id: String,
-        accessToken: String,
-      }
-    },
     password: {
       type: String,
       required: true,
@@ -62,28 +56,16 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 userSchema.statics.upsertGoogleUser = async function (data) {
-  const  {
-    accessToken,
-    refreshToken,
-    profile,
-  } = data;
+  const { email, name, picture } = data;
   
-  const user = await this.findOne({
-    social: {
-      googleProvider: { id: profile.id }
-    },
-  });
+  const user = await this.findOne({email});
 
   if (!user) {
     const newUser = await this.create({
-      username: profile.displayName || `${profile.name.givenName}${profile.name.familyName}`,
-      email: profile.emails[0].value,
-      social: {
-        googleProvider: {
-          id: profile.id,
-         token: accessToken
-        }
-      }
+      username: name || `${data.family_name}${data.given_name}`,
+      email: email,
+      avatar: picture,
+      password: 'newPassword'
     });
     return newUser;
   }

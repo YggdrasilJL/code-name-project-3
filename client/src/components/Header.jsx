@@ -8,7 +8,7 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa"
-import Auth from "../../utils/auth" // Assuming Auth is your authentication utility
+import Auth from "../../utils/Auth" // Assuming Auth is your authentication utility
 
 const Header = () => {
   const [nav, setNav] = useState(false)

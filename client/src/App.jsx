@@ -1,20 +1,3 @@
-
-// // components
-// import Dashboard from './components/Dashboard';
-// import Footer from './components/Footer';
-// import Header from './components/Header';
-// import Home from './components/Home';
-// import Lesson1 from './components/Lessons/Lesson1';
-// import Lessons from './components/Lessons/Lessons';
-// import Lesson2 from './components/Lessons/Lesson2';
-// import Register from './components/Register';
-// //import LoginButton from "./components/LoginButton";
-// //import LogoutButton from "./components/LogoutButton";
-// import Profile from './components/Profile';
-// import UserMessages from './components/UserMessages';
-// import Login from './components/Login';
-// import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
 import './App.css';
 import {
   ApolloClient,
@@ -27,7 +10,11 @@ import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
+const clientID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
+console.log(clientID);
 
 
 // Construct our main GraphQL API endpoint
@@ -56,7 +43,8 @@ const client = new ApolloClient({
 
 function App() {
   return (
-      <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
+      <GoogleOAuthProvider clientId={clientID}>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
@@ -64,7 +52,8 @@ function App() {
           </div>
           <Footer />
         </div>
-      </ApolloProvider>
+      </GoogleOAuthProvider>
+    </ApolloProvider>
   );
 }
 

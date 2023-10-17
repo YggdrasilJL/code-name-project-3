@@ -62,10 +62,6 @@ const typeDefs = `
     password: String!
   }
 
-  input AuthInput {
-    accessToken: String!
-  }
-
   input messageInput {
     messageText: String!
     messageAuthor: String!
@@ -87,7 +83,7 @@ const typeDefs = `
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    authGoogle(input: AuthInput): Auth
+    googleLogin(credential: String!): Auth
     addUser(userData: userInput!): Auth
     problemValidate(answerData: answerInput!): Answer
     addMessage(messageData: messageInput): Message
