@@ -148,6 +148,10 @@ body {
   color: #FEE801;
   animation: glow-yellow 1s ease-in-out infinite alternate;
 }
+.glow-white {
+  color: #ffffff;
+  animation: glow-white 2s ease-in-out infinite alternate;
+}
 
 @keyframes glow-red {
   0% {
@@ -173,5 +177,14 @@ body {
   }
   100% {
     text-shadow: 0 0 20px #FEE801, 0 0 30px #FEE801, 0 0 40px #FEE801;
+  }
+}
+
+@keyframes glow-white {
+  0% {
+    text-shadow: 0 0 10px #ffffff;
+  }
+  100% {
+    text-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
   }
 }
