@@ -19,13 +19,15 @@ const clientID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <GoogleOAuthProvider clientId={clientID}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </GoogleOAuthProvider>
-    </ApolloProvider>
+    <div className="min-h-screen">
+      <ApolloProvider client={client}>
+        <GoogleOAuthProvider clientId={clientID}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </GoogleOAuthProvider>
+      </ApolloProvider>
+    </div>
   );
 }
 
