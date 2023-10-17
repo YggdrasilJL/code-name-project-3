@@ -17,12 +17,12 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.3.1",
     "express": "^4.17.2",
+    "googleapis": "^127.0.0",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^9.0.0",
-    "jwks-rsa": "^3.1.0",
     "mongoose": "^7.0.2",
     "passport": "^0.6.0",
-    "passport-google-oidc": "^0.1.0",
+    "passport-google-token": "^0.1.2",
     "stripe": "^13.10.0"
   },
   "devDependencies": {

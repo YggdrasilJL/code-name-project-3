@@ -16,6 +16,12 @@ const userSchema = new Schema(
       unique: true,
       match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
+    social: {
+      googleProvider: {
+        id: String,
+        accessToken: String,
+      }
+    },
     password: {
       type: String,
       required: true,
@@ -54,6 +60,40 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+
+userSchema.statics.upsertGoogleUser = async function (data) {
+  const  {
+    accessToken,
+    refreshToken,
+    profile,
+  } = data;
+  
+  const user = await this.findOne({
+    social: {
+      googleProvider: { id: profile.id }
+    },
+  });
+
+  if (!user) {
+    const newUser = await this.create({
+      username: profile.displayName || `${profile.name.givenName}${profile.name.familyName}`,
+      email: profile.emails[0].value,
+      social: {
+        googleProvider: {
+          id: profile.id,
+         token: accessToken
+        }
+      }
+    });
+    return newUser;
+  }
+  return user;
+}
+
+userSchema.statics.upsertGitHubUser = async function (data) {
+
+}
+
 
 const User = model('User', userSchema);
 

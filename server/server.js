@@ -5,6 +5,7 @@ const { authMiddleware } = require("./utils/Auth")
 const path = require("path")
 const Stripe = require("stripe")
 const cors = require("cors")
+const { authUrl } = require("./utils/googleOAuth");
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 require("dotenv").config()
