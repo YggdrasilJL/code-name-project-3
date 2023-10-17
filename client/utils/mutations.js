@@ -12,9 +12,9 @@ export const LOGIN_USER = gql`
   }
 `;
 
-export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+export const GOOGLE_LOGIN = gql`
+  mutation googleLogin($credential: String!) {
+    googleLogin(credential: $credential) {
       token
       user {
         _id
@@ -23,6 +23,19 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_USER = gql`
+  mutation addUser($userData: userInput!) {
+    addUser(userData: $userData) {
+      token
+      user {
+        _id
+        username
+      }
+    }
+  }
+`;
+
 
 export const LESSON_VALIDATE = gql`
   mutation problemValidate($answerData: answerInput!) {

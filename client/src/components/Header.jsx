@@ -1,67 +1,53 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   FaHome,
   FaUser,
   FaBook,
-  FaSignOutAlt,
+  FaUserShield,
+  FaSignInAlt,
   FaBars,
   FaTimes,
-  FaSignInAlt,
-} from 'react-icons/fa';
-import Auth from '../../utils/auth'; // Assuming Auth is your authentication utility
+} from "react-icons/fa"
+import Auth from "../../utils/Auth" // Assuming Auth is your authentication utility
 
 const Header = () => {
   const [nav, setNav] = useState(false);
-  
-    const logout = (event) => {
-      event.preventDefault();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setIsLoggedIn(Auth.loggedIn());
+  }, []);
+  const logout = () => {
+    if (isLoggedIn) {
       Auth.logout();
-    };
+    }
+    return;
+  };
 
   const navs = [
     {
       id: 1,
-      icon: <FaHome className="mx-1" />,
+      icon: <FaHome className="mx-2" />,
       text: 'DASHBOARD',
       link: '/dashboard',
     },
     {
       id: 2,
-      icon: <FaUser className="mx-1" />,
+      icon: <FaUser className="mx-2" />,
       text: 'PROFILE',
-      link: '/profile',
-    },
-    {
-      id: 3,
-      icon: <FaBook className="mx-1" />,
-      text: 'LESSONS',
-      link: '/lessons',
-    },
-    {
-      id: 4,
-      icon: <FaSignOutAlt className="mx-1" />,
-      text: 'LOG_OUT',
-      link: '/logout',
-    },
-    {
-      id: 5,
-      icon: <FaSignInAlt className="mx-1" />,
-      text: 'LOG_IN',
-      link: '/login',
+      link: '/me',
     }
   ];
-
-  
 
   return (
     <div className="flex justify-between items-center w-full p-3 mb-10 bg-gradient-to-b from-opacityBlack sticky top-0">
       <div className="flex justify-center items-center gap-3">
-        <a href="/">
+        <a href="/" className="avoid-particle">
           <img src="images/cyberpic.png" alt="Cyber Script" width={400} />
         </a>
       </div>
       <div className="z-50">
-        <ul className="gap-x-5 text-lg text-white hidden md:flex mr-5 p-4 bg-opacityBlack border-2 border-cyber-yellow rounded-tl-3xl rounded-br-3xl">
+        <ul className="avoid-particle gap-x-5 text-lg text-white hidden md:flex mr-5 p-4 bg-opacityBlack border-2 border-cyber-yellow rounded-tl-3xl rounded-br-3xl">
           {navs.map(({ id, icon, text, link }) => (
             <a href={link} key={id}>
               <li className="flex items-center justify-center cursor-pointer hover:text-cyber-pink duration-300">
@@ -69,6 +55,16 @@ const Header = () => {
               </li>
             </a>
           ))}
+          <a href={isLoggedIn ? '/' : '/login'} onClick={logout}>
+            <li className="flex items-center justify-center cursor-pointer hover:text-cyber-pink duration-300">
+              {isLoggedIn ? (
+                <FaSignInAlt className="mx-2" />
+              ) : (
+                <FaUserShield className="mx-2" />
+              )}
+              {isLoggedIn ? 'LOG_OUT' : 'LOG_IN'}
+            </li>
+          </a>
         </ul>
         <div
           onClick={() => setNav(!nav)}

@@ -1,8 +1,10 @@
 const {GraphQLError} = require("graphql")
 const jwt = require("jsonwebtoken")
-// const jwksClient = require('jwks-rsa');
+const jwt_decode = require('jwt-decode');
 
-const secret = "mysecretssshhhhhhh"
+const secret = '397A2859675EC4E447E66917F8BB8'
+
+
 const expiration = "2h"
 
 module.exports = {
@@ -35,42 +37,7 @@ module.exports = {
     const payload = {email, username, _id}
     return jwt.sign({data: payload}, secret, {expiresIn: expiration})
   },
+  decodeToken: function (token) {
+    return jwt_decode(token)
+  }
 };
-
-// const client = jwksClient({
-//     jwksUri: `https://dev-2kax28qvyzlsa7s0.us.auth0.com/.well-known/jwks.json`
-// });
-
-// function getKey(header, cb) {
-//     client.getSigningKey(header.kid, function (err, key) {
-//         var signingKey = key.publicKey || key.rsaPublicKey;
-//         cb(null, signingKey);
-//     });
-// }
-
-// const options = {
-//     audience: 'qGqfNVoVpHZlptcz8qAgV5k6H7qCShVU',
-//     issuer: `https://dev-2kax28qvyzlsa7s0.us.auth0.com/`,
-//     algorithms: ['RS256']
-// };
-
-// module.exports = {
-//     verifyToken: ({ req }) => {
-//         const token = req.headers.authorization;
-//         const user = new Promise((resolve, reject) => {
-//           jwt.verify(token, getKey, options, (err, decoded) => {
-//             if(err) {
-//               return reject(err);
-//             }
-//             resolve(decoded.email);
-//           });
-//         });
-
-//         return {
-//           user
-//         };
-//     },
-//     signToken: () => {
-
-//     },
-// }

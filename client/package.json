@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",
+    "@react-oauth/google": "^0.11.1",
     "autoprefixer": "^10.4.16",
     "graphql": "^16.8.1",
     "jwt-decode": "^3.1.2",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-basic-ssl": "^1.0.1",
     "@vitejs/plugin-react": "^4.0.3",
     "eslint": "^8.45.0",
     "eslint-plugin-react": "^7.32.2",

@@ -119,4 +119,72 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0;
+  background: url("/images/background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+  margin: 0; 
+  padding: 0; 
+  height: 100vh; 
+  overflow: hidden; 
+  background-repeat: no-repeat;
+}
+
+
+
+/* dashboard glow effect  */
+
+.glow-red {
+  color: red;
+  animation: glow-red 1s ease-in-out infinite alternate;
+}
+
+.glow-blue {
+  color: #4CC9F0;
+  animation: glow-blue 1s ease-in-out infinite alternate;
+}
+
+.glow-yellow {
+  color: #FEE801;
+  animation: glow-yellow 1s ease-in-out infinite alternate;
+}
+.glow-white {
+  color: #ffffff;
+  animation: glow-white 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow-red {
+  0% {
+    text-shadow: 0 0 10px red;
+  }
+  100% {
+    text-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red;
+  }
+}
+
+@keyframes glow-blue {
+  0% {
+    text-shadow: 0 0 10px #4CC9F0;
+  }
+  100% {
+    text-shadow: 0 0 20px #4CC9F0, 0 0 30px #4CC9F0, 0 0 40px #4CC9F0;
+  }
+}
+
+@keyframes glow-yellow {
+  0% {
+    text-shadow: 0 0 10px #FEE801;
+  }
+  100% {
+    text-shadow: 0 0 20px #FEE801, 0 0 30px #FEE801, 0 0 40px #FEE801;
+  }
+}
+
+@keyframes glow-white {
+  0% {
+    text-shadow: 0 0 10px #ffffff;
+  }
+  100% {
+    text-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
+  }
 }

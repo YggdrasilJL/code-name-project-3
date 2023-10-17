@@ -6,11 +6,11 @@ const userMessagesSchema = new Schema({
         required: true,
         default: new Types.ObjectId()
     },
-    username: {
+    messageAuthor: {
         type: String,
         required: true
     },
-    content: {
+    messageText: {
         type: String,
         required: true
     },
