@@ -17,7 +17,7 @@ const Dashboard = () => {
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue left-section flex-1">
         <section className="w-full min-w-max bg-black rounded-lg border-solid border-2 border-cyber-yellow">
           <h2 className="glow-white">Progress Tracker</h2>
-          <div className="progress-bar ">
+          <div className="progress-bar">
             <div
               className="progress"
               style={{ width: `${progressPercentage}%` }}
@@ -88,8 +88,8 @@ const Dashboard = () => {
 
       {/* right section */}
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue right-section flex-1">
-        <div class=" mb-2 rounded-lg flex justify-center">
-          <h2 class="text-white m-1">HTML Badges</h2>
+        <div className="mb-2 rounded-lg flex justify-center">
+          <h2 className="text-white m-1">HTML Badges</h2>
         </div>
         <div className="badge-images flex justify-center">
           <div className="badge-group flex">
@@ -98,8 +98,8 @@ const Dashboard = () => {
             <img src="/images/Badges/htmlmaster.png" alt="HTML Badge" />
           </div>
         </div>
-        <div class=" mb-2 rounded-lg flex justify-center">
-          <h2 class="text-white m-1">CSS Badges</h2>
+        <div className="mb-2 rounded-lg flex justify-center">
+          <h2 className="text-white m-1">CSS Badges</h2>
         </div>
         <div className="badge-images flex justify-center">
           <div className="badge-group flex">
@@ -108,8 +108,8 @@ const Dashboard = () => {
             <img src="/images/Badges/cssmaster.png" alt="CSS Badge" />
           </div>
         </div>
-        <div class=" mb-2 rounded-lg flex justify-center">
-          <h2 class="text-white m-1">JavaScript Badges</h2>
+        <div className="mb-2 rounded-lg flex justify-center">
+          <h2 className="text-white m-1">JavaScript Badges</h2>
         </div>
         <div className="badge-images flex justify-center">
           <div className="badge-group flex">
@@ -118,8 +118,8 @@ const Dashboard = () => {
             <img src="/images/Badges/JSmaster.png" alt="JavaScript Badge" />
           </div>
         </div>
-        <div class=" mb-2 rounded-lg flex justify-center">
-          <h2 class="text-white m-1">Achievement Badges</h2>
+        <div className="mb-2 rounded-lg flex justify-center">
+          <h2 className="text-white m-1">Achievement Badges</h2>
         </div>
         <div className="badge-images flex justify-center">
           <div className="badge-group flex">
