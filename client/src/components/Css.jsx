@@ -35,7 +35,9 @@ const Css = () => {
   };
 
   const getAnswersForProblem = (problemName) => {
-    const problemAnswers = answerData.find((answer) => answer.problemName === problemName);
+    const problemAnswers = answerData.find(
+      (answer) => answer.problemName === problemName
+    );
     return problemAnswers ? problemAnswers.body : [];
   };
 
@@ -73,14 +75,20 @@ const Css = () => {
         <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
           <div className="text-white">
             <h3>Answers</h3>
-            {getAnswersForProblem(selectedLesson.name).map((answer) => (
-              <div key={answer._id} onClick={() => handleAnswerSelection(answer.body)}>
-                <label>
-                  <input type="radio" name="answers" value={answer.body} />
-                  {answer.body}
-                </label>
-              </div>
-            ))}
+            <div className="flex gap-3">
+              {getAnswersForProblem(selectedLesson.name).map((answer) => (
+                <div key={answer._id}>
+                  <button
+                    onClick={() => handleAnswerSelection(answer.body)}
+                    className={`bg-gray-300 hover:bg-blue-400 px-4 py-2 rounded ${
+                      selectedAnswer === answer.body ? 'bg-blue-400' : ''
+                    }`}
+                  >
+                    {answer.body}
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}
