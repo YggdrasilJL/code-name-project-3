@@ -12,20 +12,23 @@ const resolvers = {
     user: async (_, { username }) => {
       return await User.findOne({ username: username });
     },
-    lesson: async (_, args, ) => {
+    lesson: async (_, args) => {
       return await Lesson.findOne({ _id: args.id });
     },
-    problem: async (_, args, ) => {
+    problem: async (_, args) => {
       return await Problem.findOne({ _id: args.id });
-    }
+    },
+    commentsByUser: async (_, { userId }) => {
+      return await Comment.find({ user: userId });
+    },
   },
   Mutation: {
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('No user with this email found!')
-      };
+        throw new AuthenticationError('No user with this email found!');
+      }
 
       const correctPw = await user.isCorrectPassword(password);
 
@@ -37,8 +40,6 @@ const resolvers = {
       return { token, user };
     },
     googleLogin: async (_, { credential }) => {
-
-
       try {
         const data = decodeToken(credential);
 
@@ -48,7 +49,7 @@ const resolvers = {
           if (user) {
             return {
               token: signToken(user),
-              user
+              user,
             };
           }
         }
@@ -71,35 +72,67 @@ const resolvers = {
       const user = await User.create({
         username: username,
         email: email,
-        password: password
+        password: password,
       });
 
       if (!user) {
         return res.status(400).json({ message: 'Something is wrong!' });
-      };
-      const token = signToken(user)
-      return { token, user }
+      }
+      const token = signToken(user);
+      return { token, user };
     },
     // lesson routes?
     problemValidate: async (_, { answerData }, context) => {
       let { lessonID, body } = answerData;
       //const user = await User.findOne({ _id: context.user._id })
-      const lesson = await Lesson.findOne({ _id: lessonID })
-      const validator = new RegExp('test*') //lesson.correctAnswer
-      isValidated = validator.test(body)
-
+      const lesson = await Lesson.findOne({ _id: lessonID });
+      const validator = new RegExp('test*'); //lesson.correctAnswer
+      isValidated = validator.test(body);
 
       /*if (isValidated) {
         user.xp += lesson.xpValue
       }*/
 
-      return { isValidated }
+      return { isValidated };
     },
     addMessage: async (_, { messageText }, context) => {
       // need to send user
-    }
+    },
+    addComment: async (_, { commentData }, context) => {
+      if (!context.user) {
+        throw new AuthenticationError(
+          'You need to be logged in to create a comment!'
+        );
+      }
+      //userID is the user being commented on
+      //commenter is the user commenting
+      //when pulling a profile, comments display with username
+      //on front end, when a user clicks on the username
+      //an onclickhandler will be called which retrieves the
+      //userinfo using the username and populates the profile
+
+      const { content, userID } = commentData;
+      const commenter = context.user.username
+
+      try {
+        const user = await User.updateOne(
+          { _id: userID },
+          {
+            $addToSet: {
+              comments: {
+                content,
+                commenter: commenter
+              }
+            }
+          }
+        );
+        return user
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
-}
+};
 
 
 module.exports = resolvers;
