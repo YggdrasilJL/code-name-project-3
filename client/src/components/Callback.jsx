@@ -1,5 +1,5 @@
 import React from 'react';
-import auth from '../Auth';
+import auth from '../../utils/auth';
 import loading from '../assets/loading';
 
 function Callback() {
