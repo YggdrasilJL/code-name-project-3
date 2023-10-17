@@ -45,17 +45,15 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <GoogleOAuthProvider clientId={clientID}>
-        <div className="flex-column justify-flex-start min-100-vh">
+    <div className="min-h-screen">
+      <ApolloProvider client={client}>
+        <GoogleOAuthProvider clientId={clientID}>
           <Header />
-          <div className="container">
-            <Outlet />
-          </div>
+          <Outlet />
           <Footer />
-        </div>
-      </GoogleOAuthProvider>
-    </ApolloProvider>
+        </GoogleOAuthProvider>
+      </ApolloProvider>
+    </div>
   );
 }
 

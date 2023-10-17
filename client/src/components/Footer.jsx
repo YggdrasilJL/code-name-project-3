@@ -13,9 +13,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="avoid-particle bg-black text-white  text-center"
-      style={{ position: 'fixed', bottom: 0, width: '100%' }}
-    >
+      className="avoid-particle bg-black text-white  text-center bottom-0">
       <div className="  mb-1">
         {location.pathname !== '/' && (
           <button className="btn btn-dark mb-3" onClick={handleGoBack}>
