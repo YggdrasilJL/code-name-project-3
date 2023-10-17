@@ -130,6 +130,14 @@ const JavaScript = () => {
           </div>
         </section>
       )}
+      <div className="w-fit text-white mt-12">
+        <a
+          href=""
+          className="border border-cyber-yellow p-5 rounded-md rounded-br-3xl bg-cyber-black avoid-particle"
+        >
+          SUBMIT_
+        </a>
+      </div>
     </div>
   );
 }
