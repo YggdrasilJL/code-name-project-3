@@ -6,16 +6,18 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';  // Correct import
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+} from 'react-router-dom'; // Correct import
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const clientID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-
-console.log(clientID);
-
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({

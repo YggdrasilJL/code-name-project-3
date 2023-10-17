@@ -1,74 +1,73 @@
-import React from "react"
-import ReactDOM from "react-dom/client"
-import "./index.css"
-import {createBrowserRouter, RouterProvider} from "react-router-dom"
-import App from "./App.jsx"
-import Home from "./components/Home"
-import Register from "./components/Register"
-import Login from "./components/Login"
-import UserMessages from "./components/UserMessages"
-import Profile from "./components/Profile"
-import Dashboard from "./components/Dashboard"
-import ErrorPage from "./components/ErrorPage"
-import HTML from "./components/Html"
-import Css from "./components/Css"
-import JavaScript from "./components/JavaScript"
-import Leaderboard from "./components/Leaderboard"
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import App from './App.jsx';
+import Home from './components/Home';
+import Register from './components/Register';
+import Login from './components/Login';
+import UserMessages from './components/UserMessages';
+import Profile from './components/Profile';
+import Dashboard from './components/Dashboard';
+import ErrorPage from './components/ErrorPage';
+import HTML from './components/Html';
+import Css from './components/Css';
+import JavaScript from './components/JavaScript';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "*",
+        path: '/',
         element: <Home />,
       },
       {
-        path: "/login",
+        path: '*',
+        element: <ErrorPage />,
+      },
+      {
+        path: '/login',
         element: <Login />,
       },
       {
-        path: "/dashboard",
+        path: '/dashboard',
         element: <Dashboard />,
       },
       {
-        path: "/register",
+        path: '/register',
         element: <Register />,
       },
       {
-        path: "/profiles/:username",
+        path: '/profiles/:username',
         element: <Profile />,
       },
       {
-        path: "/me",
+        path: '/me',
         element: <Profile />,
       },
       {
-        path: "/messages/:messageId",
+        path: '/messages/:messageId',
         element: <UserMessages />,
       },
       {
-        path: "/JavaScript",
+        path: '/javascript',
         element: <JavaScript />,
       },
       {
-        path: "/Html",
+        path: '/html',
         element: <HTML />,
       },
       {
-        path: "/Css",
+        path: '/css',
         element: <Css />,
-      },
-      {
-        path: "/leaderboard",
-        element: <Leaderboard />,
       },
     ],
   },
-])
+]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
-)
+);

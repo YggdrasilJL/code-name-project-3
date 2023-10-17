@@ -13,7 +13,7 @@ const ParticleEffect = () => {
 
   return (
     <Particles
-      className="w-full h-full absolute translate-z-0"
+      className="w-full h-full absolute -z-10"
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
@@ -27,6 +27,12 @@ const ParticleEffect = () => {
         fpsLimit: 120,
         interactivity: {
           events: {
+            onDiv: {
+              enable: true,
+              selectors: '.avoid-particle',
+              mode: 'bounce',
+              type: 'rectangle',
+            },
             onClick: {
               enable: false,
               mode: 'push',
@@ -39,10 +45,10 @@ const ParticleEffect = () => {
           },
           modes: {
             push: {
-              quantity: 70,
+              quantity: 1,
             },
             repulse: {
-              distance: 200,
+              distance: 80,
               duration: 0.4,
             },
           },
@@ -53,7 +59,7 @@ const ParticleEffect = () => {
           },
           links: {
             color: '#FF00F2', // Neon pink
-            distance: 150,
+            distance: 200,
             enable: true,
             opacity: 0.7, // Adjust opacity for a glowing effect
             width: 1,
@@ -68,7 +74,7 @@ const ParticleEffect = () => {
               default: 'bounce',
             },
             random: false,
-            speed: 0.4, // speed for  movement
+            speed: 1, // speed for  movement
             straight: false,
           },
           number: {
@@ -76,16 +82,21 @@ const ParticleEffect = () => {
               enable: true,
               area: 800,
             },
-            value: 80,
+            value: 30,
           },
           opacity: {
             value: 1.7, // glowing effect
           },
           shape: {
-            type: 'circle', // shape of the connections here
+            type: 'char', // shape of the connections here
+            options: {
+              character: {
+                value: ['0', '1', '</>', '<div/>', '{}'],
+              },
+            },
           },
           size: {
-            value: { min: 1, max: 5 },
+            value: { min: 5, max: 10 },
           },
         },
         detectRetina: true,
