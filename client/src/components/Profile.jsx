@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME, QUERY_USER } from '../../utils/queries';
 import { useParams, Navigate } from 'react-router-dom';
-import Auth from '../../utils/Auth';
+import Auth from '../../utils/auth';
 import UserMessages from './UserMessages';
 import Donation from './Donation';
 import { Link } from 'react-router-dom';

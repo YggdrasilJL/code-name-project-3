@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER, GOOGLE_LOGIN } from '../../utils/mutations';
 import { GoogleLogin } from '@react-oauth/google';
-import Auth from '../../utils/Auth';
+import Auth from '../../utils/auth';
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, loginData }] = useMutation(LOGIN_USER);
   const [googleLogin, { gglLoginData }] = useMutation(GOOGLE_LOGIN);
-
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -53,7 +52,7 @@ function Login(props) {
     }
   };
 
-  const onFailure = error => {
+  const onFailure = (error) => {
     alert(error);
   };
 
@@ -140,10 +139,7 @@ function Login(props) {
               </a>
             </div>
             <div>
-              <GoogleLogin
-                onSuccess={googleResponse}
-                onFailure={onFailure}
-              />
+              <GoogleLogin onSuccess={googleResponse} onFailure={onFailure} />
             </div>
           </form>
         )}

@@ -7,8 +7,8 @@ import {
   FaSignInAlt,
   FaBars,
   FaTimes,
-} from "react-icons/fa"
-import Auth from "../../utils/Auth" // Assuming Auth is your authentication utility
+} from 'react-icons/fa';
+import Auth from '../../utils/auth'; // Assuming Auth is your authentication utility
 
 const Header = () => {
   const [nav, setNav] = useState(false);
@@ -36,7 +36,7 @@ const Header = () => {
       icon: <FaUser className="mx-2" />,
       text: 'PROFILE',
       link: '/me',
-    }
+    },
   ];
 
   return (
