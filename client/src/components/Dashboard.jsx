@@ -12,7 +12,7 @@ const Dashboard = () => {
     (progressData.completedLessons / progressData.totalLessons) * 100;
 
   return (
-    <div className="dashboard-container flex">
+    <div className="dashboard-container flex text-white">
       {/* left section */}
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue left-section flex-1">
         <section className="w-full min-w-max bg-black rounded-lg border-solid border-2 border-cyber-yellow">

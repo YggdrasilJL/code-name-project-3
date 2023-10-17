@@ -1,9 +1,9 @@
 const { Schema, model } = require('mongoose');
 const userMessagesSchema = require('./userMessagesSchema');
 const bcrypt = require('bcryptjs');
+const commentSchema = require('./commentSchema');
 
 const userSchema = new Schema(
-
   {
     username: {
       type: String,
@@ -24,17 +24,16 @@ const userSchema = new Schema(
     avatar: {
       type: String,
     },
-    messages: [userMessagesSchema]
+    messages: [userMessagesSchema],
     //streak: {
     //type: Decimal
     //}
     //xp: [xp],
     //achievements: [achievements],
     // to add progress tracking, i have a few ideas. we could add it based on the user's xp.
-    // each lesson provides x amount of xp which adds up to a totoal of the whole course material
+    // each lesson provides x amount of xp which adds up to the whole course material
     // or we can track how many lessons the user has completed.
-    // but it is the end of my lunch so i'll discuss later.
-
+    comments: [commentSchema],
   },
   {
     toJSON: {
@@ -57,25 +56,22 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 userSchema.statics.upsertGoogleUser = async function (data) {
   const { email, name, picture } = data;
-  
-  const user = await this.findOne({email});
+
+  const user = await this.findOne({ email });
 
   if (!user) {
     const newUser = await this.create({
       username: name || `${data.family_name}${data.given_name}`,
       email: email,
       avatar: picture,
-      password: 'newPassword'
+      password: 'newPassword',
     });
     return newUser;
   }
   return user;
-}
+};
 
-userSchema.statics.upsertGitHubUser = async function (data) {
-
-}
-
+userSchema.statics.upsertGitHubUser = async function (data) {};
 
 const User = model('User', userSchema);
 

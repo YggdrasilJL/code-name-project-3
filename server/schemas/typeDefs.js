@@ -8,6 +8,7 @@ const typeDefs = `
     email: String!
     avatar: String
     messages: [Message]
+    comments: [Comment]
   }
 
   type Message {
@@ -67,9 +68,23 @@ const typeDefs = `
     messageAuthor: String!
   }
 
+  input CommentInput {
+    content: String!
+    userID: ID!
+  }
+
   input lessonInput {
     lessonID: ID!
     lessonAnswerData: String!
+  }
+
+  # Comments
+
+  type Comment {
+    _id: ID!
+    content: String!
+    commenter: String!
+    createdAt: String!
   }
 
   # Queries & Mutations
@@ -79,6 +94,7 @@ const typeDefs = `
     user(username: String!): User
     lesson(id: ID!): Lesson
     problem(id: ID!): Problem
+    commentsByUser(userId: ID!): [Comment]
   }
 
   type Mutation {
@@ -86,7 +102,8 @@ const typeDefs = `
     googleLogin(credential: String!): Auth
     addUser(userData: userInput!): Auth
     problemValidate(answerData: answerInput!): Answer
-    addMessage(messageData: messageInput): Message
+    addMessage(messageData: messageInput): User
+    addComment(commentData: CommentInput!): User
   }
 
 `;
