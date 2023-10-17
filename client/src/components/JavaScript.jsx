@@ -75,10 +75,10 @@ const JavaScript = () => {
           JavaScript Lessons
         </h2>
         <ul className="flex flex-wrap justify-center space-x-4">
-          {JavaScriptLessons.map(item => (
+          {JavaScriptLessons.map((item) => (
             <li key={item.id}>
               <button
-                className="bg-gray-300 hover:bg-red-400 px-4 py-2 rounded"
+                className="bg-gray-300 hover:bg-cyber-yellow px-4 py-2 rounded"
                 onClick={() => handleButtonClick(item.title)}
               >
                 {item.title}
@@ -86,7 +86,7 @@ const JavaScript = () => {
             </li>
           ))}
         </ul>
-        <p style={{color: "#FF00F2"}} className="text-center mt-4">
+        <p style={{ color: '#FF00F2' }} className="text-center mt-4">
           More Coming Soon
         </p>
       </section>
@@ -104,17 +104,20 @@ const JavaScript = () => {
         <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue">
           <div className="text-white">
             <h3>Answers</h3>
-            {getAnswersForProblem(selectedLesson.name).map(answer => (
-              <div
-                key={answer._id}
-                onClick={() => handleAnswerSelection(answer.body)}
-              >
-                <label>
-                  <input type="radio" name="answers" value={answer.body} />
-                  {answer.body}
-                </label>
-              </div>
-            ))}
+            <div className="flex gap-3">
+              {getAnswersForProblem(selectedLesson.name).map((answer) => (
+                <div key={answer._id}>
+                  <button
+                    onClick={() => handleAnswerSelection(answer.body)}
+                    className={`bg-gray-300 hover:bg-cyber-yellow px-4 py-2 rounded ${
+                      selectedAnswer === answer.body ? 'bg-cyber-yellow' : ''
+                    }`}
+                  >
+                    {answer.body}
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}
@@ -128,7 +131,7 @@ const JavaScript = () => {
         </section>
       )}
     </div>
-  )
+  );
 }
 
 export default JavaScript
