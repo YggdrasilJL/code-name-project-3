@@ -11,10 +11,16 @@ const Footer = () => {
     }
   };
 
+  const footerStyle = {
+    position: 'fixed',
+    left: 0,
+    bottom: 0,
+    width: '100%',
+  };
+
   return (
-    <footer
-      className="avoid-particle bg-black text-white  text-center bottom-0">
-      <div className="  mb-1">
+    <footer className="avoid-particle bg-black text-white text-center" style={footerStyle}>
+      <div className="mb-1">
         {location.pathname !== '/' && (
           <button className="btn btn-dark mb-3" onClick={handleGoBack}>
             &larr; Go Back

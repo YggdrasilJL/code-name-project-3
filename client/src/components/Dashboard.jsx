@@ -12,7 +12,7 @@ const Dashboard = () => {
     (progressData.completedLessons / progressData.totalLessons) * 100;
 
   return (
-    <div className="dashboard-container flex flex-col lg:flex-row p-10 gap-5">
+    <div className="dashboard-container flex flex-col lg:flex-row p-10 gap-5" style={{ minHeight: 'calc(100vh - 70px)' }}>
       {/* left section */}
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue left-section flex-1">
         <section className="bg-black rounded-lg border-solid border-2 border-cyber-yellow">
@@ -62,7 +62,7 @@ const Dashboard = () => {
           <a href="/css">
             <img
               src="/images/Badges/csscity.png"
-              alt="CSS Badge"
+              alt= "CSS Badge"
               className="button-image"
               width={350}
             />
@@ -143,5 +143,8 @@ const Dashboard = () => {
     </div>
   );
 };
+
+<br></br>
+
 
 export default Dashboard;
