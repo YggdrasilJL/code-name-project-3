@@ -2,7 +2,11 @@
 
 ## Description
 
-  * About the project here *
+We are excited to share our coding project, "Cyberscript," which takes inspiration from Duolingo's learning approach but with a unique twist: instead of language learning, it's all about mastering the art of coding. 
+
+"Cyberscript" provides an interactive and user-friendly platform where users can delve into the world of programming languages such as HTML, CSS, and JavaScript. With range of exercises, learners can progress from the basics to more complex challenges.. 
+
+As the platform's evolves adding in more content and more game and learning elements, It will transform the learning process into an engaging and enjoyable adventure. "Cyberscript" aims to make coding accessible and fun for individuals of all backgrounds and skill levels, helping them unlock the potential of this digital language.
 
 
 We followed the criteria below provided by the class instructors.
@@ -29,8 +33,6 @@ We followed the criteria below provided by the class instructors.
 - Uses a service worker for offline functionality.
 - Is installable.
 
-
-
 ## Presentation Requirements
 
 - Elevator pitch: A one-minute description of your application.
@@ -41,25 +43,19 @@ We followed the criteria below provided by the class instructors.
 - Links to the deployed application and the GitHub repository. 
 - Use the Guide to Deploy with Heroku and MongoDB Atlas on the Full-Stack BlogLinks to an external site. if you need a reminder on how to deploy to Heroku.
 
-**Note**: insert any notes here
 
 ## Mock-Up
 
 The following images show the application.
 
-### 
 
-![LandingPage]()
-
-### 
-
-![ProfilePage]()
-
+.![CyberScript](/client/public/images/screenshot1.png)
+.![CyberScript](/client/public/images/screenshot2.png)
 
 
 ## Credits
 
-The following is what we all roughly contributed to the project.
+The following is what we all contributed to the project.
 Thank You Project 3 Team, For all the hard work and dedication to our final project.
 
 ### Alex - aedelfrid
@@ -108,11 +104,9 @@ Thank You Project 3 Team, For all the hard work and dedication to our final proj
 
 ## Links
 
-- [Heroku-Page]()
-- [Heroku-Page]()
-- [Heroku-Page]()
+- [Heroku-Page](https://cyberscript-66546257c421.herokuapp.com/)
 
-- [Slideshow]()
+- [Slideshow](https://www.canva.com/design/DAFxLj20EZ0/FF9_5K5sL6Cts-QiuANbLg/view?utm_content=DAFxLj20EZ0&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
 ## License
 
