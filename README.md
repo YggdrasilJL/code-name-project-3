@@ -47,7 +47,7 @@ The following images show the application.
 
 ### 
 
-![LandingPage](/client/public/images/screenshot1.png)
+![LandingPage](/client/public/images/screenshot.png)
 
 
 
