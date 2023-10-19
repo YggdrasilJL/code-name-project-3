@@ -1,5 +1,5 @@
-import React from "react";
-import Leaderboard from "./Leaderboard";
+import React from 'react';
+import Leaderboard from './Leaderboard';
 
 const Dashboard = () => {
   // mock progress for now
@@ -12,10 +12,10 @@ const Dashboard = () => {
     (progressData.completedLessons / progressData.totalLessons) * 100;
 
   return (
-    <div className="dashboard-container flex text-white">
+    <div className="dashboard-container flex flex-col lg:flex-row p-10 gap-5" style={{ minHeight: 'calc(100vh - 70px)' }}>
       {/* left section */}
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue left-section flex-1">
-        <section className="w-full min-w-max bg-black rounded-lg border-solid border-2 border-cyber-yellow">
+        <section className="bg-black rounded-lg border-solid border-2 border-cyber-yellow">
           <h2 className="glow-white">Progress Tracker</h2>
           <div className="progress-bar">
             <div
@@ -24,15 +24,14 @@ const Dashboard = () => {
             ></div>
           </div>
           <p>
-            {progressData.completedLessons} / {progressData.totalLessons}{" "}
+            {progressData.completedLessons} / {progressData.totalLessons}{' '}
             lessons completed
           </p>
         </section>
         <br></br>
         <Leaderboard />
-
-        {/* middle section */}
       </section>
+      {/* middle section */}
       <section className="mb-4 p-4 bg-black bg-opacity-80 rounded-lg border border-cyber-blue middle-section flex-1  justify-center">
         <br></br>
         <h1>
@@ -47,40 +46,43 @@ const Dashboard = () => {
               src="/images/Badges/htmlcity.png"
               alt="HTML Badge"
               className="button-image"
+              width={350}
             />
           </a>
-          </div>
-          <br></br>
+        </div>
+        <br></br>
 
-          <h1>
-            <span className="glow-blue flex justify-center">
-              <a href="/css">CSS City</a>
-            </span>
-          </h1>
-          <div className="lesson-buttons flex justify-center">
+        <h1>
+          <span className="glow-blue flex justify-center">
+            <a href="/css">CSS City</a>
+          </span>
+        </h1>
+        <div className="lesson-buttons flex justify-center">
           {/* CSS Button */}
           <a href="/css">
             <img
               src="/images/Badges/csscity.png"
-              alt="CSS Badge"
+              alt= "CSS Badge"
               className="button-image"
+              width={350}
             />
           </a>
-          </div>
-          <br></br>
+        </div>
+        <br></br>
 
-          <h1>
-            <span className="glow-yellow flex justify-center">
-              <a href="/javascript">JavaScript City</a>
-            </span>
-          </h1>
-          <div className="lesson-buttons flex justify-center">
+        <h1>
+          <span className="glow-yellow flex justify-center">
+            <a href="/javascript">JavaScript City</a>
+          </span>
+        </h1>
+        <div className="lesson-buttons flex justify-center">
           {/* JavaScript Button */}
           <a href="/javascript">
             <img
               src="/images/Badges/JScity.png"
               alt="JavaScript Badge"
               className="button-image"
+              width={350}
             />
           </a>
         </div>
@@ -141,5 +143,8 @@ const Dashboard = () => {
     </div>
   );
 };
+
+<br></br>
+
 
 export default Dashboard;
