@@ -54,20 +54,3 @@ export const ADD_MESSAGE = gql`
     }
   }
 `;
-
-export const ADD_COMMENT = gql`
-  mutation addComment($commentData: CommentInput!) {
-    addComment(commentData: $commentData) {
-      user {
-        _id
-        username
-        comments {
-          _id
-          content
-          commenter
-          createdAt
-        }
-      }
-    }
-  }
-`

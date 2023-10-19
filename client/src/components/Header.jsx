@@ -9,7 +9,6 @@ import {
   FaTimes,
 } from 'react-icons/fa';
 import Auth from '../../utils/auth'; // Assuming Auth is your authentication utility
-import cyberpic from '/public/images/cyberpic.png';
 
 const Header = () => {
   const [nav, setNav] = useState(false);
@@ -36,7 +35,7 @@ const Header = () => {
       id: 2,
       icon: <FaUser className="mx-2" />,
       text: 'PROFILE',
-      link: '/user/me',
+      link: '/me',
     },
   ];
 
@@ -44,7 +43,7 @@ const Header = () => {
     <div className="flex justify-between items-center w-full p-3 mb-10 bg-gradient-to-b from-opacityBlack sticky top-0">
       <div className="flex justify-center items-center gap-3">
         <a href="/" className="avoid-particle">
-          <img src={cyberpic} alt="Cyber Script" width={400} />
+          <img src="images/cyberpic.png" alt="Cyber Script" width={400} />
         </a>
       </div>
       <div className="z-50">

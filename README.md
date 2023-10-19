@@ -29,8 +29,6 @@ We followed the criteria below provided by the class instructors.
 - Uses a service worker for offline functionality.
 - Is installable.
 
-
-
 ## Presentation Requirements
 
 - Elevator pitch: A one-minute description of your application.
@@ -49,11 +47,7 @@ The following images show the application.
 
 ### 
 
-![LandingPage]()
-
-### 
-
-![ProfilePage]()
+![LandingPage](/client/public/images/screenshot.png)
 
 
 
@@ -108,11 +102,9 @@ Thank You Project 3 Team, For all the hard work and dedication to our final proj
 
 ## Links
 
-- [Heroku-Page]()
-- [Heroku-Page]()
-- [Heroku-Page]()
+- [Heroku-Page](https://cyberscript-66546257c421.herokuapp.com/)
 
-- [Slideshow]()
+- [Slideshow](https://www.canva.com/design/DAFxLj20EZ0/FF9_5K5sL6Cts-QiuANbLg/view?utm_content=DAFxLj20EZ0&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
 ## License
 
