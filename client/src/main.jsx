@@ -7,9 +7,9 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
 import UserMessages from './components/UserMessages';
-import Profile from './components/Profile';
+import Profile, { profileLoader, meLoader } from './components/Profile';
 import Dashboard from './components/Dashboard';
-import ErrorPage from './components/ErrorPage';
+//import ErrorPage from './components/ErrorPage';
 import HTML from './components/Html';
 import Css from './components/Css';
 import JavaScript from './components/JavaScript';
@@ -18,15 +18,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
         element: <Home />,
-      },
-      {
-        path: '*',
-        element: <ErrorPage />,
       },
       {
         path: '/login',
@@ -45,8 +40,19 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
-        path: '/me',
-        element: <Profile />,
+        path: '/user',
+        children: [
+          {
+            path: ':username',
+            loader: profileLoader,
+            element: <Profile />,
+          },
+          {
+            path: 'me',
+            loader: meLoader,
+            element: <Profile />,
+          }
+        ]
       },
       {
         path: '/messages/:messageId',

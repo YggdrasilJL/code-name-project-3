@@ -7,7 +7,7 @@ const Stripe = require("stripe");
 const cors = require("cors");
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-//process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 require("dotenv").config();
 
