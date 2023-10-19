@@ -3,7 +3,7 @@ const { signToken, decodeToken, AuthenticationError } = require('../utils/Auth')
 
 const resolvers = {
   Query: {
-    me: async (parent, args, { req }) => {
+    me: async (_, __, context) => {
       if (context.user) {
         return await User.findOne({ _id: context.user._id });
       }
@@ -42,8 +42,6 @@ const resolvers = {
     googleLogin: async (_, { credential }) => {
       try {
         const data = decodeToken(credential);
-
-        console.log(data);
 
         if (data) {
           const user = await User.upsertGoogleUser(data);
@@ -100,7 +98,7 @@ const resolvers = {
     addMessage: async (_, { messageText }, context) => {
       // need to send user
     },
-    addComment: async (_, { commentInput }, context) => {
+    addComment: async (_, { commentData }, context) => {
       if (!context.user) {
         throw new AuthenticationError(
           'You need to be logged in to create a comment!'
@@ -112,8 +110,8 @@ const resolvers = {
       //on front end, when a user clicks on the username
       //an onclickhandler will be called which retrieves the
       //userinfo using the username and populates the profile
-      
-      const { content, userID } = commentInput;
+
+      const { content, userID } = commentData;
       const commenter = context.user.username
 
       try {

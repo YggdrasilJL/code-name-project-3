@@ -19,7 +19,7 @@ const TABLE_ROWS = [
   {
     Ranking: 3,
     UserLogo: "../../images/Avatar2.png",
-    Username: "SaurabhTheHeartThrob",
+    Username: "SaurahbTheHeartthrob",
     Score: "450",
   },
   {
@@ -37,7 +37,7 @@ const TABLE_ROWS = [
   {
     Ranking: 6,
     UserLogo: "../../images/Avatar5.png",
-    Username: "DanielTheDevil",
+    Username: "NinjaGnome",
     Score: "350",
   },
   {
@@ -119,7 +119,7 @@ export default function Leaderboard() {
                           src={UserLogo}
                           variant="rounded"
                           alt="avatar"
-                          width={55}
+                          size="xs"
                           class="avatar"
                           withBorder={true}
                           color="cyber-yellow"

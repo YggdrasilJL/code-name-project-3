@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useQuery } from '@apollo/client';
+import { client } from '../../utils/apolloClient';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME, QUERY_USER } from '../../utils/queries';
-import { useParams, Navigate } from 'react-router-dom';
-import Auth from '../../utils/auth';
+import { ADD_COMMENT } from '../../utils/mutations';
+import { useLoaderData } from 'react-router-dom';
+import auth from '../../utils/auth';
 import UserMessages from './UserMessages';
 import Donation from './Donation';
 import placeholderPFP from '/public/images/placeholderPFP.png';
@@ -23,34 +25,26 @@ export const profileLoader = async ({ params }) => {
 };
 
 export const meLoader = async () => {
-  if (auth.loggedIn()) {
-    const { data } = await client.query({query: QUERY_ME});
-    return data;
-  } else {
-    return { me: null };
-  }
-  
+  const { data } = await client.query({query: QUERY_ME});
+  return data;
 }
 
-
 const Profile = () => {
-  const { username: userParam } = useParams();
+  const data = useLoaderData();
+  console.log(data)
 
-  // if (!userParam) {
-  //   return <Navigate to="/me" />;
-  //}
+  // useEffect for profile data to render DOM with new info?
 
-  const user = data?.me || data?.user || false;
+  const user = data?.me || data?.user || {};
 
-  //if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-  //return <Navigate to="/me" />;
-  //}
+  console.log(user)
 
-  //if (loading) {
-    //return <div>Loading...</div>;
-  //}
 
-  if (user === false) {
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
+
+  if (!user?.username) {
     return (
       <div>
         <h4>
@@ -68,6 +62,7 @@ const Profile = () => {
     picture: '../../images/mockpfp.png', // path to the user's avatar image
   };*/
 
+
   // Define mock bio and skills data
   const mockBio = 'I am a web developer passionate about coding.';
   const mockSkills = ['HTML', 'CSS', 'JavaScript'];
@@ -76,7 +71,7 @@ const Profile = () => {
   const mockBadges = [
     { name: 'Badge 1', icon: 'badge1-icon.png' },
     { name: 'Badge 2', icon: 'badge2-icon.png' },
-    //  more badge here as needed
+     //more badge here as needed
   ];
 
   //message data ( remove once users are made )
@@ -186,7 +181,7 @@ const Profile = () => {
                 {/* User avatar */}
                 <div className="w-60 text-white border-2 border-cyber-pink rounded-2xl">
                   <img
-                    src="./images/placeholderPFP.png"
+                    src={user.picture || placeholderPFP}
                     alt={user.username}
                     className="rounded-2xl"
                   />
@@ -267,11 +262,11 @@ const Profile = () => {
               COMMENTS
             </h2>
             <div className=" p-4 ">
-              {user.messages.map((message) => (
-                <div key={message._id} className="mb-2">
-                  <p className="font-semibold">{message.messageAuthor}</p>
-                  <p>{message.messageText}</p>
-                  <p className="text-gray-500">{message.createdAt}</p>
+              {user.comments.map((comment) => (
+                <div key={comment._id} className="mb-2">
+                  <p className="font-semibold">{comment.commenter}</p>
+                  <p>{comment.content}</p>
+                  <p className="text-gray-500">{comment.createdAt}</p>
                 </div>
               ))}
             </div>
