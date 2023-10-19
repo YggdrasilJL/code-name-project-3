@@ -25,8 +25,12 @@ export const profileLoader = async ({ params }) => {
 };
 
 export const meLoader = async () => {
-  const { data } = await client.query({query: QUERY_ME});
-  return data;
+  if (auth.loggedIn()) {
+    const { data } = await client.query({query: QUERY_ME});
+    return data;
+  } else {
+    return { me: null };
+  }
 }
 
 const Profile = () => {
@@ -44,7 +48,7 @@ const Profile = () => {
   //   return <div>Loading...</div>;
   // }
 
-  if (!user?.username) {
+  if (user === false) {
     return (
       <div>
         <h4>
