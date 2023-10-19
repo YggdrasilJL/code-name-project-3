@@ -5,7 +5,33 @@ import { useParams, Navigate } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import UserMessages from './UserMessages';
 import Donation from './Donation';
-import { Link } from 'react-router-dom';
+import placeholderPFP from '/public/images/placeholderPFP.png';
+
+export const profileLoader = async ({ params }) => {
+  const { username } = params;
+  try {
+    const { data } = await client.query({
+      query: QUERY_USER,
+      variables: { username },
+    });
+    return data;
+  }
+  catch (e) {
+    console.log(e)
+  }
+
+};
+
+export const meLoader = async () => {
+  if (auth.loggedIn()) {
+    const { data } = await client.query({query: QUERY_ME});
+    return data;
+  } else {
+    return { me: null };
+  }
+  
+}
+
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -14,21 +40,17 @@ const Profile = () => {
   //   return <Navigate to="/me" />;
   //}
 
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
-  });
-
-  const user = data?.me || data?.user || {};
+  const user = data?.me || data?.user || false;
 
   //if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
   //return <Navigate to="/me" />;
   //}
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  //if (loading) {
+    //return <div>Loading...</div>;
+  //}
 
-  if (!user?.username) {
+  if (user === false) {
     return (
       <div>
         <h4>
